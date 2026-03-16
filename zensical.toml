@@ -1,0 +1,52 @@
+[project]
+site_name = "Designing for Discovery: Shaping Imageomics Tools for Biologists"
+site_url = "https://imageomics.github.io/conference-tutorials-2026/"
+site_description = "Hands-on tutorials for Imageomics tools presented at the first Imageomics Conference."
+
+repo_url = "https://github.com/Imageomics/conference-tutorials-2026"
+repo_name = "Imageomics/conference-tutorials-2026"
+
+copyright = "Copyright &copy; 2026 Imageomics Institute"
+
+nav = [
+    { "Home" = "index.md" },
+    { "Tutorials" = [
+        { "pybioclip" = "tutorials/pybioclip.md" },
+        { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
+        { "BioCLIP Search Lite" = "tutorials/bioclip-search-lite.md" },
+        { "SST Segmentation" = "tutorials/sst.md" },
+        { "CAM Trait Extraction" = "tutorials/cam-trait-extraction.md" },
+        { "SAE" = "tutorials/sae.md" },
+    ]},
+]
+
+[project.theme]
+language = "en"
+features = [
+    "content.code.copy",
+    "content.code.select",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.sections",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+[project.markdown_extensions.pymdownx.superfences]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true

@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "conference-tutorials-2026"
+description = "Hands-on tutorials for Imageomics tools, presented at the first Imageomics Conference workshop: Designing for Discovery."
+authors = [
+    {name = "Matthew J. Thompson", email = "thompson.4509@osu.edu"},
+    {name = "Elizabeth Campolongo", email = "campolongo.4@osu.edu"},
+    {name = "Hilmar Lapp", email = "hilmar.lapp@gmail.com"},
+    {name = "Net Zhang", email = "zhang.11091@osu.edu"},
+    {name = "Jianyang Gu", email = "gu.1220@osu.edu"},
+    {name = "Wei-Lun Chao", email = "chao209@bu.edu"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+keywords = [
+    "imageomics",
+    "bioclip",
+    "computer-vision",
+    "biology",
+    "tutorials",
+    "workshop",
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "zensical",
+    "ruff",
+    "pre-commit",
+]
+
+version = "0.1.0"
+
+[project.urls]
+Documentation = "https://github.com/Imageomics/conference-tutorials-2026"
+Issues = "https://github.com/Imageomics/conference-tutorials-2026/issues"
+Source = "https://github.com/Imageomics/conference-tutorials-2026"
+
+[tool.hatch.build.targets.wheel]
+packages = ["docs"]
