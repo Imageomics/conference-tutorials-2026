@@ -15,14 +15,36 @@ The Imageomics Institute has built a powerful suite of open-source tools for ima
 
 Each tutorial walks through a specific Imageomics tool, from setup to hands-on use with example data.
 
+### Classification
+
 | Tutorial | Description |
 |----------|-------------|
 | [pybioclip](tutorials/pybioclip.md) | Classify focal species and generate image embeddings programmatically without complex ML infrastructure. |
+
+### Embedding Exploration
+
+| Tutorial | Description |
+|----------|-------------|
 | [Embedding Explorer](tutorials/embedding-explorer.md) | Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart. |
-| [BioCLIP Search Lite](tutorials/bioclip-search-lite.md) | Given a query image, find the most visually similar organisms across 200M+ samples from the TreeofLife dataset. |
-| [SST Segmentation](tutorials/sst.md) | Segment traits from specimen images and apply automatic landmarking. |
+
+### Segmentation & Trait Extraction
+
+| Tutorial | Description |
+|----------|-------------|
+| [SST](tutorials/sst.md) | Segment traits from specimen images and apply automatic landmarking. |
+
+### Interpretability
+
+| Tutorial | Description |
+|----------|-------------|
 | [Prompt-CAM](tutorials/prompt-cam.md) | Explore fine-grained trait distinctions between different specified species. |
 | [Finer-CAM](tutorials/finer-cam.md) | Better understand discriminative traits between similar species. |
+
+### Similarity Search & Discovery
+
+| Tutorial | Description |
+|----------|-------------|
+| [BioCLIP Search Lite](tutorials/bioclip-search-lite.md) | Given a query image, find the most visually similar organisms across 200M+ samples from the TreeofLife dataset. |
 | [SAE](tutorials/sae.md) | Discover what traits are common among organisms across a collection of images. |
 
 ## Workshop Structure

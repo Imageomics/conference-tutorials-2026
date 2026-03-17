@@ -11,13 +11,23 @@ copyright = "Copyright &copy; 2026 Imageomics Institute"
 nav = [
     { "Home" = "index.md" },
     { "Tutorials" = [
-        { "pybioclip" = "tutorials/pybioclip.md" },
-        { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
-        { "BioCLIP Search Lite" = "tutorials/bioclip-search-lite.md" },
-        { "SST Segmentation" = "tutorials/sst.md" },
-        { "Prompt-CAM" = "tutorials/prompt-cam.md" },
-        { "Finer-CAM" = "tutorials/finer-cam.md" },
-        { "SAE" = "tutorials/sae.md" },
+        { "Classification" = [
+            { "pybioclip" = "tutorials/pybioclip.md" },
+        ]},
+        { "Embedding Exploration" = [
+            { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
+        ]},
+        { "Segmentation & Trait Extraction" = [
+            { "SST" = "tutorials/sst.md" },
+        ]},
+        { "Interpretability" = [
+            { "Prompt-CAM" = "tutorials/prompt-cam.md" },
+            { "Finer-CAM" = "tutorials/finer-cam.md" },
+        ]},
+        { "Similarity Search & Discovery" = [
+            { "BioCLIP Search Lite" = "tutorials/bioclip-search-lite.md" },
+            { "SAE" = "tutorials/sae.md" },
+        ]},
     ]},
 ]
 
