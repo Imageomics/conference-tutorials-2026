@@ -12,7 +12,8 @@ Tools tutorials for the first Imageomics Conference workshop: **Designing for Di
 | [Embedding Explorer](docs/tutorials/embedding-explorer.md) | Interactive embedding space exploration |
 | [BioCLIP Search Lite](docs/tutorials/bioclip-search-lite.md) | Nearest-neighbor image search across TreeofLife |
 | [SST Segmentation](docs/tutorials/sst.md) | Specimen trait segmentation & automatic landmarking |
-| [CAM Trait Extraction](docs/tutorials/cam-trait-extraction.md) | Prompt-CAM & Finer-CAM for species trait distinctions |
+| [Prompt-CAM](docs/tutorials/prompt-cam.md) | Fine-grained trait distinctions between specified species |
+| [Finer-CAM](docs/tutorials/finer-cam.md) | Discriminative traits between similar species |
 | [SAE](docs/tutorials/sae.md) | Common trait discovery across image collections |
 
 ## Tutorial Designers

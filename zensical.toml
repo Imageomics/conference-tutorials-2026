@@ -15,7 +15,8 @@ nav = [
         { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
         { "BioCLIP Search Lite" = "tutorials/bioclip-search-lite.md" },
         { "SST Segmentation" = "tutorials/sst.md" },
-        { "CAM Trait Extraction" = "tutorials/cam-trait-extraction.md" },
+        { "Prompt-CAM" = "tutorials/prompt-cam.md" },
+        { "Finer-CAM" = "tutorials/finer-cam.md" },
         { "SAE" = "tutorials/sae.md" },
     ]},
 ]

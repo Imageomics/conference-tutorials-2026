@@ -21,7 +21,8 @@ Each tutorial walks through a specific Imageomics tool, from setup to hands-on u
 | [Embedding Explorer](tutorials/embedding-explorer.md) | Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart. |
 | [BioCLIP Search Lite](tutorials/bioclip-search-lite.md) | Given a query image, find the most visually similar organisms across 200M+ samples from the TreeofLife dataset. |
 | [SST Segmentation](tutorials/sst.md) | Segment traits from specimen images and apply automatic landmarking. |
-| [CAM Trait Extraction](tutorials/cam-trait-extraction.md) | Explore fine-grained trait distinctions and discriminative traits between species using Prompt-CAM and Finer-CAM. |
+| [Prompt-CAM](tutorials/prompt-cam.md) | Explore fine-grained trait distinctions between different specified species. |
+| [Finer-CAM](tutorials/finer-cam.md) | Better understand discriminative traits between similar species. |
 | [SAE](tutorials/sae.md) | Discover what traits are common among organisms across a collection of images. |
 
 ## Workshop Structure

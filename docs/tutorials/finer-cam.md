@@ -1,6 +1,6 @@
-# CAM Trait Extraction
+# Finer-CAM
 
-> Explore fine-grained trait distinctions and discriminative traits between species using Prompt-CAM and Finer-CAM.
+> Better understand discriminative traits between similar species.
 
 ## Learning Objectives
 
@@ -21,12 +21,6 @@ _TBD_
 
 ## Background
 
-### Prompt-CAM
-
-Prompt-CAM helps you explore fine-grained trait distinctions between different specified species. Use it when you want to understand what visual features differentiate species you select.
-
-### Finer-CAM
-
 Finer-CAM helps you better understand discriminative traits between similar species. Use it when you want to identify subtle differences that distinguish closely related organisms.
 
 ## Steps
@@ -39,5 +33,5 @@ _TBD_
 
 ## Next Steps
 
-- _TBD_
+- [Prompt-CAM tutorial](prompt-cam.md) — fine-grained trait distinctions between specified species
 - [SAE tutorial](sae.md) — broadly explore common traits across image collections
