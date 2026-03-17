@@ -25,7 +25,7 @@ Finer-CAM helps you better understand discriminative traits between similar spec
 
 ## Steps
 
-_TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure guidance._
+_TBD_
 
 ## Summary
 

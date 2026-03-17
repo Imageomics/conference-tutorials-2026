@@ -27,7 +27,7 @@ Each tutorial walks through a specific Imageomics tool, from setup to hands-on u
 |----------|-------------|
 | [Embedding Explorer](tutorials/embedding-explorer.md) | Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart. |
 
-### Segmentation & Trait Extraction
+### Segmentation & Known Trait Extraction
 
 | Tutorial | Description |
 |----------|-------------|

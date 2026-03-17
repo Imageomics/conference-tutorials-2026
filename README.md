@@ -4,43 +4,9 @@ Tools tutorials for the first Imageomics Conference workshop: **Designing for Di
 
 **Dates:** April 16–17, 2026 | **Location:** The Ohio State University, Columbus, OH
 
-## Tutorials
+## Contributing a Tutorial
 
-### Classification
-
-| Tutorial | Tool(s) |
-|----------|---------|
-| [pybioclip](docs/tutorials/pybioclip.md) | Programmatic species classification & embedding generation |
-
-### Embedding Exploration
-
-| Tutorial | Tool(s) |
-|----------|---------|
-| [Embedding Explorer](docs/tutorials/embedding-explorer.md) | Interactive embedding space exploration |
-
-### Segmentation & Trait Extraction
-
-| Tutorial | Tool(s) |
-|----------|---------|
-| [SST](docs/tutorials/sst.md) | Specimen trait segmentation & automatic landmarking |
-
-### Interpretability
-
-| Tutorial | Tool(s) |
-|----------|---------|
-| [Prompt-CAM](docs/tutorials/prompt-cam.md) | Fine-grained trait distinctions between specified species |
-| [Finer-CAM](docs/tutorials/finer-cam.md) | Discriminative traits between similar species |
-
-### Similarity Search & Discovery
-
-| Tutorial | Tool(s) |
-|----------|---------|
-| [BioCLIP Search Lite](docs/tutorials/bioclip-search-lite.md) | Nearest-neighbor image search across TreeofLife |
-| [SAE](docs/tutorials/sae.md) | Common trait discovery across image collections |
-
-## Tutorial Designers
-
-See [`TUTORIAL_TEMPLATE.md`](TUTORIAL_TEMPLATE.md) for the tutorial authoring guide. Place your tutorial markdown in `docs/tutorials/`.
+Tutorial markdown files live in `docs/tutorials/`. See [`TUTORIAL_TEMPLATE.md`](TUTORIAL_TEMPLATE.md) for the authoring guide.
 
 For inspiration: [Explore NEON biodiversity data using ecocomDP](https://www.neonscience.org/resources/learning-hub/tutorials/neon-biodiversity-ecocomdp-cyverse).
 

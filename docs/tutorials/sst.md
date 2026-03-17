@@ -25,7 +25,7 @@ _TBD_
 
 ## Steps
 
-_TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure guidance._
+_TBD_
 
 ## Summary
 

@@ -19,7 +19,7 @@ nav = [
         { "Embedding Exploration" = [
             { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
         ]},
-        { "Segmentation & Trait Extraction" = [
+        { "Segmentation & Known Trait Extraction" = [
             { "SST" = "tutorials/sst.md" },
         ]},
         { "Interpretability" = [

@@ -25,7 +25,7 @@ Prompt-CAM helps you explore fine-grained trait distinctions between different s
 
 ## Steps
 
-_TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure guidance._
+_TBD_
 
 ## Summary
 
