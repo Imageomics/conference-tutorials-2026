@@ -8,6 +8,8 @@ repo_name = "Imageomics/conference-tutorials-2026"
 
 copyright = "Copyright &copy; 2026 Imageomics Institute"
 
+extra_css = ["stylesheets/extra.css"]
+
 nav = [
     { "Home" = "index.md" },
     { "Tutorials" = [
@@ -32,6 +34,8 @@ nav = [
 ]
 
 [project.theme]
+favicon = "assets/tools-logo_black.svg"
+logo = "assets/tools-logo_black.svg"
 language = "en"
 features = [
     "content.code.copy",
@@ -47,11 +51,15 @@ features = [
 
 [[project.theme.palette]]
 scheme = "default"
+primary = "custom"
+accent = "custom"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
+primary = "custom"
+accent = "custom"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
 
