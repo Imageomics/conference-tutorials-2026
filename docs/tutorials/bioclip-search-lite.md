@@ -30,7 +30,3 @@ _TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure gu
 
 _TBD_
 
-## Next Steps
-
-- _TBD_
-- [pybioclip tutorial](pybioclip.md) — programmatic access to BioCLIP

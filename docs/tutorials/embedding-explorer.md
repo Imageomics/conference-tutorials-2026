@@ -31,7 +31,3 @@ _TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure gu
 
 _TBD_
 
-## Next Steps
-
-- [Embedding Explorer GitHub](https://github.com/Imageomics/emb-explorer)
-- [pybioclip tutorial](pybioclip.md) — generate embeddings to explore

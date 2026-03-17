@@ -31,7 +31,3 @@ _TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure gu
 
 _TBD_
 
-## Next Steps
-
-- [Prompt-CAM tutorial](prompt-cam.md) — fine-grained trait distinctions between specified species
-- [SAE tutorial](sae.md) — broadly explore common traits across image collections

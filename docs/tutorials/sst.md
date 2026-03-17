@@ -31,7 +31,3 @@ _TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure gu
 
 _TBD_
 
-## Next Steps
-
-- _TBD_
-- [CAM Trait Extraction tutorial](cam-trait-extraction.md) — explore traits after segmentation

@@ -63,13 +63,6 @@ _Continue as needed._
 
 _Recap what the participant accomplished. Highlight key takeaways._
 
-## Next Steps
-
-_Where to go from here. Link to related tutorials, documentation, or the tool's GitHub repository._
-
-- [Tool Documentation](https://example.com)
-- [Related Tutorial](https://example.com)
-
 ## Troubleshooting
 
 _Common issues and how to resolve them._

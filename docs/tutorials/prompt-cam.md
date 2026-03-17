@@ -31,7 +31,3 @@ _TBD — see [TUTORIAL_TEMPLATE.md](../../TUTORIAL_TEMPLATE.md) for structure gu
 
 _TBD_
 
-## Next Steps
-
-- [Finer-CAM tutorial](finer-cam.md) — discriminative traits between similar species
-- [SAE tutorial](sae.md) — broadly explore common traits across image collections
