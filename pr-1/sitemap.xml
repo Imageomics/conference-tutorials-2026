@@ -10,9 +10,6 @@
         <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/embedding-explorer/</loc>
       </url>
       <url>
-        <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/bioclip-search-lite/</loc>
-      </url>
-      <url>
         <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/sst/</loc>
       </url>
       <url>
@@ -20,6 +17,9 @@
       </url>
       <url>
         <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/finer-cam/</loc>
+      </url>
+      <url>
+        <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/bioclip-search-lite/</loc>
       </url>
       <url>
         <loc>https://imageomics.github.io/conference-tutorials-2026/tutorials/sae/</loc>
