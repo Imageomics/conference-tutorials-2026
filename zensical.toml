@@ -16,8 +16,8 @@ nav = [
         { "Classification" = [
             { "pybioclip" = "tutorials/pybioclip.md" },
         ]},
-        { "Embedding Exploration" = [
-            { "Embedding Explorer" = "tutorials/embedding-explorer.md" },
+        { "Image Embedding Exploration" = [
+            { "Image Embedding Explorer" = "tutorials/image-embedding-explorer.md" },
         ]},
         { "Segmentation & Known Trait Extraction" = [
             { "SST" = "tutorials/sst.md" },

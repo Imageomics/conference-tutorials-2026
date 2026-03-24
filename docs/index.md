@@ -21,11 +21,11 @@ Each tutorial walks through a specific Imageomics tool, from setup to hands-on u
 |----------|-------------|
 | [pybioclip](tutorials/pybioclip.md) | Classify focal species and generate image embeddings programmatically using BioCLIP models without complex ML infrastructure. |
 
-### Embedding Exploration
+### Image Embedding Exploration
 
 | Tutorial | Description |
 |----------|-------------|
-| [Image Embedding Explorer](tutorials/embedding-explorer.md) | Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart. |
+| [Image Embedding Explorer](tutorials/image-embedding-explorer.md) | Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart. |
 
 ### Segmentation & Known Trait Extraction
 

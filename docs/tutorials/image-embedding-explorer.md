@@ -1,4 +1,4 @@
-# Embedding Explorer
+# Image Embedding Explorer
 
 > Explore image embeddings interactively—try different models, projections, and see which images cluster together or apart.
 
