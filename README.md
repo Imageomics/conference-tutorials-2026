@@ -1,9 +1,37 @@
 # conference-tutorials-2026
-Tools tutorials for the first Imageomics Conference.
 
-### Tutorial designers
-Place the markdown file for your tool's tutorial into the `tutorials/` directory.
+Tools tutorials for the first Imageomics Conference workshop: **Designing for Discovery: Shaping Imageomics Tools for Biologists**.
 
-An example to use for inspiration for tutorial design:
-[Explore NEON biodiversity data using ecocomDP](https://www.neonscience.org/resources/learning-hub/tutorials/neon-biodiversity-ecocomdp-cyverse).
+**Dates:** April 16–17, 2026 | **Location:** The Ohio State University, Columbus, OH
 
+## Contributing a Tutorial
+
+Tutorial markdown files live in `docs/tutorials/`. See [`TUTORIAL_TEMPLATE.md`](TUTORIAL_TEMPLATE.md) for the authoring guide.
+
+For inspiration: [Explore NEON biodiversity data using ecocomDP](https://www.neonscience.org/resources/learning-hub/tutorials/neon-biodiversity-ecocomdp-cyverse).
+
+## Development
+
+Requires Python >= 3.10. Install with [uv](https://docs.astral.sh/uv/) (recommended) or pip:
+
+```bash
+# With uv
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+
+# Or with pip
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
+Preview the site locally at `localhost:8000`:
+
+```bash
+zensical serve
+```
+
+## Acknowledgments
+
+The Imageomics Institute is supported by the National Science Foundation under Award No. 2118240. Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
