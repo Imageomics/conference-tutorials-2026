@@ -2,11 +2,11 @@ name: Build & Deploy Docs (gh-pages with PR previews)
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened, closed]
-  release:
-    types: [published]
 
 permissions:
   contents: write
@@ -15,8 +15,8 @@ permissions:
 jobs:
   build:
     if: |
-      github.event_name == 'release' ||
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (github.event_name == 'pull_request' &&
        github.event.pull_request.head.repo.fork == false &&
        github.event.action != 'closed')
@@ -46,7 +46,7 @@ jobs:
   deploy:
     needs: build
     if: |
-      github.event_name == 'release' ||
+      github.event_name == 'push' ||
       (github.event_name == 'pull_request' &&
        github.event.pull_request.head.repo.fork == false &&
        github.event.action != 'closed')
