@@ -52,6 +52,17 @@ Each tutorial walks through a specific Imageomics tool, from setup to hands-on u
 - **Day 1 (Thursday, April 16):** Live demonstrations and guided tutorials. Open to all Imageomics Conference participants.
 - **Day 2 (Friday, April 17):** Interactive, hands-on deep dive with a smaller group. Participants work with their own data and use cases.
 
+
+## Workshop Cloud Compute with CyVerse
+
+To take advantage of shared compute resources that you may use during the course of the workshop, please register for a [CyVerse](https://cyverse.org/) account and enroll in the CyVerse workshop dedicated to the tutorial tools:
+
+https://user.cyverse.org/workshops/210
+
+If you register for CyVerse using the same email address you used to register for the Imageomics Conference, your enrollment into the CyVerse workshop should be automatic once you create your account. Otherwise, please submit an enrollment request, and access will be granted promptly.
+
+Instructions for using CyVerse will be shared during the workshop and in the tool tutorial resources.
+
 ## Acknowledgments
 
 The Imageomics Institute is supported by the National Science Foundation under Award No. 2118240. Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
