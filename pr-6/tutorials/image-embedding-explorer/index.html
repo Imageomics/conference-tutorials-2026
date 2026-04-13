@@ -1579,7 +1579,7 @@
 <p>You should see the app UI.</p>
 <h2 id="background">Background</h2>
 <h3 id="what-is-an-image-embedding">What is an image embedding?</h3>
-<p>A vision model like <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a> looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that look similar to the model get similar fingerprints. These fingerprints are called <strong>embeddings</strong>.</p>
+<p>A vision model like <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a> looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called <strong>embeddings</strong>.</p>
 <p>For example, using <a href="https://imageomics.github.io/pybioclip/">pybioclip</a> you can generate an embedding for a single image in a few lines:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">bioclip</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreeModel</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
@@ -1597,7 +1597,7 @@
 <h3 id="why-cluster-on-the-full-dimensions">Why cluster on the full dimensions?</h3>
 <p>KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may look overlapping in 2D, but they're genuinely distinct in the full space.</p>
 <h3 id="why-does-this-matter-for-biology">Why does this matter for biology?</h3>
-<p>If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings <em>disagree</em> is often where the interesting biology is.</p>
+<p>If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, it suggests that the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings <em>disagree</em> is often where the interesting biology is.</p>
 <h3 id="the-dataset-darwins-finches">The dataset: Darwin's finches</h3>
 <p>For this tutorial we use a curated set of <strong>677 images spanning 17 species</strong> of Darwin's finches, the iconic Galápagos adaptive radiation. The images are drawn from <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M</a> and embedded with <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>.</p>
 <p>Each image carries taxonomic metadata (kingdom through species) plus a <strong>finch group</strong> label, the ecological/functional grouping that reflects how these finches diversified:</p>
@@ -1754,7 +1754,7 @@
 <p>A few prompts for further exploration:</p>
 <ul>
 <li>
-<p><strong>Compare projection methods.</strong> Re-project with PCA and then t-SNE. The three methods use different algorithms with no hyperparameter tuning required. Try each one and notice how the layout changes. Which one separates the finch groups most clearly?</p>
+<p><strong>Compare projection methods.</strong> Re-project with PCA and then t-SNE. The three methods use different algorithms with default parameters (see <a href="https://github.com/Imageomics/emb-explorer">source code</a> for details). Try each one and notice how the layout changes. Which one separates the finch groups most clearly?</p>
 </li>
 <li>
 <p><strong>Filter, then re-project.</strong> Filter to only the <em>Geospiza</em> genus (the 8 species of ground, cactus, and vampire finches). Re-project with UMAP. Species-level structure that was hidden in the full dataset should become much clearer.</p>
@@ -1882,7 +1882,7 @@
 <tbody>
 <tr>
 <td>App doesn't load in the browser</td>
-<td>Check that you replaced <code>placeholder</code> with your JupyterLab URL prefix. The full URL should look like <code>https://a12345abc.cyverse.run/proxy/8501/</code>.</td>
+<td>Check that you replaced <code>&lt;your-prefix&gt;</code> with your JupyterLab URL prefix. The full URL should look like <code>https://a12345abc.cyverse.run/proxy/8501/</code>.</td>
 </tr>
 <tr>
 <td>"Missing required 'uuid' column"</td>
