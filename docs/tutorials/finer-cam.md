@@ -40,4 +40,4 @@ Finer-CAM identifies discriminative traits by asking directly, what makes the sp
 ## Summary
 
 Finer-CAM is a visual explanation tool for fine-grained recognition. It helps reveal which visible traits a model is using to separate similar species.
-The workflow is lightweight and straightforward. Once there is a model, Finer-CAM will be a low-latent tool to interpret and check whether the model's reasoning matches biological intuition.
+The workflow is lightweight and straightforward. Once there is a model, Finer-CAM will be a low-latency tool to interpret and check whether the model's reasoning matches biological intuition.
