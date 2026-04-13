@@ -73,7 +73,7 @@ You should see the app UI.
 
 ### What is an image embedding?
 
-A vision model like [BioCLIP 2](https://imageomics.github.io/bioclip-2/) looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that look similar to the model get similar fingerprints. These fingerprints are called **embeddings**.
+A vision model like [BioCLIP 2](https://imageomics.github.io/bioclip-2/) looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called **embeddings**.
 
 For example, using [pybioclip](https://imageomics.github.io/pybioclip/) you can generate an embedding for a single image in a few lines:
 
@@ -103,7 +103,7 @@ KMeans clustering runs on the original 768-dimensional embeddings, not the 2D pr
 
 ### Why does this matter for biology?
 
-If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings *disagree* is often where the interesting biology is.
+If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, it suggests that the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings *disagree* is often where the interesting biology is.
 
 ### The dataset: Darwin's finches
 
@@ -252,7 +252,7 @@ Scroll to the bottom for the **Taxonomic Distribution** panel. Use "Group by" to
 
 A few prompts for further exploration:
 
-- **Compare projection methods.** Re-project with PCA and then t-SNE. The three methods use different algorithms with no hyperparameter tuning required. Try each one and notice how the layout changes. Which one separates the finch groups most clearly?
+- **Compare projection methods.** Re-project with PCA and then t-SNE. The three methods use different algorithms with default parameters (see [source code](https://github.com/Imageomics/emb-explorer) for details). Try each one and notice how the layout changes. Which one separates the finch groups most clearly?
 
 - **Filter, then re-project.** Filter to only the *Geospiza* genus (the 8 species of ground, cactus, and vampire finches). Re-project with UMAP. Species-level structure that was hidden in the full dataset should become much clearer.
 
@@ -366,7 +366,7 @@ The scatter plot is built with [Vega-Lite](https://vega.github.io/vega-lite/) vi
 
 | Problem | Solution |
 |---------|----------|
-| App doesn't load in the browser | Check that you replaced `placeholder` with your JupyterLab URL prefix. The full URL should look like `https://a12345abc.cyverse.run/proxy/8501/`. |
+| App doesn't load in the browser | Check that you replaced `<your-prefix>` with your JupyterLab URL prefix. The full URL should look like `https://a12345abc.cyverse.run/proxy/8501/`. |
 | "Missing required 'uuid' column" | Your parquet doesn't match the expected schema. See the [data format docs](https://github.com/Imageomics/emb-explorer/blob/main/docs/DATA_FORMAT.md). |
 | UMAP/t-SNE is very slow | Try PCA first (instant). If you need nonlinear structure, filter to a smaller subset before projecting. On CPU, UMAP on 10k+ points can take a minute. |
 | Image preview shows nothing | The `identifier` column may be missing, null, or the URL may be unreachable. The scatter and clustering still work without it. |
