@@ -1239,22 +1239,24 @@
 <li><strong>Prior Knowledge:</strong> Basic comfort with a terminal. No machine learning background required; concepts will be explained as they are mentioned.</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>Launch a Cloud Shell session on CyVerse (click the badge): <a href="https://de.cyverse.org/apps/de/5f2f1824-57b3-11ec-8180-008cfa5ae621/launch?saved-launch-id=46c0c69f-0990-439f-929d-d5d44a3c36fb" target="_blank" rel="noopener noreferrer"><img src="https://de.cyverse.org/Powered-By-CyVerse-blue.svg"></a>
-Once you are authenticated, this will take you to the CloudShell session configuration. 
-- On the page for "Step 1: Analysis Info", click "Next →".
-- On the page for "Step 2: Analysis Parameters", do the following:
-  - In the "Input Folder" field, click the "Browse" button.
-  - In the "Path" field, paste the following:
+<p>Launch a Cloud Shell session on CyVerse (click the badge): <a href="https://de.cyverse.org/apps/de/5f2f1824-57b3-11ec-8180-008cfa5ae621/launch?saved-launch-id=46c0c69f-0990-439f-929d-d5d44a3c36fb" target="_blank" rel="noopener noreferrer"><img src="https://de.cyverse.org/Powered-By-CyVerse-blue.svg"></a></p>
+<p>Once you are authenticated, this will take you to the CloudShell session configuration. </p>
+<ul>
+<li>On the page for "Step 1: Analysis Info", click "Next →".</li>
+<li>On the page for "Step 2: Analysis Parameters", do the following:</li>
+<li>In the "Input Folder" field, click the "Browse" button.</li>
+<li>In the "Path" field, paste the following:
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/iplant/home/thompsonmj/imageomics-conference-2026
 </code></pre></div>
-    and click Enter.
-  - Check the box next to <code>tutorials-data/</code>.
-  - Click the "OK" button.
-- Back on "Step 2: Analysis Parameters", click "Next →".
-- On "Step 3: Advanced Settings (optional)", click "Next →".
-- On "Step 4: Launch or Save", click "▶️ Launch Analysis".
-- On the page that shows "Submitted", wait for it to say "Running".
-- Click "Go to Analysis".</p>
+    and click Enter. </li>
+<li>Check the box next to <code>tutorials-data/</code>.</li>
+<li>Click the "OK" button.</li>
+<li>Back on "Step 2: Analysis Parameters", click "Next →".</li>
+<li>On "Step 3: Advanced Settings (optional)", click "Next →".</li>
+<li>On "Step 4: Launch or Save", click "▶️ Launch Analysis".</li>
+<li>On the page that shows "Submitted", wait for it to say "Running".</li>
+<li>Click "Go to Analysis".</li>
+</ul>
 <p>You are now running a CyVerse CloudShell session.</p>
 <p>Create a directory to work in:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>this-session<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>this-session
@@ -1272,7 +1274,8 @@ Once you are authenticated, this will take you to the CloudShell session configu
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pybioclip
 </code></pre></div>
 <p>And copy images to test with from shared storage into your local container storage:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cp<span class="w"> </span>-R<span class="w"> </span>~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip<span class="w"> </span>~/data-store/this-session
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cp<span class="w"> </span>-R<span class="w"> </span>~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>~/data-store/this-session
 </code></pre></div>
 Ensure permissions are set appropriately so we can work with the data:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>chmod<span class="w"> </span>--recursive<span class="w"> </span>u+rw<span class="w"> </span>~/data-store/this-session
@@ -1298,11 +1301,13 @@ with contents:
 <p><em>TBD</em> : What is a Foundation Model?</p>
 <h2 id="steps">Steps</h2>
 <h3 id="classify-focal-species-in-images">Classify Focal Species in Images</h3>
-<p><code>pybioclip</code> allows us to use BioCLIP models efficiently to classify the focal species:
-- in an individual image
-- in a groups of images
-- view prediction outputs in the terminal
-- save those predictions to a file</p>
+<p><code>pybioclip</code> allows us to use BioCLIP models efficiently to classify the focal species:</p>
+<ul>
+<li>in an individual image</li>
+<li>in a groups of images</li>
+<li>view prediction outputs in the terminal</li>
+<li>save those predictions to a file</li>
+</ul>
 <p>The first time it is executed, it retrieves the necessary files for prediction:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>bioclip<span class="w"> </span>predict<span class="w"> </span>pybioclip/images/Phoca-vitulina.png<span class="w"> </span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>open_clip_config.json:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">534</span>/534<span class="w"> </span><span class="o">[</span><span class="m">00</span>:00&lt;<span class="m">00</span>:00,<span class="w"> </span><span class="m">2</span>.49MB/s<span class="o">]</span>
