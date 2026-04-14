@@ -20,6 +20,31 @@ By the end of this tutorial, you will be able to:
 
 ## Setup
 
+Launch a Cloud Shell session on CyVerse (click the badge): <a href="https://de.cyverse.org/apps/de/5f2f1824-57b3-11ec-8180-008cfa5ae621/launch?saved-launch-id=46c0c69f-0990-439f-929d-d5d44a3c36fb" target="_blank" rel="noopener noreferrer"><img src="https://de.cyverse.org/Powered-By-CyVerse-blue.svg"></a>
+Once you are authenticated, this will take you to the CloudShell session configuration. 
+- On the page for "Step 1: Analysis Info", click "Next →".
+- On the page for "Step 2: Analysis Parameters", do the following:
+  - In the "Input Folder" field, click the "Browse" button.
+  - In the "Path" field, paste the following:
+    ```
+    /iplant/home/thompsonmj/imageomics-conference-2026
+    ```
+    and click Enter.
+  - Check the box next to `tutorials-data/`.
+  - Click the "OK" button.
+- Back on "Step 2: Analysis Parameters", click "Next →".
+- On "Step 3: Advanced Settings (optional)", click "Next →".
+- On "Step 4: Launch or Save", click "▶️ Launch Analysis".
+- On the page that shows "Submitted", wait for it to say "Running".
+- Click "Go to Analysis".
+
+You are now running a CyVerse CloudShell session.
+
+Create a directory to work in:
+```bash
+mkdir this-session && cd this-session
+```
+
 First, install [`uv`](https://docs.astral.sh/uv/) for efficient environment management:
 
 ```bash
@@ -41,6 +66,36 @@ Finally, install `pybioclip`:
 uv pip install pybioclip
 ```
 
+And copy images to test with from shared storage into your local container storage:
+```bash
+cp -R ~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip ~/data-store/this-session
+```
+Ensure permissions are set appropriately so we can work with the data:
+```bash
+chmod --recursive u+rw ~/data-store/this-session
+```
+
+This will place images into the following location for us to practice with:
+```bash
+~/data-store/this-session/pybioclip/images
+```
+with contents:
+```bash
+$ ls -1 ~/data-store/this-session/pybioclip/images/
+Actinostola-abyssorum.png
+Amanita-muscaria.jpeg
+Carnegiea-gigantea.png
+coral-snake.jpeg
+Felis-catus.jpeg
+milk-snake.png
+Onoclea-hintonii.jpg
+Onoclea-sensibilis.jpg
+Phoca-vitulina.png
+Sarcoscypha-coccinea.jpeg
+Ursus-arctos.jpeg
+```
+
+
 ## Background
 
 _TBD_ : What is a Foundation Model?
@@ -49,12 +104,84 @@ _TBD_ : What is a Foundation Model?
 
 ### Classify Focal Species in Images
 
-`pybioclip` allows us to efficiently classify the focal species in multiple images with BioCLIP models and save those predictions to a file of our choice.
+`pybioclip` allows us to use BioCLIP models efficiently to classify the focal species:
+- in an individual image
+- in a groups of images
+- view prediction outputs in the terminal
+- save those predictions to a file
 
-<!--
-Follow here:
-https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-species-for-multiple-images-saving-to-a-file
--->
+The first time it is executed, it retrieves the necessary files for prediction:
+```bash
+$ bioclip predict pybioclip/images/Phoca-vitulina.png 
+open_clip_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 534/534 [00:00<00:00, 2.49MB/s]
+open_clip_model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.71G/1.71G [00:05<00:00, 314MB/s]
+embeddings/txt_emb_species.npy: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.66G/2.66G [00:12<00:00, 214MB/s]
+embeddings/txt_emb_species.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 91.6M/91.6M [00:01<00:00, 74.7MB/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:06<00:00,  6.22s/images]
+```
+And this yields the prediction:
+```bash
+file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca vitulina,Harbour Seal,0.8855793476104736
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,largha,Phoca largha,Spotted seal,0.04246024042367935
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Ommatophoca,rossii,Ommatophoca rossii,Ross seal,0.040906891226768494
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Pusa,hispida,Pusa hispida,Ringed seal,0.012681455351412296
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Halichoerus,grypus,Halichoerus grypus,Grey Seal,0.00508195860311389
+```
+Subsequent predictions are comparatively quicker:
+```bash
+$ bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg 
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.59s/images]
+file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha coccinea,skarlagen-pragtbæger,0.3211705982685089
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,macaronesica,Sarcoscypha macaronesica,,0.24325676262378693
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,excelsa,Sarcoscypha excelsa,,0.1801837533712387
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,jurana,Sarcoscypha jurana,,0.1774240881204605
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,humberiana,Sarcoscypha humberiana,,0.015541158616542816
+```
+The warning that occurs is from a cache validation check. All of the necessary files should be stored locally, so this is just noise that isn't needed. We can suppress it by setting:
+```bash
+export HF_HUB_OFFLINE=1
+```
+Now, predictions should be quieter for the rest of the session.
+
+We can specify individual images we would like predictions for from this list:
+```bash
+$ bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg pybioclip/images/Ursus-arctos.jpeg
+```
+Or we can submit all of the images present for prediction. Let's also place the predicted outputs into a file called `predictions.csv`:
+```bash
+$ bioclip predict --output predictions.csv pybioclip/images/*
+```
+
+You man inspect the outputs with:
+```bash
+cat predictions.csv
+```
+
+It's too much to fit in the screen. Let's try again with only the top prediction:
+```bash
+$ bioclip predict --output predictions.csv --k 1 pybioclip/images/*
+```
+
+This yields a more manageable list for today:
+```bash
+$ cat predictions.csv 
+file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+pybioclip/images/Actinostola-abyssorum.png,Animalia,Cnidaria,Anthozoa,Actiniaria,Actiniidae,Cribrinopsis,similis,Cribrinopsis similis,,0.2903341054916382
+pybioclip/images/Amanita-muscaria.jpeg,Fungi,Basidiomycota,Agaricomycetes,Agaricales,Amanitaceae,Amanita,muscaria,Amanita muscaria,Fly agaric,0.8807751536369324
+pybioclip/images/Carnegiea-gigantea.png,Plantae,Tracheophyta,Magnoliopsida,Caryophyllales,Cactaceae,Carnegiea,gigantea,Carnegiea gigantea,Saguaro,0.8612735271453857
+pybioclip/images/coral-snake.jpeg,Animalia,Chordata,Squamata,,Elapidae,Micrurus,hemprichii,Micrurus hemprichii,Hemprich's coral snake,0.08613336831331253
+pybioclip/images/Felis-catus.jpeg,Animalia,Chordata,Mammalia,Carnivora,Felidae,Felis,silvestris,Felis silvestris,Wildcat,0.26516351103782654
+pybioclip/images/milk-snake.png,Animalia,Chordata,Squamata,,Colubridae,Lampropeltis,triangulum,Lampropeltis triangulum,Eastern milksnake,0.532394528388977
+pybioclip/images/Onoclea-hintonii.jpg,Plantae,Tracheophyta,Magnoliopsida,Asterales,Asteraceae,Polymnia,laevigata,Polymnia laevigata,,0.07937052100896835
+pybioclip/images/Onoclea-sensibilis.jpg,Animalia,Arthropoda,Insecta,Diptera,Anthomyiidae,Chirosia,gleniensis,Chirosia gleniensis,,0.03540492802858353
+pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca vitulina,Harbour Seal,0.8855838775634766
+pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha coccinea,skarlagen-pragtbæger,0.32118508219718933
+pybioclip/images/Ursus-arctos.jpeg,Animalia,Chordata,Mammalia,Carnivora,Ursidae,Ursus,arctos,Ursus arctos,Brown Bear,0.8381649851799011
+```
 
 ### Embed Images
 <!--
