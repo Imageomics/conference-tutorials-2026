@@ -499,6 +499,78 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-in-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species in Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embed-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embed Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-from-a-targeted-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species from a Targeted List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-from-a-subset-of-treeoflife-taxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species from a Subset of TreeOfLife Taxa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretability-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretability Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1045,6 +1117,78 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-in-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species in Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embed-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embed Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-from-a-targeted-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species from a Targeted List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classify-focal-species-from-a-subset-of-treeoflife-taxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classify Focal Species from a Subset of TreeOfLife Taxa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretability-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretability Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1086,7 +1230,7 @@
 <li>Use <code>pybioclip</code> to get both <strong>embeddings</strong> and <strong>taxonomic predictions</strong> from images.</li>
 <li>Subset or otherwise geographically restrict taxonomic label options for <strong>use-case-specific filtering</strong>.</li>
 <li>Create Grad-CAM visualizations for evaluating model attention (i.e., what part of the image is the model relying on for its determination?). </li>
-<li>Implement a <strong>lightweight classifier for downstream applications</strong> beyond taxonomic label prediction for use-case specificity <em>without fine-tuning</em>.</li>
+<li>[Bonus] Implement a <strong>lightweight classifier for downstream applications</strong> beyond taxonomic label prediction for use-case specificity <em>without fine-tuning</em>.</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
@@ -1108,8 +1252,57 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pybioclip
 </code></pre></div>
 <h2 id="background">Background</h2>
-<p><em>TBD</em></p>
+<p><em>TBD</em> : What is a Foundation Model?</p>
 <h2 id="steps">Steps</h2>
+<h3 id="classify-focal-species-in-images">Classify Focal Species in Images</h3>
+<p><code>pybioclip</code> allows us to efficiently classify the focal species in multiple images with BioCLIP models and save those predictions to a file of our choice.</p>
+<!--
+Follow here:
+https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-species-for-multiple-images-saving-to-a-file
+-->
+
+<h3 id="embed-images">Embed Images</h3>
+<!--
+Follow here:
+https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
+-->
+
+<p>In the next section, we'll talk more about what embeddings are and what you can do with them.</p>
+<h3 id="classify-focal-species-from-a-targeted-list">Classify Focal Species from a Targeted List</h3>
+<!--
+Follow here:
+https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-list-of-classes
+-->
+
+<h3 id="classify-focal-species-from-a-subset-of-treeoflife-taxa">Classify Focal Species from a Subset of TreeOfLife Taxa</h3>
+<p>First, one may ask what taxa are available:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bioclip<span class="w"> </span>list-tol-taxa<span class="w"> </span>&gt;<span class="w"> </span>BioCLIP-2-taxa.txt
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can specify the model of interest, e.g., for the original BioCLIP model with <code>--model hf-hub:imageomics/bioclip</code> before the carat.</p>
+</div>
+<!--
+Follow here (use Colab):
+https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
+-->
+
+<h3 id="interpretability-methods">Interpretability Methods</h3>
+<!--
+Follow here (use Colab):
+https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
+-->
+<ul>
+<li>note on more advanced/more finely discriminative methods later</li>
+</ul>
+<h3 id="advanced-topics">Advanced Topics</h3>
+<p>Building on the topics covered today, ...</p>
+<!--
+Follow here (Colab notebooks):
+If there's time/Next steps/Learn more
+https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
+-->
+
 <p><em>TBD</em></p>
 <h2 id="summary">Summary</h2>
 <p><em>TBD</em></p>
