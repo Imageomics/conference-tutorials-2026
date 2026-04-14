@@ -87,7 +87,7 @@ SST achieves high-quality trait segmentation across specimen images using only o
 
 ### SST
 
-The following steps are also detailed in the tutorial notebook.
+The following steps are also detailed in the [tutorial notebook](https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing).
 
 1. Clone the SST repository and set up the environment.
 
