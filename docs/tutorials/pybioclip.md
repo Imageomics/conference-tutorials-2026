@@ -21,15 +21,17 @@ By the end of this tutorial, you will be able to:
 ## Setup
 
 Launch a Cloud Shell session on CyVerse (click the badge): <a href="https://de.cyverse.org/apps/de/5f2f1824-57b3-11ec-8180-008cfa5ae621/launch?saved-launch-id=46c0c69f-0990-439f-929d-d5d44a3c36fb" target="_blank" rel="noopener noreferrer"><img src="https://de.cyverse.org/Powered-By-CyVerse-blue.svg"></a>
+
 Once you are authenticated, this will take you to the CloudShell session configuration. 
+
 - On the page for "Step 1: Analysis Info", click "Next →".
 - On the page for "Step 2: Analysis Parameters", do the following:
   - In the "Input Folder" field, click the "Browse" button.
   - In the "Path" field, paste the following:
     ```
     /iplant/home/thompsonmj/imageomics-conference-2026
-    ```
-    and click Enter.
+    ``` 
+    and click Enter. 
   - Check the box next to `tutorials-data/`.
   - Click the "OK" button.
 - Back on "Step 2: Analysis Parameters", click "Next →".
@@ -68,7 +70,8 @@ uv pip install pybioclip
 
 And copy images to test with from shared storage into your local container storage:
 ```bash
-cp -R ~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip ~/data-store/this-session
+cp -R ~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip \
+  ~/data-store/this-session
 ```
 Ensure permissions are set appropriately so we can work with the data:
 ```bash
@@ -105,6 +108,7 @@ _TBD_ : What is a Foundation Model?
 ### Classify Focal Species in Images
 
 `pybioclip` allows us to use BioCLIP models efficiently to classify the focal species:
+
 - in an individual image
 - in a groups of images
 - view prediction outputs in the terminal
