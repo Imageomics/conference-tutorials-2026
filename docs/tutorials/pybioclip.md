@@ -84,7 +84,7 @@ This will place images into the following location for us to practice with:
 ```
 with contents:
 ```bash
-$ ls -1 ~/data-store/this-session/pybioclip/images/
+ls -1 ~/data-store/this-session/pybioclip/images/
 Actinostola-abyssorum.png
 Amanita-muscaria.jpeg
 Carnegiea-gigantea.png
@@ -116,7 +116,7 @@ _TBD_ : What is a Foundation Model?
 
 The first time it is executed, it retrieves the necessary files for prediction:
 ```bash
-$ bioclip predict pybioclip/images/Phoca-vitulina.png 
+bioclip predict pybioclip/images/Phoca-vitulina.png 
 open_clip_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 534/534 [00:00<00:00, 2.49MB/s]
 open_clip_model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.71G/1.71G [00:05<00:00, 314MB/s]
 embeddings/txt_emb_species.npy: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.66G/2.66G [00:12<00:00, 214MB/s]
@@ -134,7 +134,7 @@ pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocida
 ```
 Subsequent predictions are comparatively quicker:
 ```bash
-$ bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg 
+bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg 
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.59s/images]
@@ -153,11 +153,12 @@ Now, predictions should be quieter for the rest of the session.
 
 We can specify individual images we would like predictions for from this list:
 ```bash
-$ bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg pybioclip/images/Ursus-arctos.jpeg
+bioclip predict \
+  pybioclip/images/Sarcoscypha-coccinea.jpeg pybioclip/images/Ursus-arctos.jpeg
 ```
 Or we can submit all of the images present for prediction. Let's also place the predicted outputs into a file called `predictions.csv`:
 ```bash
-$ bioclip predict --output predictions.csv pybioclip/images/*
+bioclip predict --output predictions.csv pybioclip/images/*
 ```
 
 You man inspect the outputs with:
@@ -167,12 +168,12 @@ cat predictions.csv
 
 It's too much to fit in the screen. Let's try again with only the top prediction:
 ```bash
-$ bioclip predict --output predictions.csv --k 1 pybioclip/images/*
+bioclip predict --output predictions.csv --k 1 pybioclip/images/*
 ```
 
 This yields a more manageable list for today:
 ```bash
-$ cat predictions.csv 
+cat predictions.csv 
 file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
 pybioclip/images/Actinostola-abyssorum.png,Animalia,Cnidaria,Anthozoa,Actiniaria,Actiniidae,Cribrinopsis,similis,Cribrinopsis similis,,0.2903341054916382
 pybioclip/images/Amanita-muscaria.jpeg,Fungi,Basidiomycota,Agaricomycetes,Agaricales,Amanitaceae,Amanita,muscaria,Amanita muscaria,Fly agaric,0.8807751536369324
@@ -192,8 +193,42 @@ pybioclip/images/Ursus-arctos.jpeg,Animalia,Chordata,Mammalia,Carnivora,Ursidae,
 Follow here:
 https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
 -->
+An embedding can be thought of as a model's conception of an image. It is simply a vector in high-dimensional space that encodes the model's perception of the image's features based on what it has learned during training.
 
-In the next section, we'll talk more about what embeddings are and what you can do with them.
+Calculate the BioCLIP embeddings for each of the images at-hand:
+```bash
+bioclip embed --output embeddings.json pybioclip/images/*
+```
+
+Once this completes, you will have a JSON file with an embedding vector for each image:
+```bash
+{
+  "model": "hf-hub:imageomics/bioclip-2",
+  "embeddings": {
+    "pybioclip/images/Actinostola-abyssorum.png": [
+      3.226287364959717,
+      "...768 total"
+    ],
+    "pybioclip/images/Amanita-muscaria.jpeg": [
+      2.0568881034851074,
+      "...768 total"
+    ],
+   # ...
+    "pybioclip/images/Sarcoscypha-coccinea.jpeg": [
+      1.7511709928512573,
+      "...768 total"
+    ],
+    "pybioclip/images/Ursus-arctos.jpeg": [
+      4.4644927978515625,
+      "...768 total"
+    ]
+  }
+}
+```
+
+Embeddings are extremely useful for many downstream tasks.
+
+In the next deep dive, we will talk more about what embeddings are and what you can do with them.
 
 ### Classify Focal Species from a Targeted List
 <!--
