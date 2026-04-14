@@ -57,9 +57,7 @@ In your brower's URL bar, you will see something like "https://a12345abc.cyverse
 
 In another browser tab, paste "https://placeholder.cyverse.run/proxy/8501/" (it will be 404 Not Found for now).
 
-Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example).
-
-The app UI should now be visible in that browser tab. Set paths relative to the repository root you cloned to.
+Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example). For now, this page will still not work, but it will load once we run the visualization app later in this demo.
 
 
 ## Background
@@ -97,24 +95,15 @@ Practically, the sparse features learned by an SAE tend to be more interpretable
 
 ### Dataset: Fish-Vista
 
-Fish-Vista is an Imageomics fish dataset with species and trait labels. It is useful for testing whether discovered features align with known biological traits.
+Fish-Vista is an Imageomics fish dataset with species and trait labels. It is useful for testing whether discovered features align with known biological traits, as segmented morphological traits are provided for a large portion of the images. We provide a sparse autoencoder trained on Fish-Vista, and use a small subset of Fish-Vista for visualization.
 
-In this tutorial, Fish-Vista is background context. We use Fish-Vista to show some examples of traits that can be learned using SAEs.
+### Dataset: iNaturalist 2021 Mini Validation Set
 
-
-### Dataset: iNaturalist 2021 mini
-
-iNaturalist 2021 mini is a subset of iNaturalist images across many taxa. These images are typically taken outside of a lab setting, so they may not be as clean as data collected from labratory or museum specimens.
-
-We use iNaturalist 2021 mini in this demo because:
-- It is large enough to learn interesting features.
-- It is smaller and faster than the full iNaturalist dataset.
-- It is general enough to allow for application to a range of more specific datasets
-
-This dataset has already been downloaded onto CyVerse prior to this demo, but more information on how to download this dataset can be found [here](https://github.com/visipedia/inat_comp/tree/master/2021)
-
+iNaturalist 2021 Mini is a subset of iNaturalist images across many taxa. These images are typically taken outside of a lab setting, so they may not be as clean as data collected from labratory or museum specimens. For this project, we train an SAE on iNaturalist 2021 Mini's training set. 
 
 ## Steps
+
+Here, we will walk through the process of training an SAE, and then visualize the features of fully-trained SAEs. While you will not train an SAE during this workshop (due to time constraints), you will learn to use all of the commands you would use to train your own SAE. You will also be able to visualize fully trained SAE features on a small subset of the Fish-Vista dataset. 
 
 ### Generating shards
 
@@ -123,61 +112,38 @@ First, generate embedding shards from your image folder. Shards are saved blocks
 Run from the repository root:
 
 ```bash
-uv run launch.py shards \
-	--shards-root ./shards \
-	--family dinov2 \
-	--ckpt dinov2_vits14_reg \
-	--d-model 384 \
-	data:img-folder \
-	--data.root /path/to/inat/train_mini
+mkdir saev/shards
 ```
 
-Notes:
+```bash
+uv run launch.py shards --shards-root saev/shards/ --family dinov2 --ckpt dinov2_vits14_reg --d-model 384 --n-workers 0 data:fake-img 
+```
 
-- Replace `/path/to/inat/train_mini` with your dataset directory.
-- The command prints the shard directory that was created. You will use that path in training.
+Note:
+- When using this on real data, replace `data:fake-img` with `data:img-folder`. Then, provide the path to your dataset with the argument `--data.root <dataset directory>`
+- The command prints the shard directory that was created. Record this, as you will use that path in training.
 
 
 ### Training SAEs
 
-Train a sweep of SAEs over different hyperparameters. This gives multiple candidate models instead of betting on a single configuration.
+Using the following command, we train an SAE on the model activations that we generated above. Note that we set the SAE dimension here to be 16 times bigger than the original model's activation dimension. This is a standard practice when training SAEs, but changing this number can produce better or worse results, depending on your model and dataset.
 
 ```bash
-uv run launch.py train \
-	--sweep ./demo/demo_sweep.py \
-	--mem-gb 48 \
-	--n-train 50000000 \
-	--n-val 10 \
-	--runs-root ./runs \
-	--train-data.shards /path/to/shards \
-	--train-data.layer -2 \
-	--val-data.layer -2 \
-	--val-data.shards /path/to/shards \
-	--sae.d-model 384 \
-	--sae.d-sae 6144 \
-	--objective.dead-threshold-tokens 1000000 \
-	sae.activation:batch-top-k \
-	sae.activation.sparsity:no-sparsity
+uv run launch.py train --n-train 10000 --n-val 10 --runs-root ./saev/runs/ --train-data.shards ./saev/shards/<insert shard hash>/ --train-data.layer -2 --val-data.shards ./saev/shards/<insert shard hash>/ --val-data.layer -2 --sae.d-model 384 --sae.d-sae 6144 sae.activation:batch-top-k sae.activation.sparsity:no-sparsity
 ```
 
 Notes:
 
 - Use the shard path from the previous step.
-- Training produces many run folders under `./runs`.
+- Training produces a run folder under `./runs`. This folder typically has the
 
 
 ### Pareto analysis (optional)
 
-After training, choose a good run using the Pareto frontier.
-
-Idea: we want low reconstruction error (MSE) and strong sparsity behavior (via `k`). The Pareto frontier highlights runs that are best trade-offs.
+After training, we may have several SAEs trained with different hyperparameters. To select the best SAE, we perform a *pareto analysis*. We want low reconstruction error (MSE) and high sparsity (via `k`), as SAEs that can reconstruct model activations from a few sparse features typically give better features. The models on the Pareto frontier (meaning lowest MSE and highest sparsity) can be found using the following command: 
 
 ```bash
-uv run python demo/pareto_runs.py \
-	--runs-root ./runs \
-	--out-png demo/pareto_k_vs_mse.png \
-	--out-csv demo/pareto_k_vs_mse.csv \
-	--annotate
+uv run python demo/pareto_runs.py --runs-root ./runs --out-png demo/pareto_k_vs_mse.png --out-csv demo/pareto_k_vs_mse.csv --annotate
 ```
 
 This produces:
@@ -185,37 +151,29 @@ This produces:
 - A plot (`.png`) showing all runs and the frontier.
 - A table (`.csv`) with metrics for each run.
 
-Pick one run on (or near) the frontier for inference.
+Pick one run on (or near) the frontier for inference. In this demo we will not do Pareto analysis, but this step is encouraged in practice, specifically when trying multiple sets of hyperparameters.
 
 
 ### Generating Sparse Features
 
-Now run inference with your selected SAE. This computes sparse feature activations for the dataset.
+Typically, you would now run inference with your selected SAE. This computes sparse feature activations for the dataset. This step is typically required prior to visualization. Here, we have a very reduced dataset that we will compute the sparse activations for on the fly, so this step will be skipped.
+
 
 ```bash
-uv run launch.py inference \
-	--run /path/to/chosen_run \
-	--data.shards /path/to/shards
+uv run launch.py inference --run ./saev/runs/<chosen run path here>/ --data.shards ./saev/shards/<shard path here>/
 ```
-
-This step is required before visualization because the app reads these activation outputs.
-
 
 ### Visualization
 
-Start the Streamlit visualization app:
-
-```bash
-uv run --with streamlit streamlit run demo/fish_feature_vis.py
-```
-
-If Streamlit is already installed in your environment, you can use:
+Finally, we can visualize the SAE features on our input dataset. To start the Streamlit visualization app:
 
 ```bash
 uv run streamlit run demo/fish_feature_vis.py
 ```
 
-In the app, point to your run and inference outputs. Then inspect top-activating images per feature and activation overlays.
+At the address for the visualization app (directions for obtaining this address can be found towards the top of this tutorial), the app will now load after a moment.
+
+In the app, you can see several fields to the left that can be modified to visualize SAE features for different SAE models on the Fish-Vista subset. First, use the default settings and press the "Generate visualization" button. This will calculate the SAE features for each image patch and overlay them on top of the input images. Bright yellow means that a feature has a high value for that patch, while a faint purple or no highlight means that the feature does not activate highly for that patch.
 
 Interpretation tips:
 
@@ -223,10 +181,11 @@ Interpretation tips:
 - Check for dataset artifacts (backgrounds, lighting, labels) that may drive activations.
 - Treat discovered features as hypotheses that need validation.
 
+To see how the training dataset influences SAE features, change the run directory box from `./saev/runs/inat` to `./saev/runs/fish`, and press the generate visualization button again. You should see that the new features are much better, corresponding more closely to biologically relevant traits. 
 
 ## Summary
 
-In this tutorial, you generated ViT embedding shards, trained a sweep of SAEs, selected a run using Pareto analysis, produced sparse feature activations, and visualized feature behavior on images.
+In this tutorial, you generated ViT embedding shards, trained an SAEs, selected a run using Pareto analysis, produced sparse feature activations, and visualized feature behavior on images.
 
 SAEs can help surface candidate traits and structure in large image collections. The outputs are useful for discovery, but interpretation should be done carefully and ideally cross-checked with domain expertise and metadata.
 
