@@ -23,7 +23,7 @@ By the end of this tutorial, you will be able to:
 
 ## Background
 
-Prompt-CAM is an fast interpretable transformer method published at CVPR 2025. It injects learnable class-specific prompts into pre-trained Vision Transformers (such as DINO and DINOv2) without modifying the underlying model architecture. These prompts cause the model's attention mechanism to highlight the image regions most relevant to each specified class, producing visual attention maps that make the model's reasoning transparent.
+Prompt-CAM is a fast interpretable transformer method published at CVPR 2025. It injects learnable class-specific prompts into pre-trained Vision Transformers (such as DINO and DINOv2) without modifying the underlying model architecture. These prompts cause the model's attention mechanism to highlight the image regions most relevant to each specified class, producing visual attention maps that make the model's reasoning transparent.
 
 Unlike general saliency methods, Prompt-CAM is designed for fine-grained visual analysis: it can reveal which traits are shared between classes and which are distinctive, and it allows side-by-side comparison of how the same image is perceived differently depending on the target class. This makes it especially useful for biodiversity tasks where species look very similar and subtle morphological differences drive classification.
 
