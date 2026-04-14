@@ -35,7 +35,7 @@ The images come from the [TreeOfLife-200M dataset](https://huggingface.co/datase
 Upload image --> BioCLIP 2 embedding --> FAISS search --> DuckDB metadata --> Results
 ```
 
-1. **Embedding:** When you upload an image, BioCLIP 2 converts it into a list of 768 numbers called a **vector embedding**. Think of it as a numerical fingerprint that captures the biological essence of what's in the image. Images that look similar to the model produce similar fingerprints.
+1. **Embedding:** When you upload an image, BioCLIP 2 converts it into a list of 768 numbers called a **vector embedding**. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.
 
 2. **Search:** Your image's fingerprint is compared against 200+ million pre-computed fingerprints using [FAISS](https://faiss.ai/), a library for fast similarity search. Instead of comparing against every image one by one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.
 
@@ -151,6 +151,7 @@ Beyond this application, you can train your own FAISS index to perform similarit
 ### Data availability
 
 The pre-built FAISS index and DuckDB metadata are available for download from the [HuggingFace data repository](https://huggingface.co/imageomics/bioclip-image-search-lite):
+You may access this with the `huggingface_hub` Python package built-in CLI called `hf`. (Instructions available [here](https://huggingface.co/docs/huggingface_hub/en/guides/cli)).
 
 ```bash
 hf download imageomics/bioclip-image-search-lite --local-dir /path/to/data
