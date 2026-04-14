@@ -23,11 +23,11 @@
       
       
       <link rel="icon" href="../../assets/tools-logo_black.svg">
-      <meta name="generator" content="zensical-0.0.32">
+      <meta name="generator" content="zensical-0.0.33">
     
     
       
-        <title>BioCLIP Search Lite - Designing for Discovery: Shaping Imageomics Tools for Biologists</title>
+        <title>BioCLIP Image Search Lite - Designing for Discovery: Shaping Imageomics Tools for Biologists</title>
       
     
     
@@ -53,7 +53,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bioclip-search-lite" class="md-skip">
+        <a href="#bioclip-image-search-lite" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BioCLIP Search Lite
+              BioCLIP Image Search Lite
             
           </span>
         </div>
@@ -857,17 +857,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#background" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -875,6 +864,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bioclip-image-search-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is BioCLIP Image Search Lite?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does it work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -887,16 +915,127 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Step 1: Open the application
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-an-image-and-review-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Upload an image and review predictions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-search-for-similar-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Search for similar images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-a-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Explore a result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-adjust-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Adjust search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-running-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus: Running it yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus: Running it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-service-in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local service (in development)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1015,17 +1154,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#background" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1033,6 +1161,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bioclip-image-search-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is BioCLIP Image Search Lite?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does it work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1045,16 +1212,127 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-application" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Step 1: Open the application
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-an-image-and-review-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Upload an image and review predictions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-search-for-similar-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Search for similar images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-a-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Explore a result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-adjust-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Adjust search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-running-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus: Running it yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus: Running it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-service-in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local service (in development)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1076,29 +1354,188 @@
   
 
 
-<h1 id="bioclip-search-lite">BioCLIP Search Lite</h1>
+<h1 id="bioclip-image-search-lite">BioCLIP Image Search Lite</h1>
 <blockquote>
-<p>Given a query image of an organism, find the most visually similar images across 200M+ samples from the TreeofLife dataset.</p>
+<p>Upload a photo of an organism and find visually similar images across 200M+ biological images from the TreeOfLife-200M dataset.</p>
 </blockquote>
+<p><img alt="BioCLIP Image Search Lite demo showing a marten query image with similar results and taxonomy details." src="../../assets/bioclip-search-demo.png" /></p>
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>By the end of this tutorial, you will be able to:</p>
 <ol>
-<li><em>TBD</em></li>
-<li><em>TBD</em></li>
-<li><em>TBD</em></li>
+<li>Use the BioCLIP Image Search Lite web interface to find visually similar biological images and explore associated metadata (taxonomy, data source, occurrence records).</li>
+<li>Understand how BioCLIP 2 embeddings and FAISS indexing enable fast similarity search over 200M+ images, and how search parameters (<code>nprobe</code>, <code>top N</code>, <code>scope</code>) affect results.</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li><em>TBD</em></li>
+<li><strong>Internet connection</strong></li>
+<li><strong>A web browser.</strong> No installation required for the web tutorial.</li>
+<li><strong>Prior knowledge:</strong> None. We explain embeddings, vector search, and metadata as we go.</li>
 </ul>
-<h2 id="setup">Setup</h2>
-<p><em>TBD</em></p>
 <h2 id="background">Background</h2>
-<p><em>TBD</em></p>
+<h3 id="what-is-bioclip-image-search-lite">What is BioCLIP Image Search Lite?</h3>
+<p>At this point you probably have already heard of or used the biological foundation model <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a>. </p>
+<p>BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from a database of 200M+ biological images. The service is hosted on <a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">Hugging Face Spaces</a> and open-sourced at <a href="https://github.com/Imageomics/bioclip-image-search-lite">Imageomics/bioclip-image-search-lite</a>.</p>
+<p>It is "lite" because it does not store or distribute images. Instead, it relies on the URIs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.</p>
+<p>The images come from the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M dataset</a>, which aggregates records from sources like <a href="https://www.gbif.org/">GBIF</a> (including iNaturalist observations), the <a href="https://eol.org/">Encyclopedia of Life</a>, and others. For full details on data sources and licensing information, see the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">dataset card</a>.</p>
+<h3 id="how-does-it-work">How does it work?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Upload image --&gt; BioCLIP 2 embedding --&gt; FAISS search --&gt; DuckDB metadata --&gt; Results
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Embedding:</strong> When you upload an image, BioCLIP 2 converts it into a list of 768 numbers called a <strong>vector embedding</strong>. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.</p>
+</li>
+<li>
+<p><strong>Search:</strong> Your image's fingerprint is compared against 200+ million pre-computed fingerprints using <a href="https://faiss.ai/">FAISS</a>, a library for fast similarity search. Instead of comparing against every image one by one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.</p>
+</li>
+<li>
+<p><strong>Metadata:</strong> Once the most similar fingerprints are found, the system looks up their metadata (species name, taxonomy, data source, image URL) from a <a href="https://duckdb.org/">DuckDB</a> database.</p>
+</li>
+<li>
+<p><strong>Display:</strong> The matching images are fetched directly from their original source URLs (iNaturalist S3, GBIF publishers, etc.). No images are stored locally.</p>
+</li>
+</ol>
+<h3 id="understanding-the-search-parameters">Understanding the search parameters</h3>
+<p><strong>Search Depth (nprobe):</strong> Controls how many of the ~65,000 groups are checked during search. A higher value is more thorough but slightly slower. The default (16) works well for most queries. If you're not finding what you expect, try increasing this.</p>
+<p>The chart below illustrates why increasing the Search Depth is often necessary.</p>
+<p><img alt="Diagram comparing low and high search depth. Left panel shows a query image near the border of one region, missing the true best match in an adjacent region because only one region is searched. Right panel shows the same scenario with increased search depth, where the search crosses into the neighboring region and successfully finds the best match." src="../../assets/search_depth_demo.png" /></p>
+<p><strong>Left (Low Depth):</strong> The user's image (Red X) falls just inside the blue region. However, the <em>true</em> best match (Green Star) sits just across the border in the neighboring grey region. Because the system is set to look in only one region, it hits a "hard wall" and misses the best match.</p>
+<p><strong>Right (High Depth):</strong> By increasing the search depth, the system is allowed to check neighboring regions. It successfully crosses the border and finds the Green Star.</p>
+<blockquote>
+<p><strong>Note:</strong> This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.</p>
+</blockquote>
+<p><strong>Top N Results:</strong> How many similar images to return. More results take longer because each result requires fetching the image from its source URL.</p>
+<p><strong>Scope:</strong> Filters which images are eligible for results. The current index contains the GBIF and EOL partitions of the TreeOfLife-200M dataset. FathomNet and BIOSCAN sources will be added in a future update.</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Images</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All Sources</td>
+<td>234M</td>
+<td>Everything in the database</td>
+</tr>
+<tr>
+<td>URL-Available Only</td>
+<td>234M (99.99%)</td>
+<td>Only results with fetchable source URLs</td>
+</tr>
+<tr>
+<td>iNaturalist Only</td>
+<td>135M (58%)</td>
+<td>iNaturalist observations via AWS Open Data</td>
+</tr>
+<tr>
+<td>BioCLIP 2 Training</td>
+<td>206M (88%)</td>
+<td>Records used in BioCLIP 2 model training</td>
+</tr>
+</tbody>
+</table>
 <h2 id="steps">Steps</h2>
-<p><em>TBD</em></p>
-<h2 id="summary">Summary</h2>
-<p><em>TBD</em></p>
+<h3 id="step-1-open-the-application">Step 1: Open the application</h3>
+<p>Navigate to the live demo:</p>
+<p><strong><a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">BioCLIP Image Search Lite on Hugging Face Spaces</a></strong></p>
+<blockquote>
+<p><strong>Note:</strong> If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.</p>
+</blockquote>
+<p>The interface has three panels:</p>
+<ul>
+<li><strong>Left:</strong> Image upload, search controls (scope, nprobe, top N)</li>
+<li><strong>Middle:</strong> Search results gallery and BioCLIP 2 predictions</li>
+<li><strong>Right:</strong> Detailed view of a selected result (taxonomy, source info)</li>
+</ul>
+<h3 id="step-2-upload-an-image-and-review-predictions">Step 2: Upload an image and review predictions</h3>
+<p>Upload a photo of an organism. As soon as the image loads, BioCLIP 2 generates a <strong>prediction</strong>, its best guess at the taxonomy of the organism. Switch to the <strong>Prediction</strong> tab in the middle panel to see it.</p>
+<p><img alt="Uploading a giraffe image and viewing BioCLIP 2 predictions at different taxonomic ranks." src="../../assets/bioclip-search-upload.png" /></p>
+<p>Try changing the <strong>Taxonomic Rank</strong> dropdown to see predictions at different levels (kingdom, phylum, class, order, family, genus, species). </p>
+<h3 id="step-3-search-for-similar-images">Step 3: Search for similar images</h3>
+<p>Click the <strong>Search</strong> button. The system will:</p>
+<ol>
+<li>Use the BioCLIP 2 embedding from your uploaded image</li>
+<li>Search the FAISS index for the most similar vectors</li>
+<li>Look up metadata for each match</li>
+<li>Fetch the result images from their source URLs</li>
+</ol>
+<p>The gallery displays the most similar biological images found across the database.</p>
+<h3 id="step-4-explore-a-result">Step 4: Explore a result</h3>
+<p>Click on any image in the gallery. The right panel shows the selected image with full taxonomy and source details.</p>
+<p><img alt="Search results for a giraffe image, with a selected result showing taxonomy and source metadata." src="../../assets/bioclip-search-results.png" /></p>
+<p>Details include:</p>
+<ul>
+<li><strong>Taxonomy:</strong> Full classification from kingdom down to species</li>
+<li><strong>Source:</strong> Where the image comes from (GBIF, EOL, etc.) with a direct link to the occurrence record on GBIF if available</li>
+<li><strong>Distance:</strong> How similar the match is (lower = more similar)</li>
+</ul>
+<h3 id="step-5-adjust-search-parameters">Step 5: Adjust search parameters</h3>
+<p><img alt="Search control panel showing scope, nprobe, and top N sliders." src="../../assets/bioclip-search-params.png" /></p>
+<p>Try different settings to see how they affect results:</p>
+<ul>
+<li><strong>Increase Top N</strong> to 50 or 100 to see a wider variety of matches</li>
+<li><strong>Increase nprobe</strong> to 32 or 64 for more thorough (but slower) search</li>
+<li><strong>Change Scope</strong> to "iNaturalist Only" to see only results from iNaturalist's research grade data, or "BioCLIP 2 Training" to limit to images that were used for BioCLIP 2 training. </li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> Adjusting nprobe or top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.</p>
+</blockquote>
+<h2 id="bonus-running-it-yourself">Bonus: Running it yourself</h2>
+<p>A key strength of this system is that FAISS enables sub-second similarity search over 200+ million vectors on commodity hardware, with no GPU required. The entire service can run on a personal laptop, given abundant disk storage.</p>
+<p>Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>, text embeddings from <a href="https://huggingface.co/imageomics/biocap">BioCap</a>, or embeddings from other multi-modality models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.</p>
+<h3 id="compute-artifacts">Compute artifacts</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FAISS index</td>
+<td>~5.5 GB</td>
+<td>234M pre-computed BioCLIP 2 vector embeddings, organized into ~65,000 clusters for fast approximate nearest-neighbor search</td>
+</tr>
+<tr>
+<td>DuckDB metadata</td>
+<td>~14 GB</td>
+<td>Taxonomy, source provenance, and image URLs for all 234M records</td>
+</tr>
+<tr>
+<td>Model weights</td>
+<td>~2.5 GB</td>
+<td>BioCLIP 2 vision model, downloaded automatically on first run from <a href="https://huggingface.co/imageomics/bioclip-2">HuggingFace</a></td>
+</tr>
+<tr>
+<td><strong>Total disk</strong></td>
+<td><strong>~22 GB</strong></td>
+<td>Full deployment footprint</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resource-requirements">Resource requirements</h3>
+<ul>
+<li><strong>No GPU required.</strong> The FAISS search and DuckDB lookup are CPU operations. The BioCLIP 2 embedding step benefits from a GPU (under 1 second vs. ~50 seconds on CPU), but a background server keeps the model loaded so this cost is paid only once.</li>
+<li><strong>RAM:</strong> ~16 GB recommended. The FAISS index and DuckDB are memory-mapped, so actual memory usage is lower than the file sizes suggest.</li>
+<li><strong>Disk:</strong> ~22 GB for all data files and model weights.</li>
+</ul>
+<h3 id="data-availability">Data availability</h3>
+<p>The pre-built FAISS index and DuckDB metadata are available for download from the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">HuggingFace data repository</a>:
+You may access this with the <code>huggingface_hub</code> Python package built-in CLI called <code>hf</code>. (Instructions available <a href="https://huggingface.co/docs/huggingface_hub/en/guides/cli">here</a>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hf<span class="w"> </span>download<span class="w"> </span>imageomics/bioclip-image-search-lite<span class="w"> </span>--local-dir<span class="w"> </span>/path/to/data
+</code></pre></div>
+<h3 id="local-service-in-development">Local service (in development)</h3>
+<p>A command-line tool (<code>bioclip-search</code>) is currently in development to simplify local setup. It will provide:</p>
+<ul>
+<li><strong>CLI search:</strong> <code>bioclip-search photo.jpg</code> for command-line usage with JSON, table, and CSV output containing the image metadata</li>
+<li><strong>Web UI:</strong> The same Gradio interface shown on Hugging Face Spaces, running locally</li>
+<li><strong>Background server:</strong> Keeps the model and index loaded in memory for fast repeated searches</li>
+</ul>
+<p>For the latest status, see the <a href="https://github.com/Imageomics/bioclip-image-search-lite">source code repo</a> on GitHub. </p>
 
 
 
@@ -1203,7 +1640,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","content.code.select","navigation.footer","navigation.indexes","navigation.instant","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.91a19a9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.63456bd9.min.js"></script>
       
     
   </body>
