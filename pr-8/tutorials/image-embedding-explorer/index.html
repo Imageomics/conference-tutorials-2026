@@ -1,0 +1,2077 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hands-on tutorials for Imageomics tools presented at the first Imageomics Conference.">
+      
+      
+      
+        <link rel="canonical" href="https://imageomics.github.io/conference-tutorials-2026/tutorials/image-embedding-explorer/">
+      
+      
+        <link rel="prev" href="../pybioclip/">
+      
+      
+        <link rel="next" href="../sst/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/tools-logo_black.svg">
+      <meta name="generator" content="zensical-0.0.32">
+    
+    
+      
+        <title>Image Embedding Explorer - Designing for Discovery: Shaping Imageomics Tools for Biologists</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.53a7feaf.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#image-embedding-explorer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Designing for Discovery: Shaping Imageomics Tools for Biologists" class="md-header__button md-logo" aria-label="Designing for Discovery: Shaping Imageomics Tools for Biologists" data-md-component="logo">
+      
+  <img src="../../assets/tools-logo_black.svg" alt="Designing for Discovery: Shaping Imageomics Tools for Biologists">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Designing for Discovery: Shaping Imageomics Tools for Biologists
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Image Embedding Explorer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/Imageomics/conference-tutorials-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Imageomics/conference-tutorials-2026
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Designing for Discovery: Shaping Imageomics Tools for Biologists" class="md-nav__button md-logo" aria-label="Designing for Discovery: Shaping Imageomics Tools for Biologists" data-md-component="logo">
+      
+  <img src="../../assets/tools-logo_black.svg" alt="Designing for Discovery: Shaping Imageomics Tools for Biologists">
+
+    </a>
+    Designing for Discovery: Shaping Imageomics Tools for Biologists
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Imageomics/conference-tutorials-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Imageomics/conference-tutorials-2026
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Classification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pybioclip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pybioclip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Embedding Exploration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Image Embedding Exploration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Embedding Explorer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Embedding Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-image-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an image embedding?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-project-to-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why project to 2D?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cluster-on-the-full-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why cluster on the full dimensions?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-this-matter-for-biology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does this matter for biology?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset-darwins-finches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The dataset: Darwin's finches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-load-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Load Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-project-to-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Project to 2D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-color-by-biological-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Color by Biological Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-run-kmeans-and-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run KMeans and Compare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Run KMeans and Compare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-k7-matching-the-7-finch-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try k=7 (matching the 7 finch groups)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-more-k-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try more k values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-inspect-points-and-the-taxonomy-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Inspect Points and the Taxonomy Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-explore-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Explore Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-explore-from-treeoflife-200m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Explore from TreeOfLife-200M
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Explore from TreeOfLife-200M">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-freshwater-vs-saltwater-fish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: freshwater vs saltwater fish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-query-ideas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More query ideas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-in-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load in the app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chart-interaction-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart Interaction Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Credits
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segmentation & Known Trait Extraction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Segmentation & Known Trait Extraction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpretability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interpretability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt-cam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt-CAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finer-cam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finer-CAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Similarity Search & Discovery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Similarity Search & Discovery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bioclip-search-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BioCLIP Search Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sae/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-image-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an image embedding?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-project-to-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why project to 2D?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-cluster-on-the-full-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why cluster on the full dimensions?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-does-this-matter-for-biology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does this matter for biology?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset-darwins-finches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The dataset: Darwin's finches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-load-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Load Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-project-to-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Project to 2D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-color-by-biological-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Color by Biological Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-run-kmeans-and-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run KMeans and Compare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Run KMeans and Compare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-k7-matching-the-7-finch-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try k=7 (matching the 7 finch groups)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-more-k-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try more k values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-inspect-points-and-the-taxonomy-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Inspect Points and the Taxonomy Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-explore-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Explore Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-explore-from-treeoflife-200m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Explore from TreeOfLife-200M
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Explore from TreeOfLife-200M">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-freshwater-vs-saltwater-fish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: freshwater vs saltwater fish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-query-ideas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More query ideas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-in-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load in the app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chart-interaction-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart Interaction Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Credits
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="image-embedding-explorer">Image Embedding Explorer</h1>
+<blockquote>
+<p>Explore image embeddings interactively. Try different projections, cluster with KMeans, and see which images group together or apart.</p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this tutorial, you will be able to:</p>
+<ol>
+<li>Load precomputed image embeddings into the Precalculated Embeddings Explorer, apply cascading metadata filters, and project them to 2D with UMAP, t-SNE, or PCA.</li>
+<li>Color the scatter plot by biological labels (species, genus, ecological group) to visually assess whether a model's embedding space reflects known biological structure.</li>
+<li>Run KMeans clustering on the full high-dimensional embeddings and compare the resulting groups against ground-truth metadata.</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><strong>Python version:</strong> &gt;= 3.10</li>
+<li><strong>Packages:</strong> Installed automatically via <code>uv pip install</code> (see Setup).</li>
+<li><strong>Data:</strong> A curated Darwin's finches dataset will be provided. An example dataset (<code>data/example_1k.parquet</code>) also ships with the repository.</li>
+<li><strong>Prior knowledge:</strong> Basic comfort with a terminal. No machine learning background required; we explain embeddings as we go.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>In the <a href="https://de.cyverse.org/dashboard">CyVerse Discovery Environment</a>, launch <strong>Jupyter Lab PyTorch GPU</strong>.</p>
+<p>Wait for "Launching VICE app: jupyter-lab-pytorch-gpu" to complete.</p>
+<p>Click <strong>Terminal</strong> to open a new terminal session. This should place you in <code>~/data-store</code>.</p>
+<p>Clone the repository:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Imageomics/emb-explorer.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>emb-explorer
+</code></pre></div>
+<p>Install <a href="https://docs.astral.sh/uv/">uv</a> for fast environment setup:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/.local/bin/env
+</code></pre></div>
+<p>Create and activate a virtual environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+<p>Install the package with GPU support (CUDA 13.x on CyVerse):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[gpu-cu13]&quot;</span>
+</code></pre></div>
+<p>Launch the <strong>Precalculated Embeddings Explorer</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>streamlit<span class="w"> </span>run<span class="w"> </span>apps/precalculated/app.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--server.headless<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--server.enableCORS<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--server.enableXsrfProtection<span class="w"> </span><span class="nb">false</span>
+</code></pre></div>
+<p>Open the app in your browser: in your JupyterLab URL bar, note the prefix (e.g., <code>a12345abc</code> from <code>https://a12345abc.cyverse.run/lab</code>). In a new tab, navigate to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>https://&lt;your-prefix&gt;.cyverse.run/proxy/8501/
+</code></pre></div>
+<p>You should see the app UI.</p>
+<h2 id="background">Background</h2>
+<h3 id="what-is-an-image-embedding">What is an image embedding?</h3>
+<p>A vision model like <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a> looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called <strong>embeddings</strong>.</p>
+<p>For example, using <a href="https://imageomics.github.io/pybioclip/">pybioclip</a> you can generate an embedding for a single image in a few lines:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">bioclip</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreeModel</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">TreeModel</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">create_image_features_for_image</span><span class="p">(</span><span class="s2">&quot;finch.jpg&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">embedding</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">embedding</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>torch.Size([1, 768])
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>tensor([-0.0312,  0.0198,  0.0451, -0.0287,  0.0103])
+</code></pre></div>
+<p>The Image Embedding Explorer does this at scale for hundreds or thousands of images, then lets you visualize and cluster the results interactively.</p>
+<h3 id="why-project-to-2d">Why project to 2D?</h3>
+<p>We can't plot 768 dimensions on a screen. Dimensionality reduction methods (PCA, t-SNE, UMAP) compress those 768 numbers down to just x and y coordinates while trying to keep similar points close together. The resulting scatter plot shows the model's "view" of your data.</p>
+<h3 id="why-cluster-on-the-full-dimensions">Why cluster on the full dimensions?</h3>
+<p>KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may look overlapping in 2D, but they're genuinely distinct in the full space.</p>
+<h3 id="why-does-this-matter-for-biology">Why does this matter for biology?</h3>
+<p>If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, it suggests that the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings <em>disagree</em> is often where the interesting biology is.</p>
+<h3 id="the-dataset-darwins-finches">The dataset: Darwin's finches</h3>
+<p>For this tutorial we use a curated set of <strong>677 images spanning 17 species</strong> of Darwin's finches, the iconic Galápagos adaptive radiation. The images are drawn from <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M</a> and embedded with <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>.</p>
+<p>Each image carries taxonomic metadata (kingdom through species) plus a <strong>finch group</strong> label, the ecological/functional grouping that reflects how these finches diversified:</p>
+<table>
+<thead>
+<tr>
+<th>Finch group</th>
+<th style="text-align: right;">Species</th>
+<th style="text-align: right;">Images</th>
+<th>What they do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ground finches</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">180</td>
+<td>Seed-crushing beaks of varying sizes</td>
+</tr>
+<tr>
+<td>Tree finches</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">145</td>
+<td>Insect-probing beaks; includes the tool-using woodpecker finch</td>
+</tr>
+<tr>
+<td>Cactus finches</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">133</td>
+<td>Long beaks for cactus flowers and fruit</td>
+</tr>
+<tr>
+<td>Warbler finches</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">100</td>
+<td>Thin beaks for small insects; the most ancestral-looking</td>
+</tr>
+<tr>
+<td>Cocos finch</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">50</td>
+<td>Only finch on Cocos Island, 600 km from Galápagos</td>
+</tr>
+<tr>
+<td>Vegetarian finch</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">50</td>
+<td>Parrot-like beak for buds and fruit</td>
+</tr>
+<tr>
+<td>Vampire finch</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19</td>
+<td>Feeds on the blood of boobies (yes, really lol)</td>
+</tr>
+</tbody>
+</table>
+<p>These 7 groups span 5 genera (<em>Geospiza</em>, <em>Camarhynchus</em>, <em>Certhidea</em>, <em>Platyspiza</em>, <em>Pinaroloxias</em>). The question we'll explore: <strong>does BioCLIP 2's embedding space reflect these ecological groupings?</strong></p>
+<p>Here is one representative image from each group. Pay attention to differences in beak shape, body size, and plumage across the groups:</p>
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/108093646/original.jpg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/108093646/original.jpg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/108093646/original.jpg"><b>Ground finch</b></a><br>
+      <sub><i>Geospiza fortis</i><br>Stout, seed-crushing beak</sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/81257149/original.jpeg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/81257149/original.jpeg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/81257149/original.jpeg"><b>Tree finch</b></a><br>
+      <sub><i>Camarhynchus parvulus</i><br>Small insect-probing beak</sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/38290777/original.jpg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/38290777/original.jpg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/38290777/original.jpg"><b>Cactus finch</b></a><br>
+      <sub><i>Geospiza scandens</i><br>Elongated beak for cactus flowers</sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/142041942/original.jpeg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/142041942/original.jpeg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/142041942/original.jpeg"><b>Warbler finch</b></a><br>
+      <sub><i>Certhidea olivacea</i><br>Thin beak for small insects</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/347677121/original.jpeg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/347677121/original.jpeg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/347677121/original.jpeg"><b>Cocos finch</b></a><br>
+      <sub><i>Pinaroloxias inornata</i><br>Only finch on Cocos Island</sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/44704043/original.jpg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/44704043/original.jpg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/44704043/original.jpg"><b>Vegetarian finch</b></a><br>
+      <sub><i>Platyspiza crassirostris</i><br>Parrot-like beak for buds and fruit</sub>
+    </td>
+    <td align="center" width="25%">
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/67970634/original.jpeg"><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/67970634/original.jpeg" height="400"></a><br>
+      <a href="https://inaturalist-open-data.s3.amazonaws.com/photos/67970634/original.jpeg"><b>Vampire finch</b></a><br>
+      <sub><i>Geospiza septentrionalis</i><br>Sharp beak; feeds on booby blood</sub>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
+<p>See <a href="#image-credits">Image Credits</a> for licensing and attribution.</p>
+<h2 id="step-1-load-data">Step 1: Load Data</h2>
+<p>In the app sidebar, expand <strong>Load Parquet</strong> and enter the path to the Darwin's finches dataset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>data/darwin_finches.parquet
+</code></pre></div>
+<p>Click <strong>Load File</strong>. You should see:</p>
+<blockquote>
+<p>Loaded 677 records with N filterable columns</p>
+</blockquote>
+<p>The filter panel will show the available metadata columns. You can optionally narrow to a single genus or finch group, but for this walkthrough we'll keep all 677 images.</p>
+<h2 id="step-2-project-to-2d">Step 2: Project to 2D</h2>
+<p>Expand <strong>Project to 2D</strong>. Select <strong>UMAP</strong>. Check <strong>Use fixed seed</strong> and set the seed to <strong>614</strong> so your layout matches the screenshots in this tutorial. Click <strong>Project to 2D</strong>.</p>
+<p>A scatter plot appears. Each dot is one finch image, positioned by how BioCLIP 2 "sees" it. Points that are close together have similar embeddings. At this stage the dots are all one color because we haven't told the app how to label them yet.</p>
+<p><img alt="UMAP projection with no coloring" src="../../assets/finches/2D_projection_no_color.png" /></p>
+<h2 id="step-3-color-by-biological-labels">Step 3: Color by Biological Labels</h2>
+<p>Use the <strong>Color by</strong> dropdown above the scatter plot. Select <code>finch_group</code>.</p>
+<p>The scatter is now colored by the 7 ecological groups listed above.</p>
+<p><img alt="UMAP colored by finch group" src="../../assets/finches/color_by_finches.png" /></p>
+<p>Look for clusters and patterns. Some things to consider as you explore:</p>
+<ul>
+<li>Which finch groups form distinct, tight clusters? Which overlap with others?</li>
+<li>Recall from the images above that ground finches, tree finches, and cactus finches have relatively similar body plans compared to the warbler finch or vegetarian finch. Does the embedding space reflect that?</li>
+<li>The ground finches (<em>Geospiza</em>) and cactus finches (<em>Geospiza</em>) share a genus. The tree finches (<em>Camarhynchus</em>) are a separate genus. Can you see this in the layout?</li>
+</ul>
+<p>Now try coloring by <code>genus</code>, then by <code>species</code>. Each level reveals finer structure. Some closely related species (<em>G. fortis</em> and <em>G. fuliginosa</em>, for example) are famously hard to distinguish visually, and the embeddings may reflect that.</p>
+<p><img alt="UMAP colored by species" src="../../assets/finches/color_by_species.png" /></p>
+<h2 id="step-4-run-kmeans-and-compare">Step 4: Run KMeans and Compare</h2>
+<p>Expand <strong>KMeans Clustering</strong>. You'll see "677 points (768-dim embeddings)", confirming that clustering happens in the full embedding space, not the 2D projection.</p>
+<h3 id="try-k7-matching-the-7-finch-groups">Try k=7 (matching the 7 finch groups)</h3>
+<p>Set the number of clusters to <strong>7</strong> and click <strong>Run KMeans</strong>.</p>
+<p>Switch the Color by dropdown to <strong>KMeans (k=7)</strong>. The scatter is now colored by the algorithm's unsupervised groupings.</p>
+<p>Now switch Color by back to <code>finch_group</code> and compare. Try different values of k and see how the groupings change. Do they align with the ecological labels? Where do they diverge? There's no single right answer here.</p>
+<p><img alt="KMeans k=7 colored by cluster" src="../../assets/finches/color_by_kmeans_finches_count.png" /></p>
+<h3 id="try-more-k-values">Try more k values</h3>
+<p>Run KMeans again with <strong>k=17</strong> (the number of species) or <strong>k=5</strong> (the number of genera). Each run appears as a separate entry in the Color by dropdown, so you can toggle between them without losing previous results.</p>
+<p><img alt="KMeans k=17 derived from species count" src="../../assets/finches/color_by_kmeans_species_count.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Color limit</p>
+<p>The app uses up to 20 distinct colors. If k exceeds 20, colors will repeat and clusters become hard to distinguish. When that happens, try filtering to a subset of the data first.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Deriving k from your data</p>
+<p>Select "From column" and choose a categorical column like <code>finch_group</code>. The app sets k to the number of unique values in that column, which is a natural starting point for comparison.</p>
+</div>
+<h2 id="step-5-inspect-points-and-the-taxonomy-tree">Step 5: Inspect Points and the Taxonomy Tree</h2>
+<p><strong>Click any point</strong> on the scatter plot. The right panel shows the image itself (fetched from the source URL in the metadata) along with all metadata fields: species, genus, finch group, publisher, basis of record, and more.</p>
+<p><img alt="Clicking a point to view record details" src="../../assets/finches/click_point.png" /></p>
+<p>Try clicking points in different parts of the scatter. Compare what you see in the image with where the point is positioned. Are nearby points visually similar? Do outliers look different from their neighbors?</p>
+<p>Scroll to the bottom for the <strong>Taxonomic Distribution</strong> panel. Use "Group by" to select a KMeans run, and "Cluster" to drill into a single cluster. The tree shows the biological composition of that cluster: which species and genera ended up grouped together.</p>
+<p><img alt="Taxonomic Distribution panel" src="../../assets/finches/taxonomic_distribution.png" /></p>
+<h2 id="step-6-explore-further">Step 6: Explore Further</h2>
+<p>A few prompts for further exploration:</p>
+<ul>
+<li>
+<p><strong>Compare projection methods.</strong> Re-project with PCA and then t-SNE. The three methods use different algorithms with default parameters (see <a href="https://github.com/Imageomics/emb-explorer">source code</a> for details). Try each one and notice how the layout changes. Which one separates the finch groups most clearly?</p>
+</li>
+<li>
+<p><strong>Filter, then re-project.</strong> Filter to only the <em>Geospiza</em> genus (the 8 species of ground, cactus, and vampire finches). Re-project with UMAP. Species-level structure that was hidden in the full dataset should become much clearer.</p>
+</li>
+<li>
+<p><strong>Try a biological question.</strong> Run KMeans with k=2 on the <em>Geospiza</em> subset. Color by <code>finch_group</code> to see what axis the algorithm finds.</p>
+</li>
+</ul>
+<h2 id="step-7-explore-from-treeoflife-200m">Step 7: Explore from TreeOfLife-200M</h2>
+<p>The <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M-Embeddings">TreeOfLife-200M-Embeddings</a> dataset contains precomputed BioCLIP 2 embeddings covering the full <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M</a> image collection. You can query it remotely using <a href="https://duckdb.org/">DuckDB</a> to extract embeddings for any taxon, save the result as a parquet file, and load it directly into the Precalculated Embeddings Explorer.</p>
+<h3 id="setup_1">Setup</h3>
+<p>Install DuckDB and authenticate with Hugging Face:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>duckdb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">duckdb</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Authenticate with your Hugging Face token (required for dataset access)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Option 1: from environment variable</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CREATE SECRET (TYPE HUGGINGFACE, TOKEN &#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HF_TOKEN&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Option 2: if you&#39;ve logged in with `huggingface-cli login`</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># import huggingface_hub</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># con.execute(f&quot;CREATE SECRET (TYPE HUGGINGFACE, TOKEN &#39;{huggingface_hub.get_token()}&#39;)&quot;)</span>
+</code></pre></div>
+<h3 id="example-freshwater-vs-saltwater-fish">Example: freshwater vs saltwater fish</h3>
+<p>The BioCLIP 2 paper shows that the model's embedding space separates freshwater fish from saltwater fish. We can try to recreate this by querying embeddings for two fish families known to occupy different habitats, adding a <code>habitat</code> label, and saving a balanced sample as a single parquet:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">glob</span> <span class="o">=</span> <span class="s2">&quot;hf://datasets/imageomics/TreeOfLife-200M-Embeddings/bioclip-2_float16/*.parquet&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Freshwater family: Cichlidae (cichlids) — ~32k images in the dataset</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Saltwater family: Labridae (wrasses) — ~111k images in the dataset</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Take 1000 from each for a balanced, manageable dataset</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="s2">    COPY (</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="s2">        WITH freshwater AS (</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="s2">            SELECT *, &#39;freshwater&#39; AS habitat</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="s2">            FROM read_parquet(&#39;</span><span class="si">{</span><span class="n">glob</span><span class="si">}</span><span class="s2">&#39;)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="s2">            WHERE family = &#39;Cichlidae&#39;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="s2">            LIMIT 1000</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="s2">        ),</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="s2">        saltwater AS (</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="s2">            SELECT *, &#39;saltwater&#39; AS habitat</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="s2">            FROM read_parquet(&#39;</span><span class="si">{</span><span class="n">glob</span><span class="si">}</span><span class="s2">&#39;)</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="s2">            WHERE family = &#39;Labridae&#39;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="s2">            LIMIT 1000</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="s2">        )</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="s2">        SELECT * FROM freshwater</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="s2">        UNION ALL</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="s2">        SELECT * FROM saltwater</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="s2">    ) TO &#39;freshwater_vs_saltwater.parquet&#39;</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Load <code>freshwater_vs_saltwater.parquet</code> in the app, project with UMAP, and color by <code>habitat</code>. Do the two groups separate? Now try coloring by <code>genus</code> or <code>species</code> to see finer structure within each habitat group.</p>
+<div class="admonition note">
+<p class="admonition-title">SQL reserved words</p>
+<p>The columns <code>order</code> and <code>class</code> are SQL reserved words. Always quote them in queries: <code>"order"</code>, <code>"class"</code>.</p>
+</div>
+<h3 id="more-query-ideas">More query ideas</h3>
+<p>You can query by any column in the dataset: taxonomy (<code>kingdom</code> through <code>species</code>), <code>basisOfRecord</code>, <code>img_type</code>, <code>publisher</code>, and more. See the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M-Embeddings">dataset card</a> for the full schema.</p>
+<p>For larger taxa, add a <code>LIMIT</code> or filter further to keep the dataset manageable, or just download the whole thing and filter down as needed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Get up to 2000 Lepidoptera embeddings from human observations only</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s2">    COPY (</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s2">        SELECT *</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s2">        FROM read_parquet(&#39;</span><span class="si">{</span><span class="n">glob</span><span class="si">}</span><span class="s2">&#39;)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s2">        WHERE &quot;order&quot; = &#39;Lepidoptera&#39;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s2">          AND &quot;basisOfRecord&quot; = &#39;HUMAN_OBSERVATION&#39;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s2">        LIMIT 2000</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s2">    ) TO &#39;lepidoptera_2k.parquet&#39;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="load-in-the-app">Load in the app</h3>
+<p>Back in the Precalculated Embeddings Explorer, enter the path to your downloaded parquet and click <strong>Load File</strong>. Then project, color, and cluster as before.</p>
+<!-- TODO: Add a section covering the Embed & Explore app (apps/embed_explore) for generating embeddings from a local image folder using BioCLIP 2. -->
+
+<h2 id="chart-interaction-tips">Chart Interaction Tips</h2>
+<p>The scatter plot is built with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a> via <a href="https://altair-viz.github.io/">Altair</a>. Here are the key interactions:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zoom in</strong></td>
+<td>Scroll wheel up on the chart</td>
+</tr>
+<tr>
+<td><strong>Zoom out</strong></td>
+<td>Scroll wheel down</td>
+</tr>
+<tr>
+<td><strong>Pan</strong></td>
+<td>Click and drag on the chart background</td>
+</tr>
+<tr>
+<td><strong>Reset zoom</strong></td>
+<td>Double-click on the chart background</td>
+</tr>
+<tr>
+<td><strong>Select a point</strong></td>
+<td>Single-click on a data point (opens details in the right panel)</td>
+</tr>
+<tr>
+<td><strong>Save chart as PNG</strong></td>
+<td>Click the <strong>"..."</strong> menu in the top-right corner of the chart, then select "Save as PNG"</td>
+</tr>
+<tr>
+<td><strong>View chart data</strong></td>
+<td>Same <strong>"..."</strong> menu, select "View Source" to inspect the underlying data</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App doesn't load in the browser</td>
+<td>Check that you replaced <code>&lt;your-prefix&gt;</code> with your JupyterLab URL prefix. The full URL should look like <code>https://a12345abc.cyverse.run/proxy/8501/</code>.</td>
+</tr>
+<tr>
+<td>"Missing required 'uuid' column"</td>
+<td>Your parquet doesn't match the expected schema. See the <a href="https://github.com/Imageomics/emb-explorer/blob/main/docs/DATA_FORMAT.md">data format docs</a>.</td>
+</tr>
+<tr>
+<td>UMAP/t-SNE is very slow</td>
+<td>Try PCA first (instant). If you need nonlinear structure, filter to a smaller subset before projecting. On CPU, UMAP on 10k+ points can take a minute.</td>
+</tr>
+<tr>
+<td>Image preview shows nothing</td>
+<td>The <code>identifier</code> column may be missing, null, or the URL may be unreachable. The scatter and clustering still work without it.</td>
+</tr>
+<tr>
+<td>Port 8501 already in use</td>
+<td>Another Streamlit app is running. Stop it first, or launch on a different port: <code>--server.port 8502</code>.</td>
+</tr>
+<tr>
+<td>GPU out of memory</td>
+<td>Filter to a smaller dataset, or select <code>sklearn</code> as the backend in the sidebar.</td>
+</tr>
+<tr>
+<td>Blank page after long idle</td>
+<td>CyVerse may time out the proxy. Refresh the browser tab.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="image-credits">Image Credits</h2>
+<p>Representative finch images used in this tutorial are from <a href="https://www.inaturalist.org/">iNaturalist</a> observations included in the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M</a> dataset. All images are used under their respective Creative Commons licenses.</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Species</th>
+<th>Photographer</th>
+<th>License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/108093646/original.jpg">Ground finch</a></td>
+<td><em>Geospiza fortis</em></td>
+<td>ajott</td>
+<td><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/81257149/original.jpeg">Tree finch</a></td>
+<td><em>Camarhynchus parvulus</em></td>
+<td>iNaturalist user</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/38290777/original.jpg">Cactus finch</a></td>
+<td><em>Geospiza scandens</em></td>
+<td>iNaturalist user</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/142041942/original.jpeg">Warbler finch</a></td>
+<td><em>Certhidea olivacea</em></td>
+<td>John G. Phillips</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/347677121/original.jpeg">Cocos finch</a></td>
+<td><em>Pinaroloxias inornata</em></td>
+<td>Dwight Baker</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/44704043/original.jpg">Vegetarian finch</a></td>
+<td><em>Platyspiza crassirostris</em></td>
+<td>bryncel</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+<tr>
+<td><a href="https://inaturalist-open-data.s3.amazonaws.com/photos/67970634/original.jpeg">Vampire finch</a></td>
+<td><em>Geospiza septentrionalis</em></td>
+<td>Andrés León-Reyes</td>
+<td><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pybioclip/" class="md-footer__link md-footer__link--prev" aria-label="Previous: pybioclip">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                pybioclip
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sst/" class="md-footer__link md-footer__link--next" aria-label="Next: SST">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                SST
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Imageomics Institute
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","content.code.select","navigation.footer","navigation.indexes","navigation.instant","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.91a19a9e.min.js"></script>
+      
+    
+  </body>
+</html>
