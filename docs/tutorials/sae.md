@@ -129,7 +129,7 @@ uv run launch.py train --n-train 10000 --n-val 10 --runs-root ./saev/runs/ --tra
 Notes:
 
 - Use the shard path from the previous step.
-- Training produces a run folder under `./runs`. This folder typically has the
+- Training produces a run folder under `./runs`. The provided training command will not produce any output, but we have provided two trained SAEs for visualization. In practice, run data will automatically be output to folders inside this folder.
 
 
 ### Pareto analysis (optional)
