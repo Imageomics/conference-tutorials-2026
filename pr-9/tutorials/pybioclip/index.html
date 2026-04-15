@@ -491,15 +491,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#cli-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        CLI Examples
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="CLI Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -545,6 +545,23 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API examples">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#interpretability-methods" class="md-nav__link">
@@ -1109,15 +1126,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#cli-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        CLI Examples
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="CLI Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1163,6 +1180,23 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API examples">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#interpretability-methods" class="md-nav__link">
@@ -1298,8 +1332,8 @@ with contents:
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>Ursus-arctos.jpeg
 </code></pre></div></p>
 <h2 id="background">Background</h2>
-<p><em>TBD</em> : What is a Foundation Model?</p>
-<h2 id="steps">Steps</h2>
+<p>A foundation model is a large model trained on broad data that can be adapted to many downstream tasks without task-specific training. BioCLIP is a foundation model for biology: trained on millions of organism images paired with taxonomic labels, it learns general visual representations of the living world that can be applied to classification, embedding, and retrieval out of the box.</p>
+<h2 id="cli-examples">CLI Examples</h2>
 <h3 id="classify-focal-species-in-images">Classify Focal Species in Images</h3>
 <p><code>pybioclip</code> allows us to use BioCLIP models efficiently to classify the focal species:</p>
 <ul>
@@ -1408,39 +1442,35 @@ https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
 Follow here:
 https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-list-of-classes
 -->
-
+<p>You may also specify a list of classes (labels) that you would like the model to select among:</p>
+<p>For example, you will likely see improved accuracy by selecting a subset of options that you believe is most relevant to the image contents rather than the entire tree of life. The classes can be any text label:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--cls<span class="w"> </span>cat,bird,bear<span class="w"> </span>pybioclip/images/Ursus-arctos.jpeg
+</code></pre></div></p>
 <h3 id="classify-focal-species-from-a-subset-of-treeoflife-taxa">Classify Focal Species from a Subset of TreeOfLife Taxa</h3>
-<p>First, one may ask what taxa are available:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>bioclip<span class="w"> </span>list-tol-taxa<span class="w"> </span>&gt;<span class="w"> </span>BioCLIP-2-taxa.txt
+<p>To find what taxa are available for open-ended classification:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>bioclip<span class="w"> </span>list-tol-taxa<span class="w"> </span>&gt;<span class="w"> </span>BioCLIP-2-taxa.txt
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can specify the model of interest, e.g., for the original BioCLIP model with <code>--model hf-hub:imageomics/bioclip</code> before the carat.</p>
 </div>
-<!--
-Follow here (use Colab):
-https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
--->
-
+<h2 id="python-api-examples">Python API examples</h2>
+<p>To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.</p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife">https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
+</a></p>
 <h3 id="interpretability-methods">Interpretability Methods</h3>
-<!--
-Follow here (use Colab):
-https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
--->
-<ul>
-<li>note on more advanced/more finely discriminative methods later</li>
-</ul>
+<p>Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.</p>
+<p>For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:</p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam">https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
+</a></p>
 <h3 id="advanced-topics">Advanced Topics</h3>
-<p>Building on the topics covered today, ...</p>
-<!--
-Follow here (Colab notebooks):
-If there's time/Next steps/Learn more
-https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
--->
-
-<p><em>TBD</em></p>
+<p>You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.</p>
+<p>To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.</p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers">https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
+</a></p>
 <h2 id="summary">Summary</h2>
-<p><em>TBD</em></p>
+<p>pybioclip is a fast way to get started with a strong set of models: species classification, embeddings, and interpretability, all without writing any model code. As we saw in the notebooks, even a simple SVM on top of these embeddings can substantially improve results for specific use cases.
+When you need more control, the natural next step is working directly with PyTorch and the model internals. But pybioclip is a great place to gain momentum quickly, and, depending on the application, possibly serve as a complete solution.</p>
 
 
 
