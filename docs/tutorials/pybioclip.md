@@ -110,7 +110,7 @@ A foundation model is a large model trained on broad data that can be adapted to
 `pybioclip` allows us to use BioCLIP models efficiently to classify the focal species:
 
 - in an individual image
-- in a groups of images
+- in a group of images
 - view prediction outputs in the terminal
 - save those predictions to a file
 
@@ -193,7 +193,7 @@ pybioclip/images/Ursus-arctos.jpeg,Animalia,Chordata,Mammalia,Carnivora,Ursidae,
 Follow here:
 https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
 -->
-An embedding can be thought of as a model's conception of an image. It is simply a vector in high-dimensional space that encodes the model's perception of the image's features based on what it has learned during training.
+An embedding is a numeric vector in high-dimensional space. It can be thought of as a model's conception of an image, such as it encodes the model's perception of the image's features based on what it has learned during training.
 
 Calculate the BioCLIP embeddings for each of the images at-hand:
 ```bash
@@ -257,18 +257,14 @@ bioclip list-tol-taxa > BioCLIP-2-taxa.txt
 ## Python API examples
 To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.
 
-[https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
-](https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
-)
+<https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife>
 
 ### Interpretability Methods
 Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.
 
 For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:
 
-[https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
-](https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
-)
+<https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam>
 
 ### Advanced Topics
 
@@ -276,9 +272,7 @@ You may notice examples where pybioclip gets the prediction wrong. Occasionally,
 
 To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.
 
-[https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
-](https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
-)
+<https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers>
 
 ## Summary
 
