@@ -1377,9 +1377,6 @@
 <p>Create a virtual environment with an appropriate Python version:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv sync
 </code></pre></div></p>
-<p>In your brower's URL bar, you will see something like "https://a12345abc.cyverse.run/lab". Note the prefix "a12345abc".</p>
-<p>In another browser tab, paste "https://placeholder.cyverse.run/proxy/8501/" (it will be 404 Not Found for now).</p>
-<p>Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example). For now, this page will still not work, but it will load once we run the visualization app later in this demo.</p>
 <h2 id="background">Background</h2>
 <h3 id="what-is-an-embedding">What is an embedding?</h3>
 <p>An embedding is a numeric summary of an image (or part of an image).</p>
@@ -1440,9 +1437,15 @@
 </code></pre></div>
 <h3 id="visualization">Visualization</h3>
 <p>Finally, we can visualize the SAE features on our input dataset. To start the Streamlit visualization app:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>uv<span class="w"> </span>run<span class="w"> </span>streamlit<span class="w"> </span>run<span class="w"> </span>demo/fish_feature_vis.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>uv<span class="w"> </span>run<span class="w"> </span>streamlit<span class="w"> </span>run<span class="w"> </span>demo/feature_vis.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--server.headless<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--server.enableCORS<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--server.enableXsrfProtection<span class="w"> </span><span class="nb">false</span>
 </code></pre></div>
-<p>At the address for the visualization app (directions for obtaining this address can be found towards the top of this tutorial), the app will now load after a moment.</p>
+<p>At the address for the visualization app, the app will now load after a moment.</p>
+<p>In your brower's URL bar, you will see something like "https://a12345abc.cyverse.run/lab". Note the prefix "a12345abc".</p>
+<p>In another browser tab, paste "https://placeholder.cyverse.run/proxy/8501/" (it will be 404 Not Found for now).</p>
+<p>Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example). For now, this page will still not work, but it will load once we run the visualization app later in this demo.</p>
 <p>In the app, you can see several fields to the left that can be modified to visualize SAE features for different SAE models on the Fish-Vista subset. First, use the default settings and press the "Generate visualization" button. This will calculate the SAE features for each image patch and overlay them on top of the input images. Bright yellow means that a feature has a high value for that patch, while a faint purple or no highlight means that the feature does not activate highly for that patch.</p>
 <p>Interpretation tips:</p>
 <ul>
