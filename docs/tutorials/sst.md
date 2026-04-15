@@ -17,9 +17,91 @@ By the end of this tutorial, you will be able to:
 
 ## Setup
 
-This is optional (see **Prerequisites**). Follow the steps below to install X-AnyLabeling on your local machine.
+You can either install X-AnyLabeling in CyVerse or on your local machine.
 
-### Option 1: Install from source (for GPU-enabled machine)
+### 1. Using CyVerse
+
+Follow the steps below to install SST and X-AnyLabeling in CyVerse.
+
+**Step 0:** In the [CyVerse Discovery Environment](https://de.cyverse.org/dashboard), launch **Jupyter Lab PyTorch GPU**. Click "Go to Analysis" and wait for "Launching VICE app: jupyter-lab-pytorch-gpu" to complete.
+
+**Step 1:** Click **Terminal** to open a new terminal session. This should place you in `~/data-store`. Create a working directory for fast local I/O:
+
+```bash
+mkdir this-session
+cd this-session
+```
+
+**Step 2:** Install `uv` for fast environment setup:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
+```
+
+**Step 3:** Create and activate a virtual environment:
+
+```bash
+uv venv --python 3.12
+source .venv/bin/activate
+```
+
+**Step 4:** Clone and install SST:
+
+```bash
+git clone https://github.com/Imageomics/SST
+cd SST
+export CUDA_HOME=/usr/local/cuda
+uv pip install -e .
+cd ..
+```
+
+**Step 5:** Clone and install SAM 2:
+
+```bash
+git clone https://github.com/CVHub520/segment-anything-2
+cd segment-anything-2
+uv pip install -e .
+cd ..
+```
+
+**Step 6:** Clone and install X-AnyLabeling:
+
+```bash
+git clone https://github.com/CVHub520/X-AnyLabeling
+cd X-AnyLabeling
+uv pip install -e ".[gpu]"
+cd ..
+```
+
+**Step 7:** Set up noVNC for browser access:
+
+```bash
+git clone https://github.com/novnc/noVNC
+```
+
+**Step 8:** Launch X-AnyLabeling:
+
+```bash
+QT_QPA_PLATFORM="vnc:size=1920x1080" xanylabeling &
+sleep 2
+cd noVNC
+./utils/novnc_proxy --listen 6080 --vnc localhost:5900
+```
+
+**Step 9:** Open in your browser: take the prefix from your JupyterLab URL (e.g., `a2e70e809` from `https://a2e70e809.cyverse.run/lab`) and navigate to:
+
+```bash
+https://<your-prefix>.cyverse.run/proxy/6080/vnc.html
+```
+
+**Step 10:** In the noVNC side panel on the left, select `Gear icon -> Scaling mode -> Local scaling` to adjust the resolution.
+
+### 2. Installing locally
+
+Follow the steps below to install X-AnyLabeling on your local machine.
+
+#### Option 1: Install from source (for GPU-enabled machine)
 
 **Step 0:** If you do not have Conda, download and install Miniconda from the [official website](https://docs.anaconda.com/miniconda/).
 
@@ -75,7 +157,7 @@ xanylabeling checks   # Display system and version information
 xanylabeling
 ```
 
-### Option 2: Download released package
+#### Option 2: Download released package
 
 Download a released package from [GitHub Releases](https://github.com/CVHub520/X-AnyLabeling/releases) and run it directly. It is CPU-only and may be slower when running.
 
