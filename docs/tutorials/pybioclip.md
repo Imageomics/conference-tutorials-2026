@@ -144,6 +144,10 @@ pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocida
 Subsequent predictions are comparatively quicker:
 ```bash
 bioclip predict pybioclip/images/Sarcoscypha-coccinea.jpeg 
+```
+
+Which yields:
+```console
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04<00:00,  4.59s/images]
