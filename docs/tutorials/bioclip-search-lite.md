@@ -23,11 +23,11 @@ By the end of this tutorial, you will be able to:
 
 At this point you probably have already heard of or used the biological foundation model [BioCLIP 2](https://imageomics.github.io/bioclip-2/). 
 
-BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from a database of 200M+ biological images. The service is hosted on [Hugging Face Spaces](https://huggingface.co/spaces/imageomics/bioclip-image-search-lite) and open-sourced at [Imageomics/bioclip-image-search-lite](https://github.com/Imageomics/bioclip-image-search-lite).
+BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from the 200M+ biological images in the TreeOfLife-200M dataset. This service is hosted on [Hugging Face Spaces](https://huggingface.co/spaces/imageomics/bioclip-image-search-lite) and open-sourced at [Imageomics/bioclip-image-search-lite](https://github.com/Imageomics/bioclip-image-search-lite).
 
-It is "lite" because it does not store or distribute images. Instead, it relies on the URIs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.
+It is "lite" because it does not store or distribute images. Instead, it relies on the URLs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.
 
-The images come from the [TreeOfLife-200M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-200M), which aggregates records from sources like [GBIF](https://www.gbif.org/) (including iNaturalist observations), the [Encyclopedia of Life](https://eol.org/), and others. For full details on data sources and licensing information, see the [dataset card](https://huggingface.co/imageomics/bioclip-image-search-lite).
+The images come from the [TreeOfLife-200M dataset](https://huggingface.co/datasets/imageomics/TreeOfLife-200M), which aggregates records from [GBIF](https://www.gbif.org/) (including iNaturalist observations), the [Encyclopedia of Life](https://eol.org/), [BIOSCAN-5M](https://github.com/bioscan-ml/BIOSCAN-5M), and [FathomNet](https://www.fathomnet.org/). For more detailed information about the data and licensing, see the [application dataset card](https://huggingface.co/imageomics/bioclip-image-search-lite).
 
 ### How does it work?
 
@@ -35,9 +35,9 @@ The images come from the [TreeOfLife-200M dataset](https://huggingface.co/datase
 Upload image --> BioCLIP 2 embedding --> FAISS search --> DuckDB metadata --> Results
 ```
 
-1. **Embedding:** When you upload an image, BioCLIP 2 converts it into a list of 768 numbers called a **vector embedding**. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.
+1. **Embedding:** When you upload an image, BioCLIP 2 converts it into a structured collection of 768 numbers called a **vector embedding**. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.
 
-2. **Search:** Your image's fingerprint is compared against 200+ million pre-computed fingerprints using [FAISS](https://faiss.ai/), a library for fast similarity search. Instead of comparing against every image one by one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.
+2. **Search:** Your image's fingerprint is compared against 200+ million pre-computed fingerprints using [FAISS](https://faiss.ai/), a library for fast similarity search. Instead of comparing against every image one-by-one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.
 
 3. **Metadata:** Once the most similar fingerprints are found, the system looks up their metadata (species name, taxonomy, data source, image URL) from a [DuckDB](https://duckdb.org/) database.
 
@@ -55,7 +55,9 @@ The chart below illustrates why increasing the Search Depth is often necessary.
 
 **Right (High Depth):** By increasing the search depth, the system is allowed to check neighboring regions. It successfully crosses the border and finds the Green Star.
 
-> **Note:** This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.
+!!! note
+
+    This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.
 
 **Top N Results:** How many similar images to return. More results take longer because each result requires fetching the image from its source URL.
 
@@ -76,7 +78,9 @@ Navigate to the live demo:
 
 **[BioCLIP Image Search Lite on Hugging Face Spaces](https://huggingface.co/spaces/imageomics/bioclip-image-search-lite)**
 
-> **Note:** If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.
+!!! note
+
+    If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.
 
 The interface has three panels:
 
@@ -113,7 +117,7 @@ Details include:
 
 - **Taxonomy:** Full classification from kingdom down to species
 - **Source:** Where the image comes from (GBIF, EOL, etc.) with a direct link to the occurrence record on GBIF if available
-- **Distance:** How similar the match is (lower = more similar)
+- **Distance:** How similar the match is (lower numbers, imply greater similarity)
 
 ### Step 5: Adjust search parameters
 
@@ -121,17 +125,19 @@ Details include:
 
 Try different settings to see how they affect results:
 
-- **Increase Top N** to 50 or 100 to see a wider variety of matches
-- **Increase nprobe** to 32 or 64 for more thorough (but slower) search
 - **Change Scope** to "iNaturalist Only" to see only results from iNaturalist's research grade data, or "BioCLIP 2 Training" to limit to images that were used for BioCLIP 2 training. 
+- **Increase Search Depth** to 32 or 64 for more thorough (but slower) search
+- **Increase Top N** to 50 or 100 to see a wider variety of matches
 
-> **Tip:** Adjusting nprobe or top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.
+!!! tip
+
+    Adjusting Search Depth or Top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.
 
 ## Bonus: Running it yourself
 
 A key strength of this system is that FAISS enables sub-second similarity search over 200+ million vectors on commodity hardware, with no GPU required. The entire service can run on a personal laptop, given abundant disk storage.
 
-Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from [BioCLIP 2](https://huggingface.co/imageomics/bioclip-2), text embeddings from [BioCap](https://huggingface.co/imageomics/biocap), or embeddings from other multi-modality models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.
+Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from [BioCLIP 2](https://huggingface.co/imageomics/bioclip-2), [BioCap](https://huggingface.co/imageomics/biocap), or embeddings from other multi-modal models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.
 
 ### Compute artifacts
 
