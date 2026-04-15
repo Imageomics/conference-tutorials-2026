@@ -659,10 +659,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-using-cyverse" class="md-nav__link">
+  <a href="#optional-installing-sst-in-cyverse" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Using CyVerse
+        (Optional) Installing SST in CyVerse
       
     </span>
   </a>
@@ -670,15 +670,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-installing-locally" class="md-nav__link">
+  <a href="#optional-installing-x-anylabeling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Installing locally
+        (Optional) Installing X-AnyLabeling
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Installing locally">
+    <nav class="md-nav" aria-label="(Optional) Installing X-AnyLabeling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1100,10 +1100,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-using-cyverse" class="md-nav__link">
+  <a href="#optional-installing-sst-in-cyverse" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Using CyVerse
+        (Optional) Installing SST in CyVerse
       
     </span>
   </a>
@@ -1111,15 +1111,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-installing-locally" class="md-nav__link">
+  <a href="#optional-installing-x-anylabeling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Installing locally
+        (Optional) Installing X-AnyLabeling
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Installing locally">
+    <nav class="md-nav" aria-label="(Optional) Installing X-AnyLabeling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1235,13 +1235,12 @@
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>No local setup is required for the hands-on portion of SST. We provide a ready-to-use <a href="https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing">tutorial notebook</a>. You can further explore SST in its <a href="https://github.com/Imageomics/SST">official repository</a> if interested.</li>
+<li>No local setup is required for the hands-on portion of SST. We provide a ready-to-use <a href="https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing">tutorial notebook</a>. You can further explore SST in its <a href="https://github.com/Imageomics/SST">official repository</a> if interested. You can also try SST in CyVerse. An installation guide is provided below in the <strong>Setup</strong> section.</li>
 <li>You are welcome to bring your own specimen images of interest. To try SST on your own images, <a href="https://github.com/CVHub520/X-AnyLabeling">X-AnyLabeling</a> is required for annotation. An installation guide is provided below in the <strong>Setup</strong> section. If you do not have your own images but would still like to try X-AnyLabeling, please install it as well. We provide some butterfly images <a href="https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing">here</a> to annotate.</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>You can either install X-AnyLabeling in CyVerse or on your local machine.</p>
-<h3 id="1-using-cyverse">1. Using CyVerse</h3>
-<p>Follow the steps below to install SST and X-AnyLabeling in CyVerse.</p>
+<h3 id="optional-installing-sst-in-cyverse">(Optional) Installing SST in CyVerse</h3>
+<p>Follow the steps below to install SST in CyVerse.</p>
 <p><strong>Step 0:</strong> In the <a href="https://de.cyverse.org/dashboard">CyVerse Discovery Environment</a>, launch <strong>Jupyter Lab PyTorch GPU</strong>. Click "Go to Analysis" and wait for "Launching VICE app: jupyter-lab-pytorch-gpu" to complete.</p>
 <p><strong>Step 1:</strong> Click <strong>Terminal</strong> to open a new terminal session. This should place you in <code>~/data-store</code>. Create a working directory for fast local I/O:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>this-session
@@ -1259,70 +1258,54 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Imageomics/SST
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>SST
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>uv<span class="w"> </span>sync
 </code></pre></div>
-<p><strong>Step 5:</strong> Clone and install SAM 2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/segment-anything-2
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>segment-anything-2
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">cd</span><span class="w"> </span>..
+<p><strong>Step 5:</strong> Download SAM 2 checkpoint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>checkpoints
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>wget<span class="w"> </span>https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
-<p><strong>Step 6:</strong> Clone and install X-AnyLabeling:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/X-AnyLabeling
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>X-AnyLabeling
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[gpu]&quot;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">cd</span><span class="w"> </span>..
+<p><strong>Step 6:</strong> Create data directories for the demo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>demo_input
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>demo_output
 </code></pre></div>
-<p><strong>Step 7:</strong> Set up noVNC for browser access:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/novnc/noVNC
-</code></pre></div>
-<p><strong>Step 8:</strong> Launch X-AnyLabeling:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">QT_QPA_PLATFORM</span><span class="o">=</span><span class="s2">&quot;vnc:size=1920x1080&quot;</span><span class="w"> </span>xanylabeling<span class="w"> </span><span class="p">&amp;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sleep<span class="w"> </span><span class="m">2</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>noVNC
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>./utils/novnc_proxy<span class="w"> </span>--listen<span class="w"> </span><span class="m">6080</span><span class="w"> </span>--vnc<span class="w"> </span>localhost:5900
-</code></pre></div>
-<p><strong>Step 9:</strong> Open in your browser: take the prefix from your JupyterLab URL (e.g., <code>a2e70e809</code> from <code>https://a2e70e809.cyverse.run/lab</code>) and navigate to:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>https://&lt;your-prefix&gt;.cyverse.run/proxy/6080/vnc.html
-</code></pre></div>
-<p><strong>Step 10:</strong> In the noVNC side panel on the left, select <code>Gear icon -&gt; Scaling mode -&gt; Local scaling</code> to adjust the resolution.</p>
-<h3 id="2-installing-locally">2. Installing locally</h3>
+<p>Then download example images from <a href="https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing">here</a> and upload them to <code>~/data-store/this-session/SST/demo_input</code>.</p>
+<h3 id="optional-installing-x-anylabeling">(Optional) Installing X-AnyLabeling</h3>
 <p>Follow the steps below to install X-AnyLabeling on your local machine.</p>
 <h4 id="option-1-install-from-source-for-gpu-enabled-machine">Option 1: Install from source (for GPU-enabled machine)</h4>
 <p><strong>Step 0:</strong> If you do not have Conda, download and install Miniconda from the <a href="https://docs.anaconda.com/miniconda/">official website</a>.</p>
 <p><strong>Step 1:</strong> Choose a working directory and open the terminal. Create a new Conda environment with Python version <code>3.12</code>, and activate it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>x-anylabeling-sam2<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span>-y
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>x-anylabeling-sam2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>x-anylabeling-sam2<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span>-y
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>x-anylabeling-sam2
 </code></pre></div>
 <p><strong>Step 2:</strong> Follow the instructions <a href="https://pytorch.org/get-started/locally/">here</a> to install PyTorch and TorchVision dependencies.</p>
 <p><strong>Step 3:</strong> Install SAM 2 on a GPU-enabled machine:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/segment-anything-2
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">cd</span><span class="w"> </span>segment-anything-2
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/segment-anything-2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">cd</span><span class="w"> </span>segment-anything-2
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <p><strong>Step 4:</strong> Clone the repository of X-AnyLabeling:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>..
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/X-AnyLabeling
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">cd</span><span class="w"> </span>X-AnyLabeling
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/X-AnyLabeling
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span><span class="w"> </span>X-AnyLabeling
 </code></pre></div>
 <p><strong>Step 5:</strong> Install the dependencies for X-AnyLabeling (choose the version that fits for your machine):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>uv
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># CPU [Windows/Linux/macOS]</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>cpu<span class="o">]</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># CUDA 12.x is the default GPU option [Windows/Linux]</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu<span class="o">]</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># CUDA 11.x [Windows/Linux]</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu-cu11<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>uv
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># CPU [Windows/Linux/macOS]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>cpu<span class="o">]</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># CUDA 12.x is the default GPU option [Windows/Linux]</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu<span class="o">]</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># CUDA 11.x [Windows/Linux]</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu-cu11<span class="o">]</span>
 </code></pre></div>
 <p><strong>Step 6:</strong> After installation, you can verify it by running the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>xanylabeling<span class="w"> </span>checks<span class="w">   </span><span class="c1"># Display system and version information</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>xanylabeling<span class="w"> </span>checks<span class="w">   </span><span class="c1"># Display system and version information</span>
 </code></pre></div>
 <p><strong>Step 7:</strong> After verification, you can run the application directly:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>xanylabeling
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>xanylabeling
 </code></pre></div>
 <h4 id="option-2-download-released-package">Option 2: Download released package</h4>
 <p>Download a released package from <a href="https://github.com/CVHub520/X-AnyLabeling/releases">GitHub Releases</a> and run it directly. It is CPU-only and may be slower when running.</p>
@@ -1348,6 +1331,15 @@
 <p>Visualize the results.</p>
 </li>
 </ol>
+<p>If you are using SST in CyVerse, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/sst/segment.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span>--support_image<span class="w"> </span>demo_input/support_image.jpg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>--support_mask<span class="w"> </span>demo_input/support_mask.png<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>--query_images<span class="w"> </span>demo_input/query_images/<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>--output<span class="w"> </span>demo_output/<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span>--output_format<span class="w"> </span><span class="s2">&quot;png&quot;</span>
+</code></pre></div>
+<p>Then you can see the results in <code>~/data-store/this-session/SST/demo_output</code>.</p>
 <h3 id="x-anylabeling">X-AnyLabeling</h3>
 <ol>
 <li>
