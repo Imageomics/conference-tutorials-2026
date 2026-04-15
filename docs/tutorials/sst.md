@@ -12,16 +12,14 @@ By the end of this tutorial, you will be able to:
 
 ## Prerequisites
 
-- No local setup is required for the hands-on portion of SST. We provide a ready-to-use [tutorial notebook](https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing). You can further explore SST in its [official repository](https://github.com/Imageomics/SST) if interested.
+- No local setup is required for the hands-on portion of SST. We provide a ready-to-use [tutorial notebook](https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing). You can further explore SST in its [official repository](https://github.com/Imageomics/SST) if interested. You can also try SST in CyVerse. An installation guide is provided below in the **Setup** section.
 - You are welcome to bring your own specimen images of interest. To try SST on your own images, [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling) is required for annotation. An installation guide is provided below in the **Setup** section. If you do not have your own images but would still like to try X-AnyLabeling, please install it as well. We provide some butterfly images [here](https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing) to annotate.
 
 ## Setup
 
-You can either install X-AnyLabeling in CyVerse or on your local machine.
+### (Optional) Installing SST in CyVerse
 
-### 1. Using CyVerse
-
-Follow the steps below to install SST and X-AnyLabeling in CyVerse.
+Follow the steps below to install SST in CyVerse.
 
 **Step 0:** In the [CyVerse Discovery Environment](https://de.cyverse.org/dashboard), launch **Jupyter Lab PyTorch GPU**. Click "Go to Analysis" and wait for "Launching VICE app: jupyter-lab-pytorch-gpu" to complete.
 
@@ -52,52 +50,27 @@ source .venv/bin/activate
 git clone https://github.com/Imageomics/SST
 cd SST
 export CUDA_HOME=/usr/local/cuda
-uv pip install -e .
+uv sync
+```
+
+**Step 5:** Download SAM 2 checkpoint:
+
+```bash
+cd checkpoints
+wget https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt
 cd ..
 ```
 
-**Step 5:** Clone and install SAM 2:
+**Step 6:** Create data directories for the demo:
 
 ```bash
-git clone https://github.com/CVHub520/segment-anything-2
-cd segment-anything-2
-uv pip install -e .
-cd ..
+mkdir demo_input
+mkdir demo_output
 ```
 
-**Step 6:** Clone and install X-AnyLabeling:
+Then download example images from [here](https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing) and upload them to `~/data-store/this-session/SST/demo_input`.
 
-```bash
-git clone https://github.com/CVHub520/X-AnyLabeling
-cd X-AnyLabeling
-uv pip install -e ".[gpu]"
-cd ..
-```
-
-**Step 7:** Set up noVNC for browser access:
-
-```bash
-git clone https://github.com/novnc/noVNC
-```
-
-**Step 8:** Launch X-AnyLabeling:
-
-```bash
-QT_QPA_PLATFORM="vnc:size=1920x1080" xanylabeling &
-sleep 2
-cd noVNC
-./utils/novnc_proxy --listen 6080 --vnc localhost:5900
-```
-
-**Step 9:** Open in your browser: take the prefix from your JupyterLab URL (e.g., `a2e70e809` from `https://a2e70e809.cyverse.run/lab`) and navigate to:
-
-```bash
-https://<your-prefix>.cyverse.run/proxy/6080/vnc.html
-```
-
-**Step 10:** In the noVNC side panel on the left, select `Gear icon -> Scaling mode -> Local scaling` to adjust the resolution.
-
-### 2. Installing locally
+### (Optional) Installing X-AnyLabeling
 
 Follow the steps below to install X-AnyLabeling on your local machine.
 
@@ -180,6 +153,19 @@ The following steps are also detailed in the [tutorial notebook](https://colab.r
 4. Define the support image, support mask, and query images, then run SST trait segmentation to segment the query images.
 
 5. Visualize the results.
+
+If you are using SST in CyVerse, run:
+
+```bash
+uv run python src/sst/segment.py \
+    --support_image demo_input/support_image.jpg \
+    --support_mask demo_input/support_mask.png \
+    --query_images demo_input/query_images/ \
+    --output demo_output/ \
+    --output_format "png"
+```
+
+Then you can see the results in `~/data-store/this-session/SST/demo_output`.
 
 ### X-AnyLabeling
 
