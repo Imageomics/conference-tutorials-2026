@@ -120,6 +120,7 @@ uv run launch.py shards --shards-root saev/shards/ --family dinov2 --ckpt dinov2
 ```
 
 Note:
+
 - When using this on real data, replace `data:fake-img` with `data:img-folder`. Then, provide the path to your dataset with the argument `--data.root <dataset directory>`
 - The command prints the shard directory that was created. Record this, as you will use that path in training.
 
