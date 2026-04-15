@@ -101,9 +101,9 @@ Ursus-arctos.jpeg
 
 ## Background
 
-_TBD_ : What is a Foundation Model?
+A foundation model is a large model trained on broad data that can be adapted to many downstream tasks without task-specific training. BioCLIP is a foundation model for biology: trained on millions of organism images paired with taxonomic labels, it learns general visual representations of the living world that can be applied to classification, embedding, and retrieval out of the box.
 
-## Steps
+## CLI Examples
 
 ### Classify Focal Species in Images
 
@@ -235,10 +235,16 @@ In the next deep dive, we will talk more about what embeddings are and what you 
 Follow here:
 https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-list-of-classes
 -->
+You may also specify a list of classes (labels) that you would like the model to select among:
+
+For example, you will likely see improved accuracy by selecting a subset of options that you believe is most relevant to the image contents rather than the entire tree of life. The classes can be any text label:
+```bash
+bioclip predict --cls cat,bird,bear pybioclip/images/Ursus-arctos.jpeg
+```
 
 ### Classify Focal Species from a Subset of TreeOfLife Taxa
 
-First, one may ask what taxa are available:
+To find what taxa are available for open-ended classification:
 
 ```bash
 bioclip list-tol-taxa > BioCLIP-2-taxa.txt
@@ -248,30 +254,33 @@ bioclip list-tol-taxa > BioCLIP-2-taxa.txt
 
     You can specify the model of interest, e.g., for the original BioCLIP model with `--model hf-hub:imageomics/bioclip` before the carat.
 
-<!--
-Follow here (use Colab):
-https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
--->
+## Python API examples
+To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.
+
+[https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
+](https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
+)
 
 ### Interpretability Methods
-<!--
-Follow here (use Colab):
-https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
--->
-- note on more advanced/more finely discriminative methods later
+Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.
 
+For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:
+
+[https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
+](https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
+)
 
 ### Advanced Topics
 
-Building on the topics covered today, ...
-<!--
-Follow here (Colab notebooks):
-If there's time/Next steps/Learn more
-https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
--->
+You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.
 
-_TBD_
+To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.
+
+[https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
+](https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
+)
 
 ## Summary
 
-_TBD_
+pybioclip is a fast way to get started with a strong set of models: species classification, embeddings, and interpretability, all without writing any model code. As we saw in the notebooks, even a simple SVM on top of these embeddings can substantially improve results for specific use cases.
+When you need more control, the natural next step is working directly with PyTorch and the model internals. But pybioclip is a great place to gain momentum quickly, and, depending on the application, possibly serve as a complete solution.
