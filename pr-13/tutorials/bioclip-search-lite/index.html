@@ -1,0 +1,1650 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hands-on tutorials for Imageomics tools presented at the first Imageomics Conference.">
+      
+      
+      
+        <link rel="canonical" href="https://imageomics.github.io/conference-tutorials-2026/tutorials/bioclip-search-lite/">
+      
+      
+        <link rel="prev" href="../finer-cam/">
+      
+      
+        <link rel="next" href="../sae/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/tools-logo_black.svg">
+      <meta name="generator" content="zensical-0.0.33">
+    
+    
+      
+        <title>BioCLIP Image Search Lite - Designing for Discovery: Shaping Imageomics Tools for Biologists</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.53a7feaf.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bioclip-image-search-lite" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Designing for Discovery: Shaping Imageomics Tools for Biologists" class="md-header__button md-logo" aria-label="Designing for Discovery: Shaping Imageomics Tools for Biologists" data-md-component="logo">
+      
+  <img src="../../assets/tools-logo_black.svg" alt="Designing for Discovery: Shaping Imageomics Tools for Biologists">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Designing for Discovery: Shaping Imageomics Tools for Biologists
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BioCLIP Image Search Lite
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/Imageomics/conference-tutorials-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Imageomics/conference-tutorials-2026
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Designing for Discovery: Shaping Imageomics Tools for Biologists" class="md-nav__button md-logo" aria-label="Designing for Discovery: Shaping Imageomics Tools for Biologists" data-md-component="logo">
+      
+  <img src="../../assets/tools-logo_black.svg" alt="Designing for Discovery: Shaping Imageomics Tools for Biologists">
+
+    </a>
+    Designing for Discovery: Shaping Imageomics Tools for Biologists
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Imageomics/conference-tutorials-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Imageomics/conference-tutorials-2026
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Classification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pybioclip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pybioclip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Embedding Exploration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Image Embedding Exploration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-embedding-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Embedding Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segmentation & Known Trait Extraction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Segmentation & Known Trait Extraction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interpretability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interpretability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt-cam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt-CAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finer-cam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Finer-CAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Similarity Search & Discovery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Similarity Search & Discovery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BioCLIP Search Lite
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BioCLIP Search Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bioclip-image-search-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is BioCLIP Image Search Lite?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does it work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-an-image-and-review-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Upload an image and review predictions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-search-for-similar-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Search for similar images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-a-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Explore a result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-adjust-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Adjust search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-running-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus: Running it yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus: Running it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-service-in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local service (in development)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sae/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bioclip-image-search-lite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is BioCLIP Image Search Lite?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does it work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open the application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-an-image-and-review-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Upload an image and review predictions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-search-for-similar-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Search for similar images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-explore-a-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Explore a result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-adjust-search-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Adjust search parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-running-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus: Running it yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus: Running it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-service-in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local service (in development)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="bioclip-image-search-lite">BioCLIP Image Search Lite</h1>
+<blockquote>
+<p>Upload a photo of an organism and find visually similar images across 200M+ biological images from the TreeOfLife-200M dataset.</p>
+</blockquote>
+<p><img alt="BioCLIP Image Search Lite demo showing a marten query image with similar results and taxonomy details." src="../../assets/bioclip-search-demo.png" /></p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this tutorial, you will be able to:</p>
+<ol>
+<li>Use the BioCLIP Image Search Lite web interface to find visually similar biological images and explore associated metadata (taxonomy, data source, occurrence records).</li>
+<li>Understand how BioCLIP 2 embeddings and FAISS indexing enable fast similarity search over 200M+ images, and how search parameters (<code>nprobe</code>, <code>top N</code>, <code>scope</code>) affect results.</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><strong>Internet connection</strong></li>
+<li><strong>A web browser.</strong> No installation required for the web tutorial.</li>
+<li><strong>Prior knowledge:</strong> None. We explain embeddings, vector search, and metadata as we go.</li>
+</ul>
+<h2 id="background">Background</h2>
+<h3 id="what-is-bioclip-image-search-lite">What is BioCLIP Image Search Lite?</h3>
+<p>At this point you probably have already heard of or used the biological foundation model <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a>. </p>
+<p>BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from the 200M+ biological images in the TreeOfLife-200M dataset. This service is hosted on <a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">Hugging Face Spaces</a> and open-sourced at <a href="https://github.com/Imageomics/bioclip-image-search-lite">Imageomics/bioclip-image-search-lite</a>.</p>
+<p>It is "lite" because it does not store or distribute images. Instead, it relies on the URLs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.</p>
+<p>The images come from the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M dataset</a>, which aggregates records from <a href="https://www.gbif.org/">GBIF</a> (including iNaturalist observations), the <a href="https://eol.org/">Encyclopedia of Life</a>, <a href="https://github.com/bioscan-ml/BIOSCAN-5M">BIOSCAN-5M</a>, and <a href="https://www.fathomnet.org/">FathomNet</a>. For more detailed information about the data and licensing, see the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">application dataset card</a>.</p>
+<h3 id="how-does-it-work">How does it work?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Upload image --&gt; BioCLIP 2 embedding --&gt; FAISS search --&gt; DuckDB metadata --&gt; Results
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Embedding:</strong> When you upload an image, BioCLIP 2 converts it into a structured collection of 768 numbers called a <strong>vector embedding</strong>. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.</p>
+</li>
+<li>
+<p><strong>Search:</strong> Your image's fingerprint is compared against 200+ million pre-computed fingerprints using <a href="https://faiss.ai/">FAISS</a>, a library for fast similarity search. Instead of comparing against every image one-by-one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.</p>
+</li>
+<li>
+<p><strong>Metadata:</strong> Once the most similar fingerprints are found, the system looks up their metadata (species name, taxonomy, data source, image URL) from a <a href="https://duckdb.org/">DuckDB</a> database.</p>
+</li>
+<li>
+<p><strong>Display:</strong> The matching images are fetched directly from their original source URLs (iNaturalist S3, GBIF publishers, etc.). No images are stored locally.</p>
+</li>
+</ol>
+<h3 id="understanding-the-search-parameters">Understanding the search parameters</h3>
+<p><strong>Search Depth (nprobe):</strong> Controls how many of the ~65,000 groups are checked during search. A higher value is more thorough but slightly slower. The default (16) works well for most queries. If you're not finding what you expect, try increasing this.</p>
+<p>The chart below illustrates why increasing the Search Depth is often necessary.</p>
+<p><img alt="Diagram comparing low and high search depth. Left panel shows a query image near the border of one region, missing the true best match in an adjacent region because only one region is searched. Right panel shows the same scenario with increased search depth, where the search crosses into the neighboring region and successfully finds the best match." src="../../assets/search_depth_demo.png" /></p>
+<p><strong>Left (Low Depth):</strong> The user's image (Red X) falls just inside the blue region. However, the <em>true</em> best match (Green Star) sits just across the border in the neighboring grey region. Because the system is set to look in only one region, it hits a "hard wall" and misses the best match.</p>
+<p><strong>Right (High Depth):</strong> By increasing the search depth, the system is allowed to check neighboring regions. It successfully crosses the border and finds the Green Star.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.</p>
+</div>
+<p><strong>Top N Results:</strong> How many similar images to return. More results take longer because each result requires fetching the image from its source URL.</p>
+<p><strong>Scope:</strong> Filters which images are eligible for results. The current index contains the GBIF and EOL partitions of the TreeOfLife-200M dataset. FathomNet and BIOSCAN sources will be added in a future update.</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Images</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All Sources</td>
+<td>234M</td>
+<td>Everything in the database</td>
+</tr>
+<tr>
+<td>URL-Available Only</td>
+<td>234M (99.99%)</td>
+<td>Only results with fetchable source URLs</td>
+</tr>
+<tr>
+<td>iNaturalist Only</td>
+<td>135M (58%)</td>
+<td>iNaturalist observations via AWS Open Data</td>
+</tr>
+<tr>
+<td>BioCLIP 2 Training</td>
+<td>206M (88%)</td>
+<td>Records used in BioCLIP 2 model training</td>
+</tr>
+</tbody>
+</table>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1-open-the-application">Step 1: Open the application</h3>
+<p>Navigate to the live demo:</p>
+<p><strong><a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">BioCLIP Image Search Lite on Hugging Face Spaces</a></strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.</p>
+</div>
+<p>The interface has three panels:</p>
+<ul>
+<li><strong>Left:</strong> Image upload, search controls (scope, nprobe, top N)</li>
+<li><strong>Middle:</strong> Search results gallery and BioCLIP 2 predictions</li>
+<li><strong>Right:</strong> Detailed view of a selected result (taxonomy, source info)</li>
+</ul>
+<h3 id="step-2-upload-an-image-and-review-predictions">Step 2: Upload an image and review predictions</h3>
+<p>Upload a photo of an organism. As soon as the image loads, BioCLIP 2 generates a <strong>prediction</strong>, its best guess at the taxonomy of the organism. Switch to the <strong>Prediction</strong> tab in the middle panel to see it.</p>
+<p><img alt="Uploading a giraffe image and viewing BioCLIP 2 predictions at different taxonomic ranks." src="../../assets/bioclip-search-upload.png" /></p>
+<p>Try changing the <strong>Taxonomic Rank</strong> dropdown to see predictions at different levels (kingdom, phylum, class, order, family, genus, species). </p>
+<h3 id="step-3-search-for-similar-images">Step 3: Search for similar images</h3>
+<p>Click the <strong>Search</strong> button. The system will:</p>
+<ol>
+<li>Use the BioCLIP 2 embedding from your uploaded image</li>
+<li>Search the FAISS index for the most similar vectors</li>
+<li>Look up metadata for each match</li>
+<li>Fetch the result images from their source URLs</li>
+</ol>
+<p>The gallery displays the most similar biological images found across the database.</p>
+<h3 id="step-4-explore-a-result">Step 4: Explore a result</h3>
+<p>Click on any image in the gallery. The right panel shows the selected image with full taxonomy and source details.</p>
+<p><img alt="Search results for a giraffe image, with a selected result showing taxonomy and source metadata." src="../../assets/bioclip-search-results.png" /></p>
+<p>Details include:</p>
+<ul>
+<li><strong>Taxonomy:</strong> Full classification from kingdom down to species</li>
+<li><strong>Source:</strong> Where the image comes from (GBIF, EOL, etc.) with a direct link to the occurrence record on GBIF if available</li>
+<li><strong>Distance:</strong> How similar the match is (lower numbers, imply greater similarity)</li>
+</ul>
+<h3 id="step-5-adjust-search-parameters">Step 5: Adjust search parameters</h3>
+<p><img alt="Search control panel showing scope, nprobe, and top N sliders." src="../../assets/bioclip-search-params.png" /></p>
+<p>Try different settings to see how they affect results:</p>
+<ul>
+<li><strong>Change Scope</strong> to "iNaturalist Only" to see only results from iNaturalist's research grade data, or "BioCLIP 2 Training" to limit to images that were used for BioCLIP 2 training. </li>
+<li><strong>Increase Search Depth</strong> to 32 or 64 for more thorough (but slower) search</li>
+<li><strong>Increase Top N</strong> to 50 or 100 to see a wider variety of matches</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Adjusting Search Depth or Top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.</p>
+</div>
+<h2 id="bonus-running-it-yourself">Bonus: Running it yourself</h2>
+<p>A key strength of this system is that FAISS enables sub-second similarity search over 200+ million vectors on commodity hardware, with no GPU required. The entire service can run on a personal laptop, given abundant disk storage.</p>
+<p>Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>, <a href="https://huggingface.co/imageomics/biocap">BioCap</a>, or embeddings from other multi-modal models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.</p>
+<h3 id="compute-artifacts">Compute artifacts</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FAISS index</td>
+<td>~5.5 GB</td>
+<td>234M pre-computed BioCLIP 2 vector embeddings, organized into ~65,000 clusters for fast approximate nearest-neighbor search</td>
+</tr>
+<tr>
+<td>DuckDB metadata</td>
+<td>~14 GB</td>
+<td>Taxonomy, source provenance, and image URLs for all 234M records</td>
+</tr>
+<tr>
+<td>Model weights</td>
+<td>~2.5 GB</td>
+<td>BioCLIP 2 vision model, downloaded automatically on first run from <a href="https://huggingface.co/imageomics/bioclip-2">HuggingFace</a></td>
+</tr>
+<tr>
+<td><strong>Total disk</strong></td>
+<td><strong>~22 GB</strong></td>
+<td>Full deployment footprint</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resource-requirements">Resource requirements</h3>
+<ul>
+<li><strong>No GPU required.</strong> The FAISS search and DuckDB lookup are CPU operations. The BioCLIP 2 embedding step benefits from a GPU (under 1 second vs. ~50 seconds on CPU), but a background server keeps the model loaded so this cost is paid only once.</li>
+<li><strong>RAM:</strong> ~16 GB recommended. The FAISS index and DuckDB are memory-mapped, so actual memory usage is lower than the file sizes suggest.</li>
+<li><strong>Disk:</strong> ~22 GB for all data files and model weights.</li>
+</ul>
+<h3 id="data-availability">Data availability</h3>
+<p>The pre-built FAISS index and DuckDB metadata are available for download from the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">HuggingFace data repository</a>:
+You may access this with the <code>huggingface_hub</code> Python package built-in CLI called <code>hf</code>. (Instructions available <a href="https://huggingface.co/docs/huggingface_hub/en/guides/cli">here</a>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hf<span class="w"> </span>download<span class="w"> </span>imageomics/bioclip-image-search-lite<span class="w"> </span>--local-dir<span class="w"> </span>/path/to/data
+</code></pre></div>
+<h3 id="local-service-in-development">Local service (in development)</h3>
+<p>A command-line tool (<code>bioclip-search</code>) is currently in development to simplify local setup. It will provide:</p>
+<ul>
+<li><strong>CLI search:</strong> <code>bioclip-search photo.jpg</code> for command-line usage with JSON, table, and CSV output containing the image metadata</li>
+<li><strong>Web UI:</strong> The same Gradio interface shown on Hugging Face Spaces, running locally</li>
+<li><strong>Background server:</strong> Keeps the model and index loaded in memory for fast repeated searches</li>
+</ul>
+<p>For the latest status, see the <a href="https://github.com/Imageomics/bioclip-image-search-lite">source code repo</a> on GitHub. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../finer-cam/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Finer-CAM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Finer-CAM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sae/" class="md-footer__link md-footer__link--next" aria-label="Next: SAE">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                SAE
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Imageomics Institute
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","content.code.select","navigation.footer","navigation.indexes","navigation.instant","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.63456bd9.min.js"></script>
+      
+    
+  </body>
+</html>
