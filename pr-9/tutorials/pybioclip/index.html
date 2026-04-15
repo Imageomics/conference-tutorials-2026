@@ -1338,7 +1338,7 @@ with contents:
 <p><code>pybioclip</code> allows us to use BioCLIP models efficiently to classify the focal species:</p>
 <ul>
 <li>in an individual image</li>
-<li>in a groups of images</li>
+<li>in a group of images</li>
 <li>view prediction outputs in the terminal</li>
 <li>save those predictions to a file</li>
 </ul>
@@ -1407,7 +1407,7 @@ Or we can submit all of the images present for prediction. Let's also place the 
 Follow here:
 https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
 -->
-<p>An embedding can be thought of as a model's conception of an image. It is simply a vector in high-dimensional space that encodes the model's perception of the image's features based on what it has learned during training.</p>
+<p>An embedding is a numeric vector in high-dimensional space. It can be thought of as a model's conception of an image, such as it encodes the model's perception of the image's features based on what it has learned during training.</p>
 <p>Calculate the BioCLIP embeddings for each of the images at-hand:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>bioclip<span class="w"> </span>embed<span class="w"> </span>--output<span class="w"> </span>embeddings.json<span class="w"> </span>pybioclip/images/*
 </code></pre></div></p>
@@ -1456,18 +1456,15 @@ https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-lis
 </div>
 <h2 id="python-api-examples">Python API examples</h2>
 <p>To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.</p>
-<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife">https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife
-</a></p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife">https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife</a></p>
 <h3 id="interpretability-methods">Interpretability Methods</h3>
 <p>Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.</p>
 <p>For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:</p>
-<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam">https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam
-</a></p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam">https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam</a></p>
 <h3 id="advanced-topics">Advanced Topics</h3>
 <p>You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.</p>
 <p>To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.</p>
-<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers">https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers
-</a></p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers">https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers</a></p>
 <h2 id="summary">Summary</h2>
 <p>pybioclip is a fast way to get started with a strong set of models: species classification, embeddings, and interpretability, all without writing any model code. As we saw in the notebooks, even a simple SVM on top of these embeddings can substantially improve results for specific use cases.
 When you need more control, the natural next step is working directly with PyTorch and the model internals. But pybioclip is a great place to gain momentum quickly, and, depending on the application, possibly serve as a complete solution.</p>
