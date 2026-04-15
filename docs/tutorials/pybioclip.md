@@ -49,6 +49,8 @@ Create a directory to work in:
 mkdir this-session && cd this-session
 ```
 
+### Environment and Install
+
 First, install [`uv`](https://docs.astral.sh/uv/) for efficient environment management:
 
 ```bash
