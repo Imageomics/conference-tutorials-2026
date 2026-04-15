@@ -1579,7 +1579,7 @@
 <p>You should see the app UI.</p>
 <h2 id="background">Background</h2>
 <h3 id="what-is-an-image-embedding">What is an image embedding?</h3>
-<p>A vision model like <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a> looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called <strong>embeddings</strong>.</p>
+<p>A vision model like <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a> translates an image into a numeric vector in high-dimensional space (768 dimensions in the case of BioCLIP 2). We can think of this as a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called <strong>embeddings</strong>.</p>
 <p>For example, using <a href="https://imageomics.github.io/pybioclip/">pybioclip</a> you can generate an embedding for a single image in a few lines:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">bioclip</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreeModel</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
@@ -1593,9 +1593,9 @@
 </code></pre></div>
 <p>The Image Embedding Explorer does this at scale for hundreds or thousands of images, then lets you visualize and cluster the results interactively.</p>
 <h3 id="why-project-to-2d">Why project to 2D?</h3>
-<p>We can't plot 768 dimensions on a screen. Dimensionality reduction methods (PCA, t-SNE, UMAP) compress those 768 numbers down to just x and y coordinates while trying to keep similar points close together. The resulting scatter plot shows the model's "view" of your data.</p>
+<p>We can't plot 768 dimensions on a screen. Dimensionality reduction methods (PCA, t-SNE, UMAP) project those 768 dimensions down to just x and y coordinates while trying to keep similar points close together. The resulting scatter plot shows a two dimensional representation of the model's "view" of your data, which varies based on the chosen projection algorithm.</p>
 <h3 id="why-cluster-on-the-full-dimensions">Why cluster on the full dimensions?</h3>
-<p>KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may look overlapping in 2D, but they're genuinely distinct in the full space.</p>
+<p>KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may appear to overlap in 2D, but they are genuinely distinct in the full space. Imagine shining a light on a collection of objects from various directions, the resulting shadow patterns would vary based on the relative position of the light.</p>
 <h3 id="why-does-this-matter-for-biology">Why does this matter for biology?</h3>
 <p>If you color the scatter by a biological label (species, genus, ecological group) and the groupings align, it suggests that the model has learned something biologically meaningful without being explicitly told those labels. Where the groupings <em>disagree</em> is often where the interesting biology is.</p>
 <h3 id="the-dataset-darwins-finches">The dataset: Darwin's finches</h3>

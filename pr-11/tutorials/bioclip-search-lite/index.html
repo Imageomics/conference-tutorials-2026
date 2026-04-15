@@ -1374,18 +1374,18 @@
 <h2 id="background">Background</h2>
 <h3 id="what-is-bioclip-image-search-lite">What is BioCLIP Image Search Lite?</h3>
 <p>At this point you probably have already heard of or used the biological foundation model <a href="https://imageomics.github.io/bioclip-2/">BioCLIP 2</a>. </p>
-<p>BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from a database of 200M+ biological images. The service is hosted on <a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">Hugging Face Spaces</a> and open-sourced at <a href="https://github.com/Imageomics/bioclip-image-search-lite">Imageomics/bioclip-image-search-lite</a>.</p>
-<p>It is "lite" because it does not store or distribute images. Instead, it relies on the URIs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.</p>
-<p>The images come from the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M dataset</a>, which aggregates records from sources like <a href="https://www.gbif.org/">GBIF</a> (including iNaturalist observations), the <a href="https://eol.org/">Encyclopedia of Life</a>, and others. For full details on data sources and licensing information, see the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">dataset card</a>.</p>
+<p>BioCLIP Image Search Lite is a downstream application enabled by BioCLIP 2. Upload a photo of a plant, animal, or fungus and find the most visually similar images from the 200M+ biological images in the TreeOfLife-200M dataset. This service is hosted on <a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">Hugging Face Spaces</a> and open-sourced at <a href="https://github.com/Imageomics/bioclip-image-search-lite">Imageomics/bioclip-image-search-lite</a>.</p>
+<p>It is "lite" because it does not store or distribute images. Instead, it relies on the URLs hosted on the original source servers and fetches them on demand. This reduces the total deployment footprint significantly, which reduces the deployment resource requirement and therefore makes the service more accessible.</p>
+<p>The images come from the <a href="https://huggingface.co/datasets/imageomics/TreeOfLife-200M">TreeOfLife-200M dataset</a>, which aggregates records from <a href="https://www.gbif.org/">GBIF</a> (including iNaturalist observations), the <a href="https://eol.org/">Encyclopedia of Life</a>, <a href="https://github.com/bioscan-ml/BIOSCAN-5M">BIOSCAN-5M</a>, and <a href="https://www.fathomnet.org/">FathomNet</a>. For more detailed information about the data and licensing, see the <a href="https://huggingface.co/imageomics/bioclip-image-search-lite">application dataset card</a>.</p>
 <h3 id="how-does-it-work">How does it work?</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Upload image --&gt; BioCLIP 2 embedding --&gt; FAISS search --&gt; DuckDB metadata --&gt; Results
 </code></pre></div>
 <ol>
 <li>
-<p><strong>Embedding:</strong> When you upload an image, BioCLIP 2 converts it into a list of 768 numbers called a <strong>vector embedding</strong>. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.</p>
+<p><strong>Embedding:</strong> When you upload an image, BioCLIP 2 converts it into a structured collection of 768 numbers called a <strong>vector embedding</strong>. Think of it as a numerical fingerprint that could capture aspects of the biological essence of what's in the image. Images that the model "perceives" as similar produce similar fingerprints.</p>
 </li>
 <li>
-<p><strong>Search:</strong> Your image's fingerprint is compared against 200+ million pre-computed fingerprints using <a href="https://faiss.ai/">FAISS</a>, a library for fast similarity search. Instead of comparing against every image one by one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.</p>
+<p><strong>Search:</strong> Your image's fingerprint is compared against 200+ million pre-computed fingerprints using <a href="https://faiss.ai/">FAISS</a>, a library for fast similarity search. Instead of comparing against every image one-by-one (which would take too long), FAISS organizes the fingerprints into ~65,000 groups (clusters) based on similarity, like sections in a library. The search only checks the most relevant sections.</p>
 </li>
 <li>
 <p><strong>Metadata:</strong> Once the most similar fingerprints are found, the system looks up their metadata (species name, taxonomy, data source, image URL) from a <a href="https://duckdb.org/">DuckDB</a> database.</p>
@@ -1400,9 +1400,10 @@
 <p><img alt="Diagram comparing low and high search depth. Left panel shows a query image near the border of one region, missing the true best match in an adjacent region because only one region is searched. Right panel shows the same scenario with increased search depth, where the search crosses into the neighboring region and successfully finds the best match." src="../../assets/search_depth_demo.png" /></p>
 <p><strong>Left (Low Depth):</strong> The user's image (Red X) falls just inside the blue region. However, the <em>true</em> best match (Green Star) sits just across the border in the neighboring grey region. Because the system is set to look in only one region, it hits a "hard wall" and misses the best match.</p>
 <p><strong>Right (High Depth):</strong> By increasing the search depth, the system is allowed to check neighboring regions. It successfully crosses the border and finds the Green Star.</p>
-<blockquote>
-<p><strong>Note:</strong> This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This visualization uses a simple 2D map for clarity. The actual search operates in 768-dimensional space, where "borders" are much harder to define. This makes it even more important to check multiple neighboring groups to ensure you don't miss a relevant result.</p>
+</div>
 <p><strong>Top N Results:</strong> How many similar images to return. More results take longer because each result requires fetching the image from its source URL.</p>
 <p><strong>Scope:</strong> Filters which images are eligible for results. The current index contains the GBIF and EOL partitions of the TreeOfLife-200M dataset. FathomNet and BIOSCAN sources will be added in a future update.</p>
 <table>
@@ -1440,9 +1441,10 @@
 <h3 id="step-1-open-the-application">Step 1: Open the application</h3>
 <p>Navigate to the live demo:</p>
 <p><strong><a href="https://huggingface.co/spaces/imageomics/bioclip-image-search-lite">BioCLIP Image Search Lite on Hugging Face Spaces</a></strong></p>
-<blockquote>
-<p><strong>Note:</strong> If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Space has been sleeping (inactive for 48 hours), it may take a few minutes to wake up and load the data files. You'll see a loading screen during this time.</p>
+</div>
 <p>The interface has three panels:</p>
 <ul>
 <li><strong>Left:</strong> Image upload, search controls (scope, nprobe, top N)</li>
@@ -1469,22 +1471,23 @@
 <ul>
 <li><strong>Taxonomy:</strong> Full classification from kingdom down to species</li>
 <li><strong>Source:</strong> Where the image comes from (GBIF, EOL, etc.) with a direct link to the occurrence record on GBIF if available</li>
-<li><strong>Distance:</strong> How similar the match is (lower = more similar)</li>
+<li><strong>Distance:</strong> How similar the match is (lower numbers, imply greater similarity)</li>
 </ul>
 <h3 id="step-5-adjust-search-parameters">Step 5: Adjust search parameters</h3>
 <p><img alt="Search control panel showing scope, nprobe, and top N sliders." src="../../assets/bioclip-search-params.png" /></p>
 <p>Try different settings to see how they affect results:</p>
 <ul>
-<li><strong>Increase Top N</strong> to 50 or 100 to see a wider variety of matches</li>
-<li><strong>Increase nprobe</strong> to 32 or 64 for more thorough (but slower) search</li>
 <li><strong>Change Scope</strong> to "iNaturalist Only" to see only results from iNaturalist's research grade data, or "BioCLIP 2 Training" to limit to images that were used for BioCLIP 2 training. </li>
+<li><strong>Increase Search Depth</strong> to 32 or 64 for more thorough (but slower) search</li>
+<li><strong>Increase Top N</strong> to 50 or 100 to see a wider variety of matches</li>
 </ul>
-<blockquote>
-<p><strong>Tip:</strong> Adjusting nprobe or top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Adjusting Search Depth or Top N after the initial search reuses the cached embedding. No need to re-upload or re-process the image.</p>
+</div>
 <h2 id="bonus-running-it-yourself">Bonus: Running it yourself</h2>
 <p>A key strength of this system is that FAISS enables sub-second similarity search over 200+ million vectors on commodity hardware, with no GPU required. The entire service can run on a personal laptop, given abundant disk storage.</p>
-<p>Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>, text embeddings from <a href="https://huggingface.co/imageomics/biocap">BioCap</a>, or embeddings from other multi-modality models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.</p>
+<p>Beyond this application, you can train your own FAISS index to perform similarity search over any set of embeddings. These could be image embeddings from <a href="https://huggingface.co/imageomics/bioclip-2">BioCLIP 2</a>, <a href="https://huggingface.co/imageomics/biocap">BioCap</a>, or embeddings from other multi-modal models. FAISS is model-agnostic: as long as you have a collection of vectors, it can index and search them efficiently.</p>
 <h3 id="compute-artifacts">Compute artifacts</h3>
 <table>
 <thead>

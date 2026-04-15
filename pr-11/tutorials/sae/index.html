@@ -1423,8 +1423,9 @@
 </ul>
 <h3 id="pareto-analysis-optional">Pareto analysis (optional)</h3>
 <p>After training, we may have several SAEs trained with different hyperparameters. To select the best SAE, we perform a <em>pareto analysis</em>. We want low reconstruction error (MSE) and high sparsity (via <code>k</code>), as SAEs that can reconstruct model activations from a few sparse features typically give better features. The models on the Pareto frontier (meaning lowest MSE and highest sparsity) can be found using the following command: </p>
+<p>(Note that you would need a free account with <a href="https://wandb.ai/site/">Weights &amp; Biases</a> and an API key to run this.)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>demo/pareto_runs.py<span class="w"> </span>--runs-root<span class="w"> </span>./runs<span class="w"> </span>--out-png<span class="w"> </span>demo/pareto_k_vs_mse.png<span class="w"> </span>--out-csv<span class="w"> </span>demo/pareto_k_vs_mse.csv<span class="w"> </span>--annotate
-</code></pre></div>
+</code></pre></div></p>
 <p>This produces:</p>
 <ul>
 <li>A plot (<code>.png</code>) showing all runs and the frontier.</li>
