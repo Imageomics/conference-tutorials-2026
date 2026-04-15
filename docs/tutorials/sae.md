@@ -53,13 +53,6 @@ Create a virtual environment with an appropriate Python version:
 uv sync
 ```
 
-In your brower's URL bar, you will see something like "https://a12345abc.cyverse.run/lab". Note the prefix "a12345abc".
-
-In another browser tab, paste "https://placeholder.cyverse.run/proxy/8501/" (it will be 404 Not Found for now).
-
-Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example). For now, this page will still not work, but it will load once we run the visualization app later in this demo.
-
-
 ## Background
 
 ### What is an embedding?
@@ -169,10 +162,19 @@ uv run launch.py inference --run ./saev/runs/<chosen run path here>/ --data.shar
 Finally, we can visualize the SAE features on our input dataset. To start the Streamlit visualization app:
 
 ```bash
-uv run streamlit run demo/fish_feature_vis.py
+uv run streamlit run demo/feature_vis.py \
+  --server.headless true \
+  --server.enableCORS false \
+  --server.enableXsrfProtection false
 ```
 
-At the address for the visualization app (directions for obtaining this address can be found towards the top of this tutorial), the app will now load after a moment.
+At the address for the visualization app, the app will now load after a moment.
+
+In your brower's URL bar, you will see something like "https://a12345abc.cyverse.run/lab". Note the prefix "a12345abc".
+
+In another browser tab, paste "https://placeholder.cyverse.run/proxy/8501/" (it will be 404 Not Found for now).
+
+Replace the proxy URL prefix "placeholder" with that of your Jupyter Lab session (i.e. "https://a12345abc.cyverse.run/proxy/8501/" from the example). For now, this page will still not work, but it will load once we run the visualization app later in this demo.
 
 In the app, you can see several fields to the left that can be modified to visualize SAE features for different SAE models on the Fish-Vista subset. First, use the default settings and press the "Generate visualization" button. This will calculate the SAE features for each image patch and overlay them on top of the input images. Bright yellow means that a feature has a high value for that patch, while a faint purple or no highlight means that the feature does not activate highly for that patch.
 
