@@ -57,7 +57,7 @@ Each tutorial walks through a specific Imageomics tool, from setup to hands-on u
 
 To take advantage of shared compute resources that you may use during the course of the workshop, please register for a [CyVerse](https://cyverse.org/) account and enroll in the CyVerse workshop dedicated to the tutorial tools:
 
-https://user.cyverse.org/workshops/210
+[https://user.cyverse.org/workshops/210](https://user.cyverse.org/workshops/210)
 
 If you register for CyVerse using the same email address you used to register for the Imageomics Conference, your enrollment into the CyVerse workshop should be automatic once you create your account. Otherwise, please submit an enrollment request, and access will be granted promptly.
 
