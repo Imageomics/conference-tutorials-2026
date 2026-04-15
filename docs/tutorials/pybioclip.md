@@ -122,7 +122,10 @@ A foundation model is a large model trained on broad data that can be adapted to
 
 The first time it is executed, it retrieves the necessary files for prediction:
 ```bash
-bioclip predict pybioclip/images/Phoca-vitulina.png 
+bioclip predict pybioclip/images/Phoca-vitulina.png
+```
+
+```console
 open_clip_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 534/534 [00:00<00:00, 2.49MB/s]
 open_clip_model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.71G/1.71G [00:05<00:00, 314MB/s]
 embeddings/txt_emb_species.npy: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.66G/2.66G [00:12<00:00, 214MB/s]
