@@ -72,6 +72,8 @@ Finally, install `pybioclip`:
 uv pip install pybioclip
 ```
 
+### Example Images
+
 And copy images to test with from shared storage into your local container storage:
 ```bash
 cp -R ~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip \
