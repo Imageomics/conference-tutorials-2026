@@ -73,7 +73,7 @@ You should see the app UI.
 
 ### What is an image embedding?
 
-A vision model like [BioCLIP 2](https://imageomics.github.io/bioclip-2/) looks at an image and produces a list of 768 numbers, a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called **embeddings**.
+A vision model like [BioCLIP 2](https://imageomics.github.io/bioclip-2/) translates an image into a numeric vector in high-dimensional space (768 dimensions in the case of BioCLIP 2). We can think of this as a numerical fingerprint that captures what the model "sees." Images that the model "perceives" as similar get similar fingerprints. These fingerprints are called **embeddings**.
 
 For example, using [pybioclip](https://imageomics.github.io/pybioclip/) you can generate an embedding for a single image in a few lines:
 
@@ -95,11 +95,11 @@ The Image Embedding Explorer does this at scale for hundreds or thousands of ima
 
 ### Why project to 2D?
 
-We can't plot 768 dimensions on a screen. Dimensionality reduction methods (PCA, t-SNE, UMAP) compress those 768 numbers down to just x and y coordinates while trying to keep similar points close together. The resulting scatter plot shows the model's "view" of your data.
+We can't plot 768 dimensions on a screen. Dimensionality reduction methods (PCA, t-SNE, UMAP) project those 768 dimensions down to just x and y coordinates while trying to keep similar points close together. The resulting scatter plot shows a two dimensional representation of the model's "view" of your data, which varies based on the chosen projection algorithm.
 
 ### Why cluster on the full dimensions?
 
-KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may look overlapping in 2D, but they're genuinely distinct in the full space.
+KMeans clustering runs on the original 768-dimensional embeddings, not the 2D projection. This is important because 2D projections are lossy. Clusters found in 768-D may appear to overlap in 2D, but they are genuinely distinct in the full space. Imagine shining a light on a collection of objects from various directions, the resulting shadow patterns would vary based on the relative position of the light.
 
 ### Why does this matter for biology?
 
