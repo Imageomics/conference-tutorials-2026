@@ -136,6 +136,7 @@ Notes:
 
 After training, we may have several SAEs trained with different hyperparameters. To select the best SAE, we perform a *pareto analysis*. We want low reconstruction error (MSE) and high sparsity (via `k`), as SAEs that can reconstruct model activations from a few sparse features typically give better features. The models on the Pareto frontier (meaning lowest MSE and highest sparsity) can be found using the following command: 
 
+(Note that you would need a free account with [Weights & Biases](https://wandb.ai/site/) and an API key to run this.)
 ```bash
 uv run python demo/pareto_runs.py --runs-root ./runs --out-png demo/pareto_k_vs_mse.png --out-csv demo/pareto_k_vs_mse.csv --annotate
 ```
