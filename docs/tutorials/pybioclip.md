@@ -20,6 +20,8 @@ By the end of this tutorial, you will be able to:
 
 ## Setup
 
+### CyVerse Session
+
 Launch a Cloud Shell session on CyVerse (click the badge): <a href="https://de.cyverse.org/apps/de/5f2f1824-57b3-11ec-8180-008cfa5ae621/launch?saved-launch-id=46c0c69f-0990-439f-929d-d5d44a3c36fb" target="_blank" rel="noopener noreferrer"><img src="https://de.cyverse.org/Powered-By-CyVerse-blue.svg"></a>
 
 Once you are authenticated, this will take you to the CloudShell session configuration. 
