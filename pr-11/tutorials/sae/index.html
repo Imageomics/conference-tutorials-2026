@@ -1419,7 +1419,7 @@
 <p>Notes:</p>
 <ul>
 <li>Use the shard path from the previous step.</li>
-<li>Training produces a run folder under <code>./runs</code>. This folder typically has the</li>
+<li>Training produces a run folder under <code>./runs</code>. The provided training command will not produce any output, but we have provided two trained SAEs for visualization. In practice, run data will automatically be output to folders inside this folder.</li>
 </ul>
 <h3 id="pareto-analysis-optional">Pareto analysis (optional)</h3>
 <p>After training, we may have several SAEs trained with different hyperparameters. To select the best SAE, we perform a <em>pareto analysis</em>. We want low reconstruction error (MSE) and high sparsity (via <code>k</code>), as SAEs that can reconstruct model activations from a few sparse features typically give better features. The models on the Pareto frontier (meaning lowest MSE and highest sparsity) can be found using the following command: </p>
