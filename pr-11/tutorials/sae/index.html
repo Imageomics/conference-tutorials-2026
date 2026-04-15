@@ -1410,9 +1410,11 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>launch.py<span class="w"> </span>shards<span class="w"> </span>--shards-root<span class="w"> </span>saev/shards/<span class="w"> </span>--family<span class="w"> </span>dinov2<span class="w"> </span>--ckpt<span class="w"> </span>dinov2_vits14_reg<span class="w"> </span>--d-model<span class="w"> </span><span class="m">384</span><span class="w"> </span>--n-workers<span class="w"> </span><span class="m">0</span><span class="w"> </span>data:fake-img<span class="w"> </span>
 </code></pre></div>
-<p>Note:
-- When using this on real data, replace <code>data:fake-img</code> with <code>data:img-folder</code>. Then, provide the path to your dataset with the argument <code>--data.root &lt;dataset directory&gt;</code>
-- The command prints the shard directory that was created. Record this, as you will use that path in training.</p>
+<p>Note:</p>
+<ul>
+<li>When using this on real data, replace <code>data:fake-img</code> with <code>data:img-folder</code>. Then, provide the path to your dataset with the argument <code>--data.root &lt;dataset directory&gt;</code></li>
+<li>The command prints the shard directory that was created. Record this, as you will use that path in training.</li>
+</ul>
 <h3 id="training-saes">Training SAEs</h3>
 <p>Using the following command, we train an SAE on the model activations that we generated above. Note that we set the SAE dimension here to be 16 times bigger than the original model's activation dimension. This is a standard practice when training SAEs, but changing this number can produce better or worse results, depending on your model and dataset.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv<span class="w"> </span>run<span class="w"> </span>launch.py<span class="w"> </span>train<span class="w"> </span>--n-train<span class="w"> </span><span class="m">10000</span><span class="w"> </span>--n-val<span class="w"> </span><span class="m">10</span><span class="w"> </span>--runs-root<span class="w"> </span>./saev/runs/<span class="w"> </span>--train-data.shards<span class="w"> </span>./saev/shards/&lt;insert<span class="w"> </span>shard<span class="w"> </span>hash&gt;/<span class="w"> </span>--train-data.layer<span class="w"> </span>-2<span class="w"> </span>--val-data.shards<span class="w"> </span>./saev/shards/&lt;insert<span class="w"> </span>shard<span class="w"> </span>hash&gt;/<span class="w"> </span>--val-data.layer<span class="w"> </span>-2<span class="w"> </span>--sae.d-model<span class="w"> </span><span class="m">384</span><span class="w"> </span>--sae.d-sae<span class="w"> </span><span class="m">6144</span><span class="w"> </span>sae.activation:batch-top-k<span class="w"> </span>sae.activation.sparsity:no-sparsity
