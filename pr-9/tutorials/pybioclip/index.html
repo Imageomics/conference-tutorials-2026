@@ -502,6 +502,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Images
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1165,6 +1176,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Images
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1365,6 +1387,7 @@
 <p>Finally, install <code>pybioclip</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pybioclip
 </code></pre></div>
+<h3 id="example-images">Example Images</h3>
 <p>And copy images to test with from shared storage into your local container storage:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cp<span class="w"> </span>-R<span class="w"> </span>~/data-store/data/input/imageomics-conference-2026/tutorials-data/pybioclip<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>~/data-store/this-session
@@ -1401,64 +1424,65 @@ with contents:
 <li>save those predictions to a file</li>
 </ul>
 <p>The first time it is executed, it retrieves the necessary files for prediction:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>pybioclip/images/Phoca-vitulina.png<span class="w"> </span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>open_clip_config.json:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">534</span>/534<span class="w"> </span><span class="o">[</span><span class="m">00</span>:00&lt;<span class="m">00</span>:00,<span class="w"> </span><span class="m">2</span>.49MB/s<span class="o">]</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>open_clip_model.safetensors:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">1</span>.71G/1.71G<span class="w"> </span><span class="o">[</span><span class="m">00</span>:05&lt;<span class="m">00</span>:00,<span class="w"> </span>314MB/s<span class="o">]</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>embeddings/txt_emb_species.npy:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">2</span>.66G/2.66G<span class="w"> </span><span class="o">[</span><span class="m">00</span>:12&lt;<span class="m">00</span>:00,<span class="w"> </span>214MB/s<span class="o">]</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>embeddings/txt_emb_species.json:<span class="w"> </span><span class="m">100</span>%<span class="p">|</span>████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">91</span>.6M/91.6M<span class="w"> </span><span class="o">[</span><span class="m">00</span>:01&lt;<span class="m">00</span>:00,<span class="w"> </span><span class="m">74</span>.7MB/s<span class="o">]</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="m">100</span>%<span class="p">|</span>████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">00</span>:06&lt;<span class="m">00</span>:00,<span class="w">  </span><span class="m">6</span>.22s/images<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>pybioclip/images/Phoca-vitulina.png
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">open_clip_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 534/534 [00:00&lt;00:00, 2.49MB/s]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">open_clip_model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.71G/1.71G [00:05&lt;00:00, 314MB/s]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">embeddings/txt_emb_species.npy: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.66G/2.66G [00:12&lt;00:00, 214MB/s]</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">embeddings/txt_emb_species.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 91.6M/91.6M [00:01&lt;00:00, 74.7MB/s]</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:06&lt;00:00,  6.22s/images]</span>
 </code></pre></div>
 And this yields the prediction:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca<span class="w"> </span>vitulina,Harbour<span class="w"> </span>Seal,0.8855793476104736
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,largha,Phoca<span class="w"> </span>largha,Spotted<span class="w"> </span>seal,0.04246024042367935
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Ommatophoca,rossii,Ommatophoca<span class="w"> </span>rossii,Ross<span class="w"> </span>seal,0.040906891226768494
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Pusa,hispida,Pusa<span class="w"> </span>hispida,Ringed<span class="w"> </span>seal,0.012681455351412296
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Halichoerus,grypus,Halichoerus<span class="w"> </span>grypus,Grey<span class="w"> </span>Seal,0.00508195860311389
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca<span class="w"> </span>vitulina,Harbour<span class="w"> </span>Seal,0.8855793476104736
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,largha,Phoca<span class="w"> </span>largha,Spotted<span class="w"> </span>seal,0.04246024042367935
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Ommatophoca,rossii,Ommatophoca<span class="w"> </span>rossii,Ross<span class="w"> </span>seal,0.040906891226768494
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Pusa,hispida,Pusa<span class="w"> </span>hispida,Ringed<span class="w"> </span>seal,0.012681455351412296
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Halichoerus,grypus,Halichoerus<span class="w"> </span>grypus,Grey<span class="w"> </span>Seal,0.00508195860311389
 </code></pre></div>
 Subsequent predictions are comparatively quicker:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>pybioclip/images/Sarcoscypha-coccinea.jpeg<span class="w"> </span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Warning:<span class="w"> </span>You<span class="w"> </span>are<span class="w"> </span>sending<span class="w"> </span>unauthenticated<span class="w"> </span>requests<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HF<span class="w"> </span>Hub.<span class="w"> </span>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>HF_TOKEN<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>higher<span class="w"> </span>rate<span class="w"> </span>limits<span class="w"> </span>and<span class="w"> </span>faster<span class="w"> </span>downloads.
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>WARNING:huggingface_hub.utils._http:Warning:<span class="w"> </span>You<span class="w"> </span>are<span class="w"> </span>sending<span class="w"> </span>unauthenticated<span class="w"> </span>requests<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HF<span class="w"> </span>Hub.<span class="w"> </span>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>HF_TOKEN<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>higher<span class="w"> </span>rate<span class="w"> </span>limits<span class="w"> </span>and<span class="w"> </span>faster<span class="w"> </span>downloads.
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="m">100</span>%<span class="p">|</span>████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">00</span>:04&lt;<span class="m">00</span>:00,<span class="w">  </span><span class="m">4</span>.59s/images<span class="o">]</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha<span class="w"> </span>coccinea,skarlagen-pragtbæger,0.3211705982685089
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,macaronesica,Sarcoscypha<span class="w"> </span>macaronesica,,0.24325676262378693
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,excelsa,Sarcoscypha<span class="w"> </span>excelsa,,0.1801837533712387
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,jurana,Sarcoscypha<span class="w"> </span>jurana,,0.1774240881204605
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,humberiana,Sarcoscypha<span class="w"> </span>humberiana,,0.015541158616542816
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>pybioclip/images/Sarcoscypha-coccinea.jpeg<span class="w"> </span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Warning:<span class="w"> </span>You<span class="w"> </span>are<span class="w"> </span>sending<span class="w"> </span>unauthenticated<span class="w"> </span>requests<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HF<span class="w"> </span>Hub.<span class="w"> </span>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>HF_TOKEN<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>higher<span class="w"> </span>rate<span class="w"> </span>limits<span class="w"> </span>and<span class="w"> </span>faster<span class="w"> </span>downloads.
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>WARNING:huggingface_hub.utils._http:Warning:<span class="w"> </span>You<span class="w"> </span>are<span class="w"> </span>sending<span class="w"> </span>unauthenticated<span class="w"> </span>requests<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>HF<span class="w"> </span>Hub.<span class="w"> </span>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span>a<span class="w"> </span>HF_TOKEN<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>higher<span class="w"> </span>rate<span class="w"> </span>limits<span class="w"> </span>and<span class="w"> </span>faster<span class="w"> </span>downloads.
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="m">100</span>%<span class="p">|</span>████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████<span class="p">|</span><span class="w"> </span><span class="m">1</span>/1<span class="w"> </span><span class="o">[</span><span class="m">00</span>:04&lt;<span class="m">00</span>:00,<span class="w">  </span><span class="m">4</span>.59s/images<span class="o">]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha<span class="w"> </span>coccinea,skarlagen-pragtbæger,0.3211705982685089
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,macaronesica,Sarcoscypha<span class="w"> </span>macaronesica,,0.24325676262378693
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,excelsa,Sarcoscypha<span class="w"> </span>excelsa,,0.1801837533712387
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,jurana,Sarcoscypha<span class="w"> </span>jurana,,0.1774240881204605
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,humberiana,Sarcoscypha<span class="w"> </span>humberiana,,0.015541158616542816
 </code></pre></div>
 The warning that occurs is from a cache validation check. All of the necessary files should be stored locally, so this is just noise that isn't needed. We can suppress it by setting:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 Now, predictions should be quieter for the rest of the session.</p>
 <p>We can specify individual images we would like predictions for from this list:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>pybioclip/images/Sarcoscypha-coccinea.jpeg<span class="w"> </span>pybioclip/images/Ursus-arctos.jpeg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>pybioclip/images/Sarcoscypha-coccinea.jpeg<span class="w"> </span>pybioclip/images/Ursus-arctos.jpeg
 </code></pre></div>
 Or we can submit all of the images present for prediction. Let's also place the predicted outputs into a file called <code>predictions.csv</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--output<span class="w"> </span>predictions.csv<span class="w"> </span>pybioclip/images/*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--output<span class="w"> </span>predictions.csv<span class="w"> </span>pybioclip/images/*
 </code></pre></div></p>
 <p>You man inspect the outputs with:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cat<span class="w"> </span>predictions.csv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cat<span class="w"> </span>predictions.csv
 </code></pre></div></p>
 <p>It's too much to fit in the screen. Let's try again with only the top prediction:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--output<span class="w"> </span>predictions.csv<span class="w"> </span>--k<span class="w"> </span><span class="m">1</span><span class="w"> </span>pybioclip/images/*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--output<span class="w"> </span>predictions.csv<span class="w"> </span>--k<span class="w"> </span><span class="m">1</span><span class="w"> </span>pybioclip/images/*
 </code></pre></div></p>
 <p>This yields a more manageable list for today:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cat<span class="w"> </span>predictions.csv<span class="w"> </span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>pybioclip/images/Actinostola-abyssorum.png,Animalia,Cnidaria,Anthozoa,Actiniaria,Actiniidae,Cribrinopsis,similis,Cribrinopsis<span class="w"> </span>similis,,0.2903341054916382
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>pybioclip/images/Amanita-muscaria.jpeg,Fungi,Basidiomycota,Agaricomycetes,Agaricales,Amanitaceae,Amanita,muscaria,Amanita<span class="w"> </span>muscaria,Fly<span class="w"> </span>agaric,0.8807751536369324
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>pybioclip/images/Carnegiea-gigantea.png,Plantae,Tracheophyta,Magnoliopsida,Caryophyllales,Cactaceae,Carnegiea,gigantea,Carnegiea<span class="w"> </span>gigantea,Saguaro,0.8612735271453857
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>pybioclip/images/coral-snake.jpeg,Animalia,Chordata,Squamata,,Elapidae,Micrurus,hemprichii,Micrurus<span class="w"> </span>hemprichii,Hemprich<span class="err">&#39;</span>s<span class="w"> </span>coral<span class="w"> </span>snake,0.08613336831331253
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>pybioclip/images/Felis-catus.jpeg,Animalia,Chordata,Mammalia,Carnivora,Felidae,Felis,silvestris,Felis<span class="w"> </span>silvestris,Wildcat,0.26516351103782654
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>pybioclip/images/milk-snake.png,Animalia,Chordata,Squamata,,Colubridae,Lampropeltis,triangulum,Lampropeltis<span class="w"> </span>triangulum,Eastern<span class="w"> </span>milksnake,0.532394528388977
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>pybioclip/images/Onoclea-hintonii.jpg,Plantae,Tracheophyta,Magnoliopsida,Asterales,Asteraceae,Polymnia,laevigata,Polymnia<span class="w"> </span>laevigata,,0.07937052100896835
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>pybioclip/images/Onoclea-sensibilis.jpg,Animalia,Arthropoda,Insecta,Diptera,Anthomyiidae,Chirosia,gleniensis,Chirosia<span class="w"> </span>gleniensis,,0.03540492802858353
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca<span class="w"> </span>vitulina,Harbour<span class="w"> </span>Seal,0.8855838775634766
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha<span class="w"> </span>coccinea,skarlagen-pragtbæger,0.32118508219718933
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>pybioclip/images/Ursus-arctos.jpeg,Animalia,Chordata,Mammalia,Carnivora,Ursidae,Ursus,arctos,Ursus<span class="w"> </span>arctos,Brown<span class="w"> </span>Bear,0.8381649851799011
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cat<span class="w"> </span>predictions.csv<span class="w"> </span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>file_name,kingdom,phylum,class,order,family,genus,species_epithet,species,common_name,score
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>pybioclip/images/Actinostola-abyssorum.png,Animalia,Cnidaria,Anthozoa,Actiniaria,Actiniidae,Cribrinopsis,similis,Cribrinopsis<span class="w"> </span>similis,,0.2903341054916382
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>pybioclip/images/Amanita-muscaria.jpeg,Fungi,Basidiomycota,Agaricomycetes,Agaricales,Amanitaceae,Amanita,muscaria,Amanita<span class="w"> </span>muscaria,Fly<span class="w"> </span>agaric,0.8807751536369324
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>pybioclip/images/Carnegiea-gigantea.png,Plantae,Tracheophyta,Magnoliopsida,Caryophyllales,Cactaceae,Carnegiea,gigantea,Carnegiea<span class="w"> </span>gigantea,Saguaro,0.8612735271453857
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>pybioclip/images/coral-snake.jpeg,Animalia,Chordata,Squamata,,Elapidae,Micrurus,hemprichii,Micrurus<span class="w"> </span>hemprichii,Hemprich<span class="err">&#39;</span>s<span class="w"> </span>coral<span class="w"> </span>snake,0.08613336831331253
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>pybioclip/images/Felis-catus.jpeg,Animalia,Chordata,Mammalia,Carnivora,Felidae,Felis,silvestris,Felis<span class="w"> </span>silvestris,Wildcat,0.26516351103782654
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>pybioclip/images/milk-snake.png,Animalia,Chordata,Squamata,,Colubridae,Lampropeltis,triangulum,Lampropeltis<span class="w"> </span>triangulum,Eastern<span class="w"> </span>milksnake,0.532394528388977
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>pybioclip/images/Onoclea-hintonii.jpg,Plantae,Tracheophyta,Magnoliopsida,Asterales,Asteraceae,Polymnia,laevigata,Polymnia<span class="w"> </span>laevigata,,0.07937052100896835
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>pybioclip/images/Onoclea-sensibilis.jpg,Animalia,Arthropoda,Insecta,Diptera,Anthomyiidae,Chirosia,gleniensis,Chirosia<span class="w"> </span>gleniensis,,0.03540492802858353
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>pybioclip/images/Phoca-vitulina.png,Animalia,Chordata,Mammalia,Carnivora,Phocidae,Phoca,vitulina,Phoca<span class="w"> </span>vitulina,Harbour<span class="w"> </span>Seal,0.8855838775634766
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>pybioclip/images/Sarcoscypha-coccinea.jpeg,Fungi,Ascomycota,Pezizomycetes,Pezizales,Sarcoscyphaceae,Sarcoscypha,coccinea,Sarcoscypha<span class="w"> </span>coccinea,skarlagen-pragtbæger,0.32118508219718933
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>pybioclip/images/Ursus-arctos.jpeg,Animalia,Chordata,Mammalia,Carnivora,Ursidae,Ursus,arctos,Ursus<span class="w"> </span>arctos,Brown<span class="w"> </span>Bear,0.8381649851799011
 </code></pre></div></p>
 <h3 id="embed-images">Embed Images</h3>
 <!--
@@ -1467,31 +1491,31 @@ https://imageomics.github.io/pybioclip/command-line-tutorial/#create-embeddings
 -->
 <p>An embedding is a numeric vector in high-dimensional space. It can be thought of as a model's conception of an image, such as it encodes the model's perception of the image's features based on what it has learned during training.</p>
 <p>Calculate the BioCLIP embeddings for each of the images at-hand:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>bioclip<span class="w"> </span>embed<span class="w"> </span>--output<span class="w"> </span>embeddings.json<span class="w"> </span>pybioclip/images/*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>bioclip<span class="w"> </span>embed<span class="w"> </span>--output<span class="w"> </span>embeddings.json<span class="w"> </span>pybioclip/images/*
 </code></pre></div></p>
 <p>Once this completes, you will have a JSON file with an embedding vector for each image:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">{</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="s2">&quot;model&quot;</span>:<span class="w"> </span><span class="s2">&quot;hf-hub:imageomics/bioclip-2&quot;</span>,
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="s2">&quot;embeddings&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Actinostola-abyssorum.png&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">      </span><span class="m">3</span>.226287364959717,
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="o">]</span>,
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Amanita-muscaria.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">      </span><span class="m">2</span>.0568881034851074,
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">    </span><span class="o">]</span>,
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">   </span><span class="c1"># ...</span>
-<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Sarcoscypha-coccinea.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">      </span><span class="m">1</span>.7511709928512573,
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span><span class="o">]</span>,
-<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Ursus-arctos.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">      </span><span class="m">4</span>.4644927978515625,
-<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
-<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">    </span><span class="o">]</span>
-<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">  </span><span class="o">}</span>
-<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="o">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="s2">&quot;model&quot;</span>:<span class="w"> </span><span class="s2">&quot;hf-hub:imageomics/bioclip-2&quot;</span>,
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="s2">&quot;embeddings&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Actinostola-abyssorum.png&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">      </span><span class="m">3</span>.226287364959717,
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="o">]</span>,
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Amanita-muscaria.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">      </span><span class="m">2</span>.0568881034851074,
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="o">]</span>,
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">   </span><span class="c1"># ...</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Sarcoscypha-coccinea.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">      </span><span class="m">1</span>.7511709928512573,
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="o">]</span>,
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">    </span><span class="s2">&quot;pybioclip/images/Ursus-arctos.jpeg&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">      </span><span class="m">4</span>.4644927978515625,
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">      </span><span class="s2">&quot;...768 total&quot;</span>
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="w">    </span><span class="o">]</span>
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a><span class="o">}</span>
 </code></pre></div></p>
 <p>Embeddings are extremely useful for many downstream tasks.</p>
 <p>In the next deep dive, we will talk more about what embeddings are and what you can do with them.</p>
@@ -1502,11 +1526,11 @@ https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-lis
 -->
 <p>You may also specify a list of classes (labels) that you would like the model to select among:</p>
 <p>For example, you will likely see improved accuracy by selecting a subset of options that you believe is most relevant to the image contents rather than the entire tree of life. The classes can be any text label:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--cls<span class="w"> </span>cat,bird,bear<span class="w"> </span>pybioclip/images/Ursus-arctos.jpeg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>bioclip<span class="w"> </span>predict<span class="w"> </span>--cls<span class="w"> </span>cat,bird,bear<span class="w"> </span>pybioclip/images/Ursus-arctos.jpeg
 </code></pre></div></p>
 <h3 id="classify-focal-species-from-a-subset-of-treeoflife-taxa">Classify Focal Species from a Subset of TreeOfLife Taxa</h3>
 <p>To find what taxa are available for open-ended classification:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>bioclip<span class="w"> </span>list-tol-taxa<span class="w"> </span>&gt;<span class="w"> </span>BioCLIP-2-taxa.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>bioclip<span class="w"> </span>list-tol-taxa<span class="w"> </span>&gt;<span class="w"> </span>BioCLIP-2-taxa.txt
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
