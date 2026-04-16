@@ -655,6 +655,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-installing-sst-in-cyverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Optional) Installing SST in CyVerse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-installing-x-anylabeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Optional) Installing X-AnyLabeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(Optional) Installing X-AnyLabeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-install-from-source-for-gpu-enabled-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Install from source (for GPU-enabled machine)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-download-released-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Download released package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -677,16 +733,33 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sst" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        SST
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-anylabeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        X-AnyLabeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1023,6 +1096,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-installing-sst-in-cyverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Optional) Installing SST in CyVerse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-installing-x-anylabeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Optional) Installing X-AnyLabeling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(Optional) Installing X-AnyLabeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-install-from-source-for-gpu-enabled-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Install from source (for GPU-enabled machine)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-download-released-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Download released package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1045,16 +1174,33 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sst" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        SST
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x-anylabeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        X-AnyLabeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1083,23 +1229,141 @@
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>By the end of this tutorial, you will be able to:</p>
 <ol>
-<li><em>TBD</em></li>
-<li><em>TBD</em></li>
-<li><em>TBD</em></li>
+<li>Understand how SST segments traits in a set of specimen images given just one annotated example.</li>
+<li>Use the provided SST tutorial notebook to segment traits in butterfly images or your own images.</li>
+<li>Use X-AnyLabeling to annotate a specimen image with the help of Segment Anything Model 2 (SAM 2), a powerful AI model.</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Python &gt;= 3.10</li>
-<li><em>TBD</em></li>
+<li>No local setup is required for the hands-on portion of SST. We provide a ready-to-use <a href="https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing">tutorial notebook</a>. You can further explore SST in its <a href="https://github.com/Imageomics/SST">official repository</a> if interested. You can also try SST in CyVerse. An installation guide is provided below in the <strong>Setup</strong> section.</li>
+<li>You are welcome to bring your own specimen images of interest. To try SST on your own images, <a href="https://github.com/CVHub520/X-AnyLabeling">X-AnyLabeling</a> is required for annotation. An installation guide is provided below in the <strong>Setup</strong> section. If you do not have your own images but would still like to try X-AnyLabeling, please install it as well. We provide some butterfly images <a href="https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing">here</a> to annotate.</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p><em>TBD</em></p>
+<h3 id="optional-installing-sst-in-cyverse">(Optional) Installing SST in CyVerse</h3>
+<p>Follow the steps below to install SST in CyVerse.</p>
+<p><strong>Step 0:</strong> In the <a href="https://de.cyverse.org/dashboard">CyVerse Discovery Environment</a>, launch <strong>Jupyter Lab PyTorch GPU</strong>. Click "Go to Analysis" and wait for "Launching VICE app: jupyter-lab-pytorch-gpu" to complete.</p>
+<p><strong>Step 1:</strong> Click <strong>Terminal</strong> to open a new terminal session. This should place you in <code>~/data-store</code>. Create a working directory for fast local I/O:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>this-session
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>this-session
+</code></pre></div>
+<p><strong>Step 2:</strong> Install <code>uv</code> for fast environment setup:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/.local/bin/env
+</code></pre></div>
+<p><strong>Step 3:</strong> Create and activate a virtual environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+<p><strong>Step 4:</strong> Clone and install SST:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Imageomics/SST
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>SST
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>uv<span class="w"> </span>sync
+</code></pre></div>
+<p><strong>Step 5:</strong> Download SAM 2 checkpoint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>checkpoints
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>wget<span class="w"> </span>https://dl.fbaipublicfiles.com/segment_anything_2/072824/sam2_hiera_large.pt
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p><strong>Step 6:</strong> Create data directories for the demo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>demo_input
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>demo_output
+</code></pre></div>
+<p>Then download example images from <a href="https://drive.google.com/drive/folders/1GHWp1gazg2I1PJVTpq-JquK2B9uMBXlj?usp=sharing">here</a> and upload them to <code>~/data-store/this-session/SST/demo_input</code>.</p>
+<h3 id="optional-installing-x-anylabeling">(Optional) Installing X-AnyLabeling</h3>
+<p>Follow the steps below to install X-AnyLabeling on your local machine.</p>
+<h4 id="option-1-install-from-source-for-gpu-enabled-machine">Option 1: Install from source (for GPU-enabled machine)</h4>
+<p><strong>Step 0:</strong> If you do not have Conda, download and install Miniconda from the <a href="https://docs.anaconda.com/miniconda/">official website</a>.</p>
+<p><strong>Step 1:</strong> Choose a working directory and open the terminal. Create a new Conda environment with Python version <code>3.12</code>, and activate it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>x-anylabeling-sam2<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span>-y
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>x-anylabeling-sam2
+</code></pre></div>
+<p><strong>Step 2:</strong> Follow the instructions <a href="https://pytorch.org/get-started/locally/">here</a> to install PyTorch and TorchVision dependencies.</p>
+<p><strong>Step 3:</strong> Install SAM 2 on a GPU-enabled machine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/segment-anything-2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">cd</span><span class="w"> </span>segment-anything-2
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+<p><strong>Step 4:</strong> Clone the repository of X-AnyLabeling:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CVHub520/X-AnyLabeling
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span><span class="w"> </span>X-AnyLabeling
+</code></pre></div>
+<p><strong>Step 5:</strong> Install the dependencies for X-AnyLabeling (choose the version that fits for your machine):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>uv
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># CPU [Windows/Linux/macOS]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>cpu<span class="o">]</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># CUDA 12.x is the default GPU option [Windows/Linux]</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu<span class="o">]</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># CUDA 11.x [Windows/Linux]</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>gpu-cu11<span class="o">]</span>
+</code></pre></div>
+<p><strong>Step 6:</strong> After installation, you can verify it by running the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>xanylabeling<span class="w"> </span>checks<span class="w">   </span><span class="c1"># Display system and version information</span>
+</code></pre></div>
+<p><strong>Step 7:</strong> After verification, you can run the application directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>xanylabeling
+</code></pre></div>
+<h4 id="option-2-download-released-package">Option 2: Download released package</h4>
+<p>Download a released package from <a href="https://github.com/CVHub520/X-AnyLabeling/releases">GitHub Releases</a> and run it directly. It is CPU-only and may be slower when running.</p>
 <h2 id="background">Background</h2>
-<p><em>TBD</em></p>
+<p>SST achieves high-quality trait segmentation across specimen images using only one labeled image per species. Standard deep learning methods require extensive labeled images to train effective segmentation models. SST concatenates specimen images into a "pseudo-video" and reframes trait segmentation as a tracking task. By doing so, SST requires only one labeled image as the first frame and leverages video segmentation models such as SAM 2 to propagate segments to subsequent frames.</p>
 <h2 id="steps">Steps</h2>
-<p><em>TBD</em></p>
-<h2 id="summary">Summary</h2>
-<p><em>TBD</em></p>
+<h3 id="sst">SST</h3>
+<p>The following steps are also detailed in the <a href="https://colab.research.google.com/drive/1s3ncIFOlrUm3v0mBD4eCL2NFvE3EYIpk?usp=sharing">tutorial notebook</a>.</p>
+<ol>
+<li>
+<p>Clone the SST repository and set up the environment.</p>
+</li>
+<li>
+<p>Download the SAM 2 checkpoint.</p>
+</li>
+<li>
+<p>Use provided butterfly images or upload your own images.</p>
+</li>
+<li>
+<p>Define the support image, support mask, and query images, then run SST trait segmentation to segment the query images.</p>
+</li>
+<li>
+<p>Visualize the results.</p>
+</li>
+</ol>
+<p>If you are using SST in CyVerse, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/sst/segment.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span>--support_image<span class="w"> </span>demo_input/support_image.jpg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>--support_mask<span class="w"> </span>demo_input/support_mask.png<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>--query_images<span class="w"> </span>demo_input/query_images/<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>--output<span class="w"> </span>demo_output/<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span>--output_format<span class="w"> </span><span class="s2">&quot;png&quot;</span>
+</code></pre></div>
+<p>Then you can see the results in <code>~/data-store/this-session/SST/demo_output</code>.</p>
+<h3 id="x-anylabeling">X-AnyLabeling</h3>
+<ol>
+<li>
+<p>Open X-AnyLabeling (see <strong>Setup</strong>).</p>
+</li>
+<li>
+<p>In the left sidebar, click <strong>Open Dir</strong> (the first icon) and select the directory containing the images you want to label.</p>
+</li>
+<li>
+<p>In the left sidebar, click <strong>Auto Labeling</strong> (the "AI" icon at the bottom). A <strong>No Model</strong> button will then appear on the top toolbar. Click it and select "Segment Anything 2.1 (Large)". <em>Note: If your machine has limited hardware resources, you may experience lag or freezing.</em> In such cases, please select a smaller Segment Anything 2.1 model, such as Base, Small, or Tiny.</p>
+</li>
+<li>
+<p>Use <strong>Point (Q)</strong> to include an area, <strong>Point (E)</strong> to exclude an area, and <strong>+Rect</strong> to select an area within a bounding box. You can use <strong>Clear (B)</strong> to remove all current annotations. Combine these tools to precisely label your target areas. Once you finish an area, use <strong>Finish (F)</strong> to save your annotation. Each time you click <strong>Finish (F)</strong>, the annotation is automatically saved to a JSON file in the same directory as the image you are currently annotating. The JSON file will share the same filename as the image.</p>
+</li>
+<li>
+<p>You can also click the <strong>Move and edit the selected polygons</strong> icon in the middle of the left sidebar to manually adjust the area points using the mouse.</p>
+</li>
+</ol>
+<p>Note: X-AnyLabeling saves model weights on your local machine. If you wish to delete them later, you can find them at the following default paths:</p>
+<ul>
+<li>Windows: <code>C:\Users\&lt;Your User Name&gt;\xanylabeling_data\models\</code></li>
+<li>macOS: <code>/Users/&lt;Your User Name&gt;/xanylabeling_data/models/</code></li>
+<li>Linux: <code>/home/&lt;Your User Name&gt;/xanylabeling_data/models/</code></li>
+</ul>
 
 
 
