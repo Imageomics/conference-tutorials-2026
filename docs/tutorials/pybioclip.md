@@ -267,6 +267,30 @@ bioclip list-tol-taxa > BioCLIP-2-taxa.txt
 
     You can specify the model of interest, e.g., for the original BioCLIP model with `--model hf-hub:imageomics/bioclip` before the carat.
 
+### Getting the Most From a Foundation Model
+
+You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.
+
+It is simple enough, in fact, that it is a good idea to do even if pybioclip works well out of the box for you.
+
+To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.
+
+<https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers>
+
+On CyVerse, a modified version of the SVM notebook can be found.
+
+Start a Jupyter Lab PyTorch CPU session on CyVerse:
+- [https://de.cyverse.org/apps](https://de.cyverse.org/apps)
+- Once it loads, open a terminal.
+- Make and navigate into a directory `this-session`.
+- Install `uv`, and set up an environment as before.
+- Install `uv pip install huggingface_hub`
+- Retrieve: `hf download imageomics/imageomics-26-pybioclip --repo-type dataset --local-dir .`
+- Open a new Launcher, and launch a Python 3 notebook.
+- In the Jupyter navigation, go to `this-session/` → `pybioclip/`, and open `FewShotSVM_Peromyscus.ipynb`.
+
+Follow the notebook for an introduction to how lightweight classifiers trained on top of foundation model outputs can be useful.
+
 ## Python API examples
 To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.
 
@@ -275,17 +299,11 @@ To demonstrate use of the Python API in a notebook environment, follow the link 
 ### Interpretability Methods
 Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.
 
-For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:
+For now though, we will introduce the topic with Grad-CAM (Gradient-weighted Class Activation Mapping) in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:
 
 <https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam>
 
-### Advanced Topics
-
-You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.
-
-To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.
-
-<https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers>
+At a basic level, this and similar approaches create a heat map on the image based on what the model considers important.
 
 ## Summary
 
