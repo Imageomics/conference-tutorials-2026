@@ -585,6 +585,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#getting-the-most-from-a-foundation-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting the Most From a Foundation Model
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -607,17 +618,6 @@
     <span class="md-ellipsis">
       
         Interpretability Methods
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#advanced-topics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Topics
       
     </span>
   </a>
@@ -1259,6 +1259,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#getting-the-most-from-a-foundation-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting the Most From a Foundation Model
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1281,17 +1292,6 @@
     <span class="md-ellipsis">
       
         Interpretability Methods
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#advanced-topics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Topics
       
     </span>
   </a>
@@ -1538,17 +1538,30 @@ https://imageomics.github.io/pybioclip/command-line-tutorial/#predict-from-a-lis
 <p class="admonition-title">Tip</p>
 <p>You can specify the model of interest, e.g., for the original BioCLIP model with <code>--model hf-hub:imageomics/bioclip</code> before the carat.</p>
 </div>
+<h3 id="getting-the-most-from-a-foundation-model">Getting the Most From a Foundation Model</h3>
+<p>You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.</p>
+<p>It is simple enough, in fact, that it is a good idea to do even if pybioclip works well out of the box for you.</p>
+<p>To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.</p>
+<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers">https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers</a></p>
+<p>On CyVerse, a modified version of the SVM notebook can be found.</p>
+<p>Start a Jupyter Lab PyTorch CPU session on CyVerse:
+- <a href="https://de.cyverse.org/apps">https://de.cyverse.org/apps</a>
+- Once it loads, open a terminal.
+- Make and navigate into a directory <code>this-session</code>.
+- Install <code>uv</code>, and set up an environment as before.
+- Install <code>uv pip install huggingface_hub</code>
+- Retrieve: <code>hf download imageomics/imageomics-26-pybioclip --repo-type dataset --local-dir .</code>
+- Open a new Launcher, and launch a Python 3 notebook.
+- In the Jupyter navigation, go to <code>this-session/</code> → <code>pybioclip/</code>, and open <code>FewShotSVM_Peromyscus.ipynb</code>.</p>
+<p>Follow the notebook for an introduction to how lightweight classifiers trained on top of foundation model outputs can be useful.</p>
 <h2 id="python-api-examples">Python API examples</h2>
 <p>To demonstrate use of the Python API in a notebook environment, follow the link below to open the pybioclip documentation, and then the TOL-Subsetting.ipynb notebook.</p>
 <p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife">https://imageomics.github.io/pybioclip/python-tutorial/#predict-using-a-subset-of-the-treeoflife</a></p>
 <h3 id="interpretability-methods">Interpretability Methods</h3>
 <p>Interpretability in AI is a huge field of research, and there are many approaches. Some of which will be covered in detail in coming sessions here which are capable of more advanced and detailed identification of discriminative traits.</p>
-<p>For now though, we will introduce the topic with Grad-CAM in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:</p>
+<p>For now though, we will introduce the topic with Grad-CAM (Gradient-weighted Class Activation Mapping) in the GradCamExperiment.ipynb notebook in the pybioclip documentation here:</p>
 <p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam">https://imageomics.github.io/pybioclip/python-tutorial/#experiment-with-grad-cam</a></p>
-<h3 id="advanced-topics">Advanced Topics</h3>
-<p>You may notice examples where pybioclip gets the prediction wrong. Occasionally, way wrong. A number of methods exist to improve prediction accuracy, and a simple first step for this is to train a lightweight classifier on the embeddings that you may generate with pybioclip.</p>
-<p>To introduce this topic, open the FewShotSVM.ipynb notebook in the documentation location below to see how a Support Vector Machine can be used to improve classification results.</p>
-<p><a href="https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers">https://imageomics.github.io/pybioclip/python-tutorial/#lightweight-classifiers</a></p>
+<p>At a basic level, this and similar approaches create a heat map on the image based on what the model considers important.</p>
 <h2 id="summary">Summary</h2>
 <p>pybioclip is a fast way to get started with a strong set of models: species classification, embeddings, and interpretability, all without writing any model code. As we saw in the notebooks, even a simple SVM on top of these embeddings can substantially improve results for specific use cases.
 When you need more control, the natural next step is working directly with PyTorch and the model internals. But pybioclip is a great place to gain momentum quickly, and, depending on the application, possibly serve as a complete solution.</p>
