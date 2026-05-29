@@ -7,6 +7,10 @@ A hands-on workshop at the first [Imageomics Conference](https://imageomics.osu.
 
 ---
 
+!!! warning "This site's contents may be stale."
+
+    This website was designed for an event that has passed. The artifacts and software referenced within the tutorials may have moved or changed since the event.
+
 ## About
 
 The Imageomics Institute has built a powerful suite of open-source tools for image-based biological research. This workshop is dedicated to bridging the gap between these computational tools and biological discovery. By partnering directly with biologists across all career stages, we aim to pressure-test existing workflows, uncover novel applications, and ensure these tools are as intuitive as they are innovative.
